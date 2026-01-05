@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Sarabun } from "next/font/google";
+import { Sarabun, Tajawal } from "next/font/google";
 import "./globals.css";
 import { ThemeProviderComponent } from "@/components/providers/theme-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// Layouts
+import Header from "@/components/layout/app/header/header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,6 +15,11 @@ const sarabun = Sarabun({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   variable: "--font-sarabun",
 });
+const tajawal = Tajawal({
+  subsets: ["arabic", "latin"],
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+  variable: "--font-tajawal",
+});
 
 export default function RootLayout({
   children,
@@ -32,7 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sarabun.variable}  antialiased dark:bg-zinc-800 `}>
+      <body
+        className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
+      >
+        <Header />
         <ThemeProviderComponent>{children}</ThemeProviderComponent>
       </body>
     </html>
