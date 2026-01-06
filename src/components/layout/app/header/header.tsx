@@ -1,14 +1,13 @@
 import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
-import Divider from "@/components/custom-ui/divider";
+import Divider from "@/components/shared/divider";
 import Link from "next/link";
 import { Heart, ShoppingCart } from "lucide-react";
 import NotificationDropDown from "./notification-dropdown";
 import Language from "./language";
 import LocationSelector from "./location-selector";
 import NavBar from "./nav-bar";
-
 export default function Header() {
   return (
     <>

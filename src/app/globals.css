@@ -8,7 +8,10 @@
   }
 }
 
-
+.spin-always::-webkit-inner-spin-button,
+.spin-always::-webkit-outer-spin-button {
+  opacity: 1;
+}
 
 @layer base {
   :root {
@@ -65,8 +68,6 @@
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {
