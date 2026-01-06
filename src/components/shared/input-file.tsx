@@ -19,7 +19,7 @@ export default function InputFile({
         ring-1 ring-inset ring-input
         hover:ring-zinc-400
         focus-within:ring-2 focus-within:ring-maroon-600
-        dark:ring-zinc-600
+        dark:ring-zinc-700
         dark:hover:ring-zinc-500
         dark:focus-within:ring-softPink-400
       "
