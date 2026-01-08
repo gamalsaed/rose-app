@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "text-maroon-600 bg-maroon-50 hover:bg-maroon-100 disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-600 dark:text-softPink-300 dark:bg-zinc-700 dark:hover:bg-zinc-600",
         ghost:
-          "hover:bg-zinc-100 disabled:text-zinc-400 disabled:bg-zinc-100 dark:hover:bg-zinc-700 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-600",
+          "hover:bg-zinc-100 disabled:text-zinc-400 disabled:bg-zinc-100 dark:hover:bg-zinc-700 dark:disabled:bg-zinc-700 dark:disabled:text-zinc-600 dark:text-zinc-50",
         link: "border text-zinc-800 bg-zinc-50 border-zinc-400 hover:bg-zinc-100 disabled:border-zinc-300 disabled:text-zinc-400 disabled:bg-zinc-100 dark:bg-zinc-800 dark:border-zinc-500 dark:text-zinc-50 dark:hover:bg-zinc-700 dark:disabled:bg-zinc-800 dark:disabled:border-zinc-600 dark:disabled:text-zinc-600",
       },
       size: {
