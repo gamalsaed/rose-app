@@ -27,12 +27,12 @@ type PhoneInputProps = Omit<
 > &
   Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
     onChange?: (value: RPNInput.Value) => void;
-    errorMessage: string | undefined;
+    error?: boolean;
   };
 
 const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
   React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-    ({ className, onChange, value, errorMessage, ...props }, ref) => {
+    ({ className, onChange, value, error, ...props }, ref) => {
       const [isFocused, setIsFocused] = React.useState(false);
       return (
         <div
@@ -45,10 +45,10 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
               "transition-colors",
               !isFocused &&
                 "group-hover:border-zinc-400 dark:group-hover:border-zinc-500",
-              isFocused && "border-maroon-600 dark:border-softPink-400"
+              isFocused && "border-maroon-600 dark:border-softPink-400",
+              error && " !border-red-600 dark:!border-red-500"
             )}
           >
-            {/* <div> */}
             <RPNInput.default
               ref={ref}
               className={cn("flex  ", className)}
@@ -76,9 +76,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
               onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
               {...props}
             />
-            {/* </div> */}
           </label>
-          {/* {errorMessage && <ValidationError message={errorMessage} />} */}
         </div>
       );
     }
