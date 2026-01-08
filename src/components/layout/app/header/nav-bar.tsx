@@ -47,7 +47,7 @@ export default function NavBar() {
       <ul className="flex gap-4 justify-center">
         {NAV_DATA.map((navLink) => {
           return (
-            <NavLink path={navLink.path}>
+            <NavLink path={navLink.path} key={navLink.lable}>
               <navLink.icon />
               <span className="text-base">{navLink.lable}</span>
             </NavLink>

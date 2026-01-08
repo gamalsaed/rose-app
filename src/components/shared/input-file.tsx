@@ -13,16 +13,21 @@ export default function InputFile({
   const [fileName, setFileName] = useState<string>("");
   return (
     <div
-      className="
-        flex flex-row-reverse justify-between
-        w-full px-4 py-2.5 rounded-md
-        ring-1 ring-inset ring-input
-        hover:ring-zinc-400
-        focus-within:ring-2 focus-within:ring-maroon-600
-        dark:ring-zinc-700
-        dark:hover:ring-zinc-500
-        dark:focus-within:ring-softPink-400
-      "
+      // className="
+      //   flex flex-row-reverse justify-between
+      //   w-full px-4 py-2.5 rounded-md
+      //   ring-1 ring-inset ring-input
+      //   hover:ring-zinc-400
+      //   focus-within:ring-2 focus-within:ring-maroon-600
+      //   dark:ring-zinc-700
+      //   dark:hover:ring-zinc-500
+      //   dark:focus-within:ring-softPink-400
+      // "
+      className="flex transition-all duration-200 flex-row-reverse justify-between
+      w-full px-4 py-2.5 rounded-md border border-1 hover:border-zinc-400
+      dark:hover:border-zinc-500 dark:border-zinc-700
+      dark:bg-zinc-700 
+      focus-within:border-maroon-600 dark:focus-within:border-softPink-400"
     >
       <input
         type="file"

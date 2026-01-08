@@ -37,7 +37,7 @@ export function Selector({
         className={cn(
           `${
             error && " border-red-600 dark:!border-red-500 "
-          } w-full focus:border-maroon-600  text-zinc-400 disabled:bg-zinc-100 dark:bg-zinc-600 dark:border-zinc-700 dark:hover:border-zinc-500 dark:focus:border-softPink-400 dark:disabled:border-1 dark:disabled:bg-transparent dark:disabled:!border-zinc-700 disabled:border-transparent`,
+          } w-full focus:border-maroon-600  text-zinc-400 disabled:bg-zinc-100 dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:focus:border-softPink-400 dark:disabled:border-1 dark:disabled:bg-transparent dark:disabled:!border-zinc-700 disabled:border-transparent`,
           className
         )}
         {...props}

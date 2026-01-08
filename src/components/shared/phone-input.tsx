@@ -33,37 +33,50 @@ type PhoneInputProps = Omit<
 const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
   React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
     ({ className, onChange, value, errorMessage, ...props }, ref) => {
+      const [isFocused, setIsFocused] = React.useState(false);
       return (
         <div
-          className={`${
-            errorMessage && "dark:!outline-red-500 !outline-red-600 "
-          } flex flex-col gap-2.5 w-full  group transition-all  duration-200 group outline outline-1 rounded-md outline-zinc-300 dark:outline-zinc-600 dark:hover:outline-zinc-500 hover:outline-zinc-400`}
+          className={`flex flex-col gap-2.5 w-full  group group  rounded-md  `}
         >
-          <label className="group-focus-within:outline-maroon-800">
-            <div className="group w-full rounded-md border border-zinc-300 dark:border-zinc-600 focus-within:border-maroon-600 dark:focus-within:border-softPink-400 transition-colors">
-              <RPNInput.default
-                ref={ref}
-                className={cn("flex  ", className)}
-                flagComponent={FlagComponent}
-                countrySelectComponent={CountrySelect}
-                inputComponent={InputComponent}
-                smartCaret={false}
-                value={value || undefined}
-                /**
-                 * Handles the onChange event.
-                 *
-                 * react-phone-number-input might trigger the onChange event as undefined
-                 * when a valid phone number is not entered. To prevent this,
-                 * the value is coerced to an empty string.
-                 *
-                 * @param {E164Number | undefined} value - The entered value
-                 */
-                onChange={(value) =>
-                  onChange?.(value || ("" as RPNInput.Value))
-                }
-                {...props}
-              />
-            </div>
+          <label
+            className={cn(
+              props.disabled && "border-none outline-none",
+              "group duration-200 w-full rounded-md border border-zinc-300 dark:border-zinc-600",
+              "transition-colors",
+              !isFocused &&
+                "group-hover:border-zinc-400 dark:group-hover:border-zinc-500",
+              isFocused && "border-maroon-600 dark:border-softPink-400"
+            )}
+          >
+            {/* <div> */}
+            <RPNInput.default
+              ref={ref}
+              className={cn("flex  ", className)}
+              flagComponent={FlagComponent}
+              countrySelectComponent={CountrySelect}
+              inputComponent={(inputProps) => (
+                <InputComponent
+                  {...inputProps}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+                  isFocus={isFocused}
+                />
+              )}
+              smartCaret={false}
+              value={value || undefined}
+              /**
+               * Handles the onChange event.
+               *
+               * react-phone-number-input might trigger the onChange event as undefined
+               * when a valid phone number is not entered. To prevent this,
+               * the value is coerced to an empty string.
+               *
+               * @param {E164Number | undefined} value - The entered value
+               */
+              onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
+              {...props}
+            />
+            {/* </div> */}
           </label>
           {/* {errorMessage && <ValidationError message={errorMessage} />} */}
         </div>
@@ -74,14 +87,18 @@ PhoneInput.displayName = "PhoneInput";
 
 const InputComponent = React.forwardRef<
   HTMLInputElement,
-  React.ComponentProps<"input">
->(({ className, ...props }, ref) => (
+  React.ComponentProps<"input"> & { isFocus: boolean }
+>(({ className, isFocus, ...props }, ref) => (
   <Input
     className={cn(
-      " border-0 outline-none ring-0 focus:ring-0 focus:outline-none  dark:text-zinc-50  ",
+      "border-0 outline-none ring-0",
+      // "focus:outline-none focus:ring-0",
+      "rounded-bl-none rounded-tl-none rounded-r-md text-zinc-800 dark:text-zinc-50",
+      "dark:text-zinc-50",
       className
     )}
     {...props}
+    autoFocus={isFocus}
     ref={ref}
   />
 ));
@@ -118,8 +135,9 @@ const CountrySelect = ({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          className="flex gap-2 !border-none rounded-md  ring-0 focus:z-10 bg-white dark:bg-zinc-700 hover:bg-white font-mono "
+          className="flex gap-2 !rounded-l-md  !border-none rounded-none disabled:bg-zinc-100   ring-0 focus:z-10 bg-white dark:bg-zinc-700 hover:bg-white font-mono "
           disabled={disabled}
+          onMouseDown={(e) => e.preventDefault()}
         >
           <FlagComponent
             country={selectedCountry || "EG"}
@@ -225,9 +243,11 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
-    <span className="flex h-4 w-6 overflow-hidden  bg-foreground/20 [&_svg:not([class*='size-'])]:size-full">
-      {Flag && <Flag title={countryName} />}
-    </span>
+    <div className="overflow-hidden h-3 w-3 rounded-full">
+      <span className="flex h-4 w-4 rounded-full overflow-hidden -translate-x-0.5 -translate-y-0.5  [&_svg:not([class*='size-'])]:size-full">
+        {Flag && <Flag title={countryName} />}
+      </span>
+    </div>
   );
 };
 
