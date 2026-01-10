@@ -46,7 +46,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
               !isFocused &&
                 "group-hover:border-zinc-400 dark:group-hover:border-zinc-500",
               isFocused && "border-maroon-600 dark:border-softPink-400",
-              error && " !border-red-600 dark:!border-red-500"
+              error && " !border-red-600 dark:!border-red-500",
             )}
           >
             <RPNInput.default
@@ -79,7 +79,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
           </label>
         </div>
       );
-    }
+    },
   );
 PhoneInput.displayName = "PhoneInput";
 
@@ -93,7 +93,7 @@ const InputComponent = React.forwardRef<
       // "focus:outline-none focus:ring-0",
       "rounded-bl-none rounded-tl-none rounded-r-md text-zinc-800 dark:text-zinc-50",
       "dark:text-zinc-50",
-      className
+      className,
     )}
     {...props}
     autoFocus={isFocus}
@@ -146,7 +146,7 @@ const CountrySelect = ({
             <span>
               (+
               {RPNInput.getCountryCallingCode(
-                selectedCountry === undefined ? "EG" : selectedCountry
+                selectedCountry === undefined ? "EG" : selectedCountry,
               )}
               )
             </span>
@@ -154,7 +154,7 @@ const CountrySelect = ({
           <ChevronsUpDown
             className={cn(
               "-mr-2 size-4 opacity-50 text-gray-500 ",
-              disabled ? "hidden" : "opacity-100"
+              disabled ? "hidden" : "opacity-100",
             )}
           />
         </Button>
@@ -168,7 +168,7 @@ const CountrySelect = ({
               setTimeout(() => {
                 if (scrollAreaRef.current) {
                   const viewportElement = scrollAreaRef.current.querySelector(
-                    "[data-radix-scroll-area-viewport]"
+                    "[data-radix-scroll-area-viewport]",
                   );
                   if (viewportElement) {
                     viewportElement.scrollTop = 0;
@@ -192,7 +192,7 @@ const CountrySelect = ({
                       onChange={onChange}
                       onSelectComplete={() => setIsOpen(false)}
                     />
-                  ) : null
+                  ) : null,
                 )}
               </CommandGroup>
             </ScrollArea>
@@ -226,7 +226,7 @@ const CountrySelectOption = ({
       <FlagComponent country={country} countryName={countryName} />
       <span className="flex-1 text-sm">{countryName}</span>
       <span className="text-sm text-foreground/50">{`+${RPNInput.getCountryCallingCode(
-        country
+        country,
       )}`}</span>
       <CheckIcon
         className={`ml-auto size-4 ${

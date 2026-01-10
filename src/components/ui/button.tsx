@@ -32,11 +32,12 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
@@ -47,7 +48,7 @@ const Button = React.forwardRef<
 >(
   (
     { className, variant, loading, size, children, asChild = false, ...props },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -58,12 +59,12 @@ const Button = React.forwardRef<
         disabled={props.disabled || loading}
       >
         <div className="flex items-center gap-1.5">
-          <span>{children}</span>
+          <span className="flex items-center gap-1">{children}</span>
           {loading && <Spinner className="!size-[18px]" />}
         </div>
       </Comp>
     );
-  }
+  },
 );
 Button.displayName = "Button";
 

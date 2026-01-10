@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
@@ -8,7 +9,6 @@ import NotificationDropDown from "./notification-dropdown";
 import Language from "./language";
 import LocationSelector from "./location-selector";
 import NavBar from "./nav-bar";
-import { Button } from "@/components/ui/button";
 export default function Header() {
   return (
     <>
