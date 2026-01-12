@@ -1,5 +1,6 @@
 {
   "meta-title": "ورود - مناسبتك علينا",
   "meta-description": "اكتشف الجمال الخاص بالورود مع تطبيقنا. مثالي لأي مناسبة.",
+  "price": "{amount, number, price} ج.م.",
   "homepage": {}
 }
