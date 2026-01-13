@@ -2,6 +2,10 @@
   "meta-title": "ورود - مناسبتك علينا",
   "meta-description": "اكتشف الجمال الخاص بالورود مع تطبيقنا. مثالي لأي مناسبة.",
   "price": "{amount, number, price} ج.م.",
+  "not-found": {
+    "title": "الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
+  },
   "homepage": {
     "testimonials-title": "آراء العملاء",
     "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام"
