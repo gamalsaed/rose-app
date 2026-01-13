@@ -2,7 +2,7 @@ import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
 import Divider from "@/components/custom-ui/divider";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Heart, ShoppingCart } from "lucide-react";
 import NotificationDropDown from "./notification-dropdown";
 import Language from "./language";

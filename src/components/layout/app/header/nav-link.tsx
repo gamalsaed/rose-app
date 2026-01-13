@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/navigation";
+
 interface NavLinkProps {
   children: React.ReactNode;
   path: string;
 }
+
 export default function NavLink({ children, path }: NavLinkProps) {
   const pathname = usePathname();
   return (
