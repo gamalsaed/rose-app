@@ -27,7 +27,7 @@ type LocaleLayoutProps = {
 
 export async function generateMetadata({
   params: { locale },
-}: Pick<LocaleLayoutProps, "params">): Promise<Metadata> {
+}: Pick<RouteProps, "params">): Promise<Metadata> {
   const t = await getTranslations({ locale });
 
   return {
