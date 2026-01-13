@@ -8,6 +8,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = hasLocale(routing.locales, requestedLocale)
     ? requestedLocale
     : routing.defaultLocale;
+  const numberingSystem = locale === "ar" ? "arab" : "latn";
 
   return {
     locale,
@@ -19,7 +20,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
           style: "decimal",
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
-          numberingSystem: locale === "ar" ? "arab" : "latn",
+          numberingSystem,
         },
       },
       dateTime: {
@@ -28,14 +29,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
           month: "long",
           day: "numeric",
           year: "numeric",
-          numberingSystem: locale === "ar" ? "arab" : "latn",
+          numberingSystem,
         },
         // Jan 12, 2025
         "medium-date": {
           month: "short",
           day: "numeric",
           year: "numeric",
-          numberingSystem: locale === "ar" ? "arab" : "latn",
+          numberingSystem,
         },
       },
     },
