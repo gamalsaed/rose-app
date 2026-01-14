@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Sarabun, Tajawal } from "next/font/google";
 import "./globals.css";
-import { ThemeProviderComponent } from "@/components/providers/theme-provider";
+import Providers from "@/components/providers/Provider";
 
 // Layouts
 import Header from "@/components/layout/app/header/header";
@@ -31,8 +31,10 @@ export default function RootLayout({
       <body
         className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
       >
+         <Providers>
         <Header />
-        <ThemeProviderComponent>{children}</ThemeProviderComponent>
+       {children}
+       </Providers>
       </body>
     </html>
   );
