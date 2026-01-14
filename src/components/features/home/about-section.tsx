@@ -30,7 +30,7 @@ export default function AboutSection() {
         {/* first */}
         <div
           className="relative w-[329.4px] before:content-['']
-         before:absolute before:top-0 before:left-0 before:w-[268.8812343976346px]
+         before:absolute before:bottom-0 before:left-0 before:w-[268.8812343976346px]
           before:h-[363.00001189613016px] before:border-[4px] before:border-maroon-700
         before:dark:border-softPink-100 before:z-10 before:rounded-[120px] before:rounded-ss-[50px]
          before:rotate-[3.09deg] "
@@ -38,7 +38,7 @@ export default function AboutSection() {
           <Image
             width={302}
             height={0}
-            alt="about"
+            alt="about1"
             src="/assets/images/home/about1.png"
             className="aspect-[302/344] absolute bottom-0 right-0 z-10 rounded-ss-[50px] rounded-[120px]  "
           />
@@ -49,7 +49,7 @@ export default function AboutSection() {
           <Image
             width={193}
             height={0}
-            alt="about1"
+            alt="about2"
             src="/assets/images/home/about2.png"
             className="rounded-full w-full aspect-square"
           />
