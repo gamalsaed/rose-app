@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ShoppingCart, Eye, Heart } from "lucide-react";
 import StarRating from "../shared/star-rating";
 
-// Helper: Get styles based on badge name
+// Get styles based on badge name
 const getBadgeStyles = (text: string) => {
   const slug = text.toLowerCase().trim().replace(/\s+/g, "-");
 

@@ -1,25 +1,29 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utilits/cn";
 
-// A simple star rating component that displays filled and empty stars based on the rating prop
 interface StarRatingProps {
-  rating: number;
+  rating: number; // rating from 0 to 5
 }
 
-// Displays a star rating out of 5
 export default function StarRating({ rating }: StarRatingProps) {
-  const stars = [0, 1, 2, 3];
+  const totalStars = 4; // display 4 stars
+
+  // Scale 0-5 rating to 0-4
+  const adjustedRating = (rating / 5) * totalStars;
+
+  // Create an array of length 4
+  const stars = Array.from({ length: totalStars }, (_, i) => i + 1);
+
   return (
-    <div>
+    <div className="flex gap-0.5">
       {stars.map((star) => (
         <Star
           key={star}
           size={16}
-          //If the star index is less than the rating, color it yellow, otherwise gray
           className={cn(
             "text-yellow-500",
-            star < rating ? "fill-yellow-500" : "fill-transparent",
-            "inline-block"
+            // fill the star if adjustedRating >= star
+            adjustedRating >= star ? "fill-yellow-500" : "fill-transparent"
           )}
         />
       ))}
