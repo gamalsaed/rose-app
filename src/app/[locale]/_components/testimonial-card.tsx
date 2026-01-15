@@ -25,7 +25,7 @@ export const TestimonialCard = ({
   const format = useFormatter();
 
   return (
-    <div className={cn("relative w-full h-full max-w-md p-6 pt-20", className)}>
+    <div className={cn("relative w-96 h-full max-w-md p-8 pt-20", className)}>
       {/* Floating Avatar */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 ">
         <div className="rounded-full bg-white p-1 shadow-sm">
