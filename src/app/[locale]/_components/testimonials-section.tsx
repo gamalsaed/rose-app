@@ -4,9 +4,12 @@ import { getTestimonials } from "@/lib/apis/testimonials";
 import { SectionTitle } from "@/components/shared/section-title";
 import { TestimonialsCarousel } from "@/app/[locale]/_components/testimonials-carousel";
 
-export const TestimonialsSection = async () => {
-  const data = await getTestimonials();
+export async function TestimonialsSection() {
+  // Translation
   const t = await getTranslations();
+
+  // Queries
+  const data = await getTestimonials();
 
   return (
     <section className="flex flex-col items-center">
@@ -28,4 +31,4 @@ export const TestimonialsSection = async () => {
       </section>
     </section>
   );
-};
+}
