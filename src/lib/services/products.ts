@@ -1,7 +1,6 @@
-// src/services/product.ts
+const BASE_URL = "https://flower.elevateegy.com/api/v1";
 
-const BASE_URL = "https://flower.elevateegy.com/api/v1/products";
-
+// Define Interfaces
 export interface ProductAPI {
   _id: string;
   title: string;
@@ -9,41 +8,60 @@ export interface ProductAPI {
   priceAfterDiscount: number;
   imgCover: string;
   rateAvg: number; // Needed for ratings
-  sold: number; // Needed for "Hot" badge
-  occasion: string; // Changed to string (ID)
-  quantity: number; // Needed for "Out of Stock"
+  sold: number;
+  occasion: string; // Occasion ID
+  quantity: number; // To check stock
   createdAt: string; // Needed for "New"
 }
+// Occasion Interface
+export interface Occasion {
+  _id: string;
+  name: string;
+  slug: string;
+}
 
-export const getMostPopularProducts = async () => {
-  try {
-    // Fetch products sorted by 'sold' in descending order
-    const response = await fetch(`${BASE_URL}?sort=-sold`, {
+//  Define the Fetch Function
+export async function getHomePageData(searchParams: {
+  [key: string]: string | string[] | undefined;
+}) {
+  const occasionId =
+    typeof searchParams.occasion === "string"
+      ? searchParams.occasion
+      : undefined;
+
+  // Parallel Fetching
+  const [bestSellersRes, popularRes, occasionsRes] = await Promise.all([
+    // Best Sellers
+    fetch(`${BASE_URL}/products?sort=-sold&limit=10`, {
       cache: "no-store",
-    });
+    }),
 
-    if (!response.ok) throw new Error("Failed to fetch");
+    // Most Popular Products (Filtered by Occasion)
+    fetch(
+      occasionId
+        ? `${BASE_URL}/products?occasion=${occasionId}&limit=12`
+        : `${BASE_URL}/products?limit=12&sort=-rateAvg`,
+      { cache: "no-store" }
+    ),
 
-    const data = await response.json();
-    return data.products as ProductAPI[];
-  } catch (error) {
-    console.error("Error fetching most popular products:", error);
-    return [];
-  }
-};
-export const getBestSellingProducts = async () => {
-  try {
-    // Fetch top 20 best selling products
-    const response = await fetch(`${BASE_URL}?sort=-sold&limit=20`, {
-      cache: "no-store",
-    });
+    // Occasions List
+    fetch(`${BASE_URL}/occasions`, {
+      cache: "force-cache",
+    }),
+  ]);
 
-    if (!response.ok) throw new Error("Failed to fetch best sellers");
+  const bestSellersData = await bestSellersRes.json();
+  const popularData = await popularRes.json();
+  const occasionsData = await occasionsRes.json();
 
-    const data = await response.json();
-    return data.products as ProductAPI[];
-  } catch (error) {
-    console.error("Error fetching best selling products:", error);
-    return [];
-  }
-};
+  // Slice occasions to only 4 items as requested
+  const allOccasions = (occasionsData.occasions || []) as Occasion[];
+  const topFourOccasions = allOccasions.slice(0, 4);
+
+  return {
+    bestSellers: (bestSellersData.products || []) as ProductAPI[],
+    popularProducts: (popularData.products || []) as ProductAPI[],
+    occasions: topFourOccasions,
+    selectedOccasionId: occasionId,
+  };
+}

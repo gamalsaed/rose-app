@@ -3,60 +3,46 @@
 import ProductCard from "@/components/features/product-card";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { ProductAPI } from "@/lib/services/products";
-
-// Occasion IDs
-const OCCASION_IDS: Record<string, string> = {
-  Wedding: "673b34c21159920171827ae0",
-  Anniversary: "673b35c01159920171827aed",
-  Graduation: "673b351e1159920171827ae5",
-  Apology: "673b39241159920171827b28",
-};
-const OCCASIONS = Object.keys(OCCASION_IDS);
+import { useRouter } from "next/navigation"; // Added for routing
+import { ProductAPI, Occasion } from "@/lib/services/products";
 
 interface MostPopularSectionProps {
   products: ProductAPI[];
+  occasions: Occasion[]; // The 4 fetched occasions
+  selectedOccasionId?: string;
 }
 
 export default function MostPopularSection({
   products,
+  occasions,
+  selectedOccasionId,
 }: MostPopularSectionProps) {
-  const [selectedOccasion, setSelectedOccasion] = useState("All");
+  const router = useRouter();
 
-  // Filter products by occasion, rating >= 2, and limit to 12
-  const filteredProducts = useMemo(() => {
-    let result = products || [];
-
-    // Occasion filter
-    if (selectedOccasion !== "All") {
-      const targetId = OCCASION_IDS[selectedOccasion];
-      result = result.filter((product) => product.occasion === targetId);
-    }
-
-    // Filter out products with rateAvg < 2
-    result = result.filter((product) => product.rateAvg >= 2);
-
-    // Limit to 12 products
-    return result.slice(0, 12);
-  }, [products, selectedOccasion]);
+  // handles click to changegit status
+  //  search params
+  const handleOccasionClick = (id: string) => {
+    // If clicking the already selected toggle it off
+    const newPath = id === selectedOccasionId ? "/" : `/?occasion=${id}`;
+    router.push(newPath, { scroll: false });
+  };
 
   return (
     <section className="mx-auto max-w-[1280px] pt-16">
       {/* Occasion buttons */}
       <div className="mb-6 flex items-center justify-end">
         <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-          {OCCASIONS.map((occasion) => (
+          {occasions.map((occasion) => (
             <button
-              key={occasion}
-              onClick={() => setSelectedOccasion(occasion)}
+              key={occasion._id}
+              onClick={() => handleOccasionClick(occasion._id)}
               className={`transition-colors ${
-                selectedOccasion === occasion
+                selectedOccasionId === occasion._id
                   ? "text-maroon-700 font-semibold dark:text-softPink-200"
                   : "text-gray-600 hover:text-maroon-700 dark:text-gray-400 dark:hover:text-softPink-200"
               }`}
             >
-              {occasion}
+              {occasion.name}
             </button>
           ))}
         </div>
@@ -64,7 +50,7 @@ export default function MostPopularSection({
 
       {/* Products grid */}
       <div className="grid grid-cols-4 gap-6">
-        {filteredProducts.map((product) => (
+        {products.map((product) => (
           <ProductCard
             key={product._id}
             title={product.title}
@@ -74,7 +60,7 @@ export default function MostPopularSection({
             ratingsAverage={product.rateAvg}
             quantity={product.quantity}
             sold={product.sold}
-            createdAt={product.createdAt} // Needed for "New" badge
+            createdAt={product.createdAt}
           />
         ))}
       </div>
