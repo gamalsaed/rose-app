@@ -1,9 +1,28 @@
 import React from "react";
+import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utilits/cn"; 
 
-export default function CustomBadge({ children }: { children: React.ReactNode }) {
+interface CustomBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  variant?: "secondary"; 
+}
+
+export default function CustomBadge({
+  children,
+  className,
+  variant = "secondary",
+  ...props
+}: CustomBadgeProps) {
   return (
-    <span className="text-maroon-600 text-xs inline-block bg-maroon-50 px-2 py-1 font-medium  rounded-full">
+    <Badge
+      variant={variant}
+      className={cn(
+        "bg-maroon-50 text-maroon-600 text-xs font-medium px-2 py-[2px] rounded-full capitalize",
+        className
+      )}
+      {...props}
+    >
       {children}
-    </span>
+    </Badge>
   );
 }

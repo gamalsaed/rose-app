@@ -1,32 +1,26 @@
-import {
-  Headset,
-  RefreshCcw,
-  ShieldAlert,
-  ShieldCheck,
-  Truck,
-} from "lucide-react";
+import { Headset, RefreshCcw, ShieldCheck, Truck } from "lucide-react";
 import React from "react";
 
 // Features data used to render feature cards
 
 const featuresCards = [
   {
-    icon: <Truck size={40} />,
+    icon: <Truck size={40} strokeWidth={1.46} />,
     title: "Free Delivery",
     description: "For orders above 120 EGP",
   },
   {
-    icon: <RefreshCcw size={40} />,
+    icon: <RefreshCcw size={40} strokeWidth={1.46} />,
     title: "Get Refund",
     description: "Refunds within 30 days",
   },
   {
-    icon: <ShieldCheck size={40} />,
+    icon: <ShieldCheck size={40} strokeWidth={1.46} />,
     title: "Safe Payment",
     description: "100% Secure Payment",
   },
   {
-    icon: <Headset size={40} />,
+    icon: <Headset size={40} strokeWidth={1.46} />,
     title: "24/7 Support",
     description: "Contact us at any time",
   },
@@ -35,13 +29,16 @@ export default function FeaturesSection() {
   return (
     // Main features section
 
-    <section className="py-10 px-20">
-      <div className="container bg-maroon-50 dark:bg-zinc-700 flex items-center gap-4 rounded-2xl">
+    <section className="py-10 px-20 w-full">
+      <div className=" bg-maroon-50 dark:bg-zinc-700 flex items-center gap-4 rounded-2xl">
         {/* Render each feature card */}
 
-        {featuresCards.map((card, index) => {
+        {featuresCards.map((card) => {
           return (
-            <div key={index} className="p-10 flex-1 flex items-center gap-4">
+            <div
+              key={card.title}
+              className="p-10 flex-1 flex items-center gap-4"
+            >
               <div className="flex-shrink-0 w-16 h-16 bg-maroon-600 dark:bg-softPink-200 text-white dark:text-zinc-800 rounded-full flex items-center justify-center">
                 {card.icon}
               </div>

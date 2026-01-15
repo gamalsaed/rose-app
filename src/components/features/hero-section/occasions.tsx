@@ -1,7 +1,4 @@
 import React from "react";
-import weddingPhoto from "/public/assets/images/hero-images/wedding-photo.png";
-import engagementPhoto from "/public/assets/images/hero-images/engagement-photo.png";
-import anniversaryPhoto from "/public/assets/images/hero-images/anniversary-photo.png";
 import Image from "next/image";
 import CustomBadge from "@/components/shared/custom-badge";
 import Link from "next/link";
@@ -10,19 +7,19 @@ export default function Occasions() {
   // Configuration array that defines the content of each occasion card.
   const occasionCards = [
     {
-      src: weddingPhoto,
+      src: "/assets/images/home/wedding-photo.png",
       badge: "Wedding",
       text: "Celebrate Her Forever with a Gift She’ll Always Remember",
       alt: "Wedding occassion",
     },
     {
-      src: engagementPhoto,
+      src:"/assets/images/home/engagement-photo.png",
       badge: "Engagement",
       text: "Honor the Beginning of a Beautiful Journey Together",
       alt: "Engagement occassion",
     },
     {
-      src: anniversaryPhoto,
+      src: "/assets/images/home/anniversary-photo.png",
       badge: "Anniversary",
       text: "Mark Every Year of Love with a Meaningful Surprise",
       alt: "Anniversary occassion",
@@ -32,11 +29,11 @@ export default function Occasions() {
   return (
     // Main container that holds all occasion cards
 
-    <section className="container px-20 flex pt-6 gap-6">
-      {occasionCards.map((card, index) => {
+    <section className="flex  px-20  pt-6 gap-6 w-full">
+      {occasionCards.map((card) => {
         return (
           <Link 
-            key={index}
+            key={card.badge}
             href={`/products?occasion=${card.badge.toLowerCase()}`}
             className="relative flex-1 rounded-2xl overflow-hidden p-6 w-[410px] h-[271px]"
           >

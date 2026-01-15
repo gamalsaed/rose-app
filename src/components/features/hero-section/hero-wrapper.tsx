@@ -5,10 +5,10 @@ import FeaturesSection from './features-section'
 
 export default function HeroWrapper() {
   return (
-    <>
+    <div>
     <Banner/>
     <Occasions/>
     <FeaturesSection/>
-    </>
+    </div>
   )
 }
