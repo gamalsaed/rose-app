@@ -29,7 +29,7 @@ const config: Config = {
           200: "#ffaddc",
           300: "#ff84cb",
           400: "#ff5bba",
-          500: "#f82ba9",
+          500: "#FF668B",
           600: "#d0198f",
           700: "#a41173",
           800: "#790a55",
@@ -82,6 +82,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+       spacing: {
+        "34.75": "8.6875rem", // custom spacing padding section
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
