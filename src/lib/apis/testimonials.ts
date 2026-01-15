@@ -3,10 +3,14 @@ import {
   TestimonialsSuccessResponse,
 } from "../types/testimonials";
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+const apiUrl = process.env.BASE_API;
 
 export const getTestimonials = async () => {
-  const response = await fetch(`${baseUrl}/api/testimonials`, {
+  const response = await fetch(`${apiUrl}/testimonials`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
     cache: "no-store",
   });
 

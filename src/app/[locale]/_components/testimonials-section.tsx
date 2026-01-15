@@ -1,15 +1,13 @@
-import { getTranslations } from "next-intl/server";
-import { getTestimonials } from "@/lib/apis/testimonials";
+import { useTranslations } from "next-intl";
+import { Suspense } from "react";
 
 import SectionTitle from "@/components/features/home/title-section";
-import { TestimonialsCarousel } from "@/app/[locale]/_components/testimonials-carousel";
+import { TestimonialsWrapper } from "./testimonials-wrapper";
+import { TestimonialsSkeleton } from "@/components/skeletons/home/testimonials.skeleton";
 
-export async function TestimonialsSection() {
+export function TestimonialsSection() {
   // Translation
-  const t = await getTranslations();
-
-  // Queries
-  const data = await getTestimonials();
+  const t = useTranslations();
 
   return (
     <section className="flex flex-col items-center">
@@ -23,7 +21,9 @@ export async function TestimonialsSection() {
 
       {/* Testimonials Carousel */}
       <section className="w-full flex justify-center pt-28 px-16 pb-32 bg-maroon-50 dark:bg-zinc-700">
-        <TestimonialsCarousel testimonials={data.testimonials} />
+        <Suspense fallback={<TestimonialsSkeleton />}>
+          <TestimonialsWrapper />
+        </Suspense>
       </section>
     </section>
   );
