@@ -1,6 +1,6 @@
 import AboutSection from "@/components/features/home/about-section";
 import GallerySection from "@/components/features/home/gallery-section";
-import { TestimonialsSection } from "./_components/testimonials-section";
+import { TestimonialsSection } from "@/components/features/home/testimonials-section";
 import CompaniesSection from "@/components/features/home/companies-section";
 
 export default function Page() {

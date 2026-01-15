@@ -1,6 +1,6 @@
 import { getTestimonials } from "@/lib/apis/testimonials";
 
-import { TestimonialsCarousel } from "@/app/[locale]/_components/testimonials-carousel";
+import { TestimonialsCarousel } from "@/components/features/home/testimonials-carousel";
 
 // * fetch testimonials on server side
 export async function TestimonialsWrapper() {
