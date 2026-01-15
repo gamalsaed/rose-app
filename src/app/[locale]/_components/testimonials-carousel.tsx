@@ -1,6 +1,7 @@
 "use client";
 
-import Autoplay from "embla-carousel-autoplay";
+import * as React from "react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import {
   Carousel,
   CarouselContent,
@@ -14,21 +15,27 @@ interface TestimonialsCarouselProps {
   testimonials: Testimonial[];
 }
 
-export const TestimonialsCarousel = ({
+export function TestimonialsCarousel({
   testimonials,
-}: TestimonialsCarouselProps) => {
+}: TestimonialsCarouselProps) {
+  // Ref
+  const plugin = React.useRef(
+    AutoScroll({
+      speed: 1,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  );
+
   return (
     <Carousel
       className="mx-auto overflow-visible max-w-full"
       opts={{
         loop: true,
+        align: "start", // allow freestyle / free-scrolling
+        dragFree: true, // enable smooth/free slide movement
       }}
-      plugins={[
-        Autoplay({
-          delay: 3000,
-          stopOnInteraction: false,
-        }),
-      ]}
+      plugins={[plugin.current]}
     >
       <CarouselContent className="mx-auto">
         {testimonials.map((testimonial, index) => (
@@ -45,4 +52,4 @@ export const TestimonialsCarousel = ({
       </CarouselContent>
     </Carousel>
   );
-};
+}

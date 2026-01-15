@@ -58,7 +58,7 @@ export const TestimonialCard = ({
           <blockquote className="font-medium text-zinc-800">{quote}</blockquote>
 
           {/* Date */}
-          <time className="text-xs font-medium text-zinc-400 mt-auto pt-4">
+          <time className="text-xs font-medium text-zinc-400 mt-auto pt-6">
             {format.dateTime(new Date(date), "long-date")}
           </time>
         </CardContent>
