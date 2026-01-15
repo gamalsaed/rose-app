@@ -30,7 +30,7 @@ export default function AboutSection() {
         {/* first */}
         <div
           className="relative w-[329.4px] before:content-['']
-         before:absolute before:bottom-0 before:left-0 before:w-[268.8812343976346px]
+         before:absolute before:bottom-[8.5px] before:left-0 before:w-[268.8812343976346px]
           before:h-[363.00001189613016px] before:border-[4px] before:border-maroon-700
         before:dark:border-softPink-100 before:z-10 before:rounded-[120px] before:rounded-ss-[50px]
          before:rotate-[3.09deg] "
@@ -40,12 +40,12 @@ export default function AboutSection() {
             height={0}
             alt="about1"
             src="/assets/images/home/about1.png"
-            className="aspect-[302/344] absolute bottom-0 right-0 z-10 rounded-ss-[50px] rounded-[120px]  "
+            className="aspect-[302/344] absolute bottom-[8.5px] right-2 z-10 rounded-ss-[50px] rounded-[120px]  "
           />
         </div>
 
         {/* second */}
-        <div className="flex flex-col gap-2.5 justify-center w-[193px]">
+        <div className="flex flex-col gap-2.5 justify-center w-48">
           <Image
             width={193}
             height={0}
@@ -83,7 +83,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <Button className="flex align-center  gap-2 mr-auto">
+        <Button className="flex align-center py-2.5 px-[18px] gap-2 mr-auto">
           Discover <ArrowRight className="w-4 h-4" />
         </Button>
 
