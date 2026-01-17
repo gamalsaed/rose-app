@@ -6,8 +6,10 @@ import type { Metadata } from "next";
 import { Sarabun, Tajawal } from "next/font/google";
 import Providers from "@/components/providers";
 
+import { Toaster } from "@/components/ui/toaster";
 // Layouts
 import Header from "@/components/layout/app/header/header";
+import Footer from "@/components/layout/app/footer/footer";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -54,14 +56,18 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang="en" dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
       >
         <Providers>
+          {/* TODO: move header and footer to a separate home page layout */}
           <Header />
 
           {children}
+          <Toaster />
+
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import CustomBadge from "@/components/shared/custom-badge";
 import Link from "next/link";
-
+import { Badge } from "@/components/ui/badge";
 export default function Occasions() {
   // Configuration array that defines the content of each occasion card.
   const occasionCards = [
@@ -52,7 +51,7 @@ export default function Occasions() {
             {/* Occasion description text */}
 
             <div className="left-6 bottom-6 absolute z-20">
-              <CustomBadge>{card.badge}</CustomBadge>
+              <Badge variant="warning" >{card.badge}</Badge>
               <p className="font-semibold text-2xl  text-white w-[362px] h-12">
                 {card.text}
               </p>
