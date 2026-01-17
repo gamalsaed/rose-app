@@ -10,7 +10,7 @@ import {
 import type { CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utilits/cn";
 
@@ -87,9 +87,7 @@ export function HeroCarousel() {
                   Elegant gifts for every special moment.
                 </p>
                 <Link href="/products">
-                  <Button variant="secondary" >
-                    I’m buying!
-                  </Button>
+                  <Button variant="secondary">I’m buying!</Button>
                 </Link>
               </div>
             </CarouselItem>

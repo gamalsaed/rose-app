@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 export default function Occasions() {
   // Configuration array that defines the content of each occasion card.
@@ -12,7 +12,7 @@ export default function Occasions() {
       alt: "Wedding occassion",
     },
     {
-      src:"/assets/images/home/engagement-photo.png",
+      src: "/assets/images/home/engagement-photo.png",
       badge: "Engagement",
       text: "Honor the Beginning of a Beautiful Journey Together",
       alt: "Engagement occassion",
@@ -31,7 +31,7 @@ export default function Occasions() {
     <section className="flex  px-20  pt-6 gap-6 w-full">
       {occasionCards.map((card) => {
         return (
-          <Link 
+          <Link
             key={card.badge}
             href={`/products?occasion=${card.badge.toLowerCase()}`}
             className="relative flex-1 rounded-2xl overflow-hidden p-6 w-[410px] h-[271px]"
@@ -47,11 +47,11 @@ export default function Occasions() {
             {/* Gradient overlay  */}
 
             <div className="absolute inset-0 z-10 bg-gradient-to-r  from-black/50 to-transparent"></div>
-            
+
             {/* Occasion description text */}
 
             <div className="left-6 bottom-6 absolute z-20">
-              <Badge variant="warning" >{card.badge}</Badge>
+              <Badge variant="warning">{card.badge}</Badge>
               <p className="font-semibold text-2xl  text-white w-[362px] h-12">
                 {card.text}
               </p>
