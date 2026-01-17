@@ -83,7 +83,7 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <Button className="flex align-center py-2.5 px-[18px] gap-2 mr-auto">
+        <Button>
           Discover <ArrowRight className="w-4 h-4" />
         </Button>
 
