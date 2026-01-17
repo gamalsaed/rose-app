@@ -1,13 +1,13 @@
 import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
-import Divider from "@/components/custom-ui/divider";
 import Link from "next/link";
 import { Heart, ShoppingCart } from "lucide-react";
 import NotificationDropDown from "./notification-dropdown";
 import Language from "./language";
 import LocationSelector from "./location-selector";
 import NavBar from "./nav-bar";
+import { Separator } from "@/components/ui/separator";
 
 export default function Header() {
   return (
@@ -23,13 +23,13 @@ export default function Header() {
         {/* Location Drop Down list */}
         <LocationSelector />
         <SearchInput
-          className="h-[52px] grow"
+          className="h-14 grow"
           placeholder="What awesome gift are you looking for?"
         />
         {/* User Drop Down list */}
         <UserDropDown />
         {/* just divider */}
-        <Divider />
+        <Separator orientation="vertical" className="h-12" />
         {/* Icons Section */}
         <div className="flex gap-2.5">
           <Link href="#">
@@ -41,10 +41,11 @@ export default function Header() {
           <NotificationDropDown />
         </div>
 
-        <Divider />
+        <Separator orientation="vertical" className="h-12" />
         {/* Lnaguage drop down list */}
         <Language />
       </header>
+
       <NavBar />
     </>
   );

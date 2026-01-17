@@ -1,3 +1,5 @@
+"use client";
+
 import { MapPinPen } from "lucide-react";
 
 export default function LocationSelector() {

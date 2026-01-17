@@ -11,7 +11,7 @@ import type { CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import CustomButton from "@/components/shared/custom-button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utilits/cn";
 
 // Carousel slides data
@@ -87,9 +87,9 @@ export function HeroCarousel() {
                   Elegant gifts for every special moment.
                 </p>
                 <Link href="/products">
-                  <CustomButton aria-label="Go to products">
+                  <Button variant="secondary" >
                     I’m buying!
-                  </CustomButton>
+                  </Button>
                 </Link>
               </div>
             </CarouselItem>

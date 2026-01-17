@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Sarabun, Tajawal } from "next/font/google";
 import "./globals.css";
-import { ThemeProviderComponent } from "@/components/providers/theme-provider";
-
+import { Toaster } from "@/components/ui/toaster";
 // Layouts
 import Header from "@/components/layout/app/header/header";
+import Footer from "@/components/layout/app/footer/footer";
+// Providers
+import { ThemeProviderComponent } from "@/components/providers/theme-provider";
+import ReactQueryProvider from "@/components/providers/react-query-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +35,13 @@ export default function RootLayout({
         className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
       >
         <Header />
-        <ThemeProviderComponent>{children}</ThemeProviderComponent>
+        <ThemeProviderComponent>
+          <ReactQueryProvider>
+            {children}
+            <Toaster />
+          </ReactQueryProvider>
+        </ThemeProviderComponent>
+        <Footer />
       </body>
     </html>
   );
