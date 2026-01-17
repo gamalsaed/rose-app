@@ -9,5 +9,8 @@
   "homepage": {
     "testimonials-title": "testimonials",
     "testimonials-subtitle": "Real Words from Happy Customers"
+  },
+  "shared": {
+    "language-switcher": "العربية"
   }
 }

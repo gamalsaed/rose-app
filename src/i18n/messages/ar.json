@@ -9,5 +9,8 @@
   "homepage": {
     "testimonials-title": "آراء العملاء",
     "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام"
+  },
+  "shared": {
+    "language-switcher": "English"
   }
 }
