@@ -2,8 +2,7 @@
 
 import ProductCard from "@/components/features/product-card";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation"; // Added for routing
+import { Link, useRouter } from "@/i18n/navigation";
 import { ProductAPI, Occasion } from "@/lib/services/products";
 
 interface MostPopularSectionProps {
