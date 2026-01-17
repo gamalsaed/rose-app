@@ -1,10 +1,14 @@
 "use client";
+
 import { Upload, Image } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
+
 interface InputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  existingFileUrl?: string;
+  existingFileUrl: string | undefined;
 }
+// ID: file_uploader
+// it accepts something called existing File URL if we got the response back from the backend we will put the URL
 
 export default function InputFile({
   existingFileUrl,
@@ -13,16 +17,6 @@ export default function InputFile({
   const [fileName, setFileName] = useState<string>("");
   return (
     <div
-      // className="
-      //   flex flex-row-reverse justify-between
-      //   w-full px-4 py-2.5 rounded-md
-      //   ring-1 ring-inset ring-input
-      //   hover:ring-zinc-400
-      //   focus-within:ring-2 focus-within:ring-maroon-600
-      //   dark:ring-zinc-700
-      //   dark:hover:ring-zinc-500
-      //   dark:focus-within:ring-softPink-400
-      // "
       className="flex transition-all duration-200 flex-row-reverse justify-between
       w-full px-4 py-2.5 rounded-md border border-1 hover:border-zinc-400
       dark:hover:border-zinc-500 dark:border-zinc-700
@@ -33,6 +27,7 @@ export default function InputFile({
         type="file"
         className="sr-only"
         accept="image/*"
+        id="file_uploader"
         {...props}
         onChange={(e) => {
           const file = e.target.files?.[0];
@@ -42,7 +37,7 @@ export default function InputFile({
       />
 
       <label
-        htmlFor={props.id}
+        htmlFor={"file_uploader"}
         className="text-maroon-500 dark:text-softPink-400 flex gap-2 cursor-pointer w-fit text-right"
       >
         <Upload size={20} />
@@ -51,7 +46,7 @@ export default function InputFile({
       {!existingFileUrl && (
         <div className="text-zinc-800 dark:text-zinc-50">{fileName}</div>
       )}
-      {existingFileUrl && (
+      {existingFileUrl !== undefined && (
         <Link href={existingFileUrl} target="_blank">
           <div className="flex gap-2 text-blue-600 dark:text-blue-400">
             <Image />

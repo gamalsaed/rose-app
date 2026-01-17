@@ -2,14 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { NAV_DATA } from "@/lib/constants/paths";
 import Subscribe from "./subscribe";
+
 const PATHS = [
   ...NAV_DATA,
   {
-    lable: "Terms & Conditions",
+    lable: "terms & conditions",
     path: "#",
   },
   {
-    lable: "Privacy Policy",
+    lable: "privacy policy",
     path: "#",
   },
   {
@@ -30,8 +31,8 @@ export default function Footer() {
             src="/assets/images/logo.svg"
             className="mb-5"
           />
-          <p className="text-softPink-300 text-lg font-semibold">
-            Rose E-Commerce App
+          <p className="text-softPink-300 text-lg font-semibold capitalize">
+            rose e-commerce app
           </p>
           <p className="text-zinc-100 text-sm">All rights reserved | 2025</p>
         </div>
@@ -42,7 +43,7 @@ export default function Footer() {
           <ul>
             {PATHS.map((item) => {
               return (
-                <li className="text-zinc-100">
+                <li className="text-zinc-100 capitalize" key={item.lable}>
                   <Link href={item.path}>{item.lable}</Link>
                 </li>
               );
@@ -51,8 +52,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex-1 max-w-96">
-        <h1 className="text-softPink-300 font-semibold text-xl">
-          Get <span className="text-maroon-50">20%</span> Off Discount Coupon
+        <h1 className="text-softPink-300 font-semibold text-xl capitalize">
+          get <span className="text-maroon-50">20%</span> off discount coupon
         </h1>
         <p className="text-zinc-500 text-sm mb-5">
           By subscribing to our newsletter

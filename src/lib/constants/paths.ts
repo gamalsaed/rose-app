@@ -10,32 +10,32 @@ import {
 export const NAV_DATA = [
   {
     icon: House,
-    lable: "Home",
+    lable: "home",
     path: "/",
   },
   {
     icon: Gift,
-    lable: "Products",
+    lable: "products",
     path: "/products",
   },
   {
     icon: ClipboardList,
-    lable: "Categories",
+    lable: "categories",
     path: "#",
   },
   {
     icon: PartyPopper,
-    lable: "Occasions",
+    lable: "occasions",
     path: "#",
   },
   {
     icon: Headset,
-    lable: "Contact",
+    lable: "contact",
     path: "#",
   },
   {
     icon: CircleAlert,
-    lable: "About",
+    lable: "about",
     path: "#",
   },
 ];

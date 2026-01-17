@@ -9,7 +9,7 @@ export default function NavBar() {
           return (
             <NavLink path={navLink.path} key={navLink.lable}>
               <navLink.icon />
-              <span className="text-base">{navLink.lable}</span>
+              <span className="text-base capitalize">{navLink.lable}</span>
             </NavLink>
           );
         })}
