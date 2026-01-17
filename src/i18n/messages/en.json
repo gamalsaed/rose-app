@@ -1,0 +1,16 @@
+{
+  "meta-title": "Rose App – Fresh Roses for Every Moment",
+  "meta-description": "Discover the beauty of fresh roses with our app. Perfect for any occasion.",
+  "price": "{amount, number, price} EGP",
+  "not-found": {
+    "title": "404 - Not Found",
+    "description": "The page you’re looking for doesn’t exist or may have been moved."
+  },
+  "homepage": {
+    "testimonials-title": "testimonials",
+    "testimonials-subtitle": "Real Words from Happy Customers"
+  },
+  "shared": {
+    "language-switcher": "العربية"
+  }
+}

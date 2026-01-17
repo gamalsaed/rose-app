@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function CompaniesSection() {
   // Companies
@@ -50,7 +50,7 @@ export default function CompaniesSection() {
           {/* Logos*/}
           <div className="flex justify-between gap-10 mt-10">
             {companies.map((company) => (
-              <Link href={company.href}>
+              <Link href={company.href} key={company.title}>
                 <Image
                   width={149}
                   height={100}

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Heart, ShoppingCart } from "lucide-react";
 import NotificationDropDown from "./notification-dropdown";
-import Language from "./language";
 import LocationSelector from "./location-selector";
 import NavBar from "./nav-bar";
 import { Separator } from "@/components/ui/separator";
+import { LanguageSwitcher } from "@/components/shared/language-switcher";
 
 export default function Header() {
   return (
@@ -42,8 +42,8 @@ export default function Header() {
         </div>
 
         <Separator orientation="vertical" className="h-12" />
-        {/* Lnaguage drop down list */}
-        <Language />
+        {/* Language drop down list */}
+        <LanguageSwitcher />
       </header>
 
       <NavBar />

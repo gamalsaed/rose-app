@@ -77,9 +77,9 @@ export default function AboutSection() {
           <p className=" font-normal text-base text-zinc-500 dark:text-zinc-400">
             Make every moment memorable with our premium gift boxes. Carefully
             curated and beautifully packaged, each box is filled with handpicked
-            items designed to impress. Whether it's for a birthday, wedding, or
-            a simple “thank you,” our gift boxes are crafted to leave a lasting
-            impression — because thoughtful gifting starts here.
+            items designed to impress. Whether it&apos;s for a birthday,
+            wedding, or a simple “thank you,” our gift boxes are crafted to
+            leave a lasting impression — because thoughtful gifting starts here.
           </p>
         </div>
 

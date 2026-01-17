@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { NAV_DATA } from "@/lib/constants/paths";
 import Subscribe from "./subscribe";
 

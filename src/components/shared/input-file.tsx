@@ -2,7 +2,7 @@
 
 import { Upload, Image } from "lucide-react";
 import React, { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface InputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
   existingFileUrl: string | undefined;

@@ -1,9 +1,10 @@
 import HeroWrapper from "@/components/features/hero-section/hero-wrapper";
-import AboutSection from "@/components/features/home/about-section";
-import CompaniesSection from "@/components/features/home/companies-section";
-import GallerySection from "@/components/features/home/gallery-section";
 import BestSellingSection from "@/components/features/home/best-selling-section";
 import MostPopularSection from "@/components/features/home/most-poular-section";
+import AboutSection from "@/components/features/home/about-section";
+import GallerySection from "@/components/features/home/gallery-section";
+import { TestimonialsSection } from "@/components/features/home/testimonials-section";
+import CompaniesSection from "@/components/features/home/companies-section";
 
 import { getHomePageData } from "@/lib/services/products";
 
@@ -21,23 +22,29 @@ export default async function Home({ searchParams }: HomeProps) {
   // Render the homepage with fetched data
   return (
     <main>
-      {/*hero section*/}
+      {/* Hero Section */}
       <HeroWrapper />
-      {/* best selling section */}
+
+      {/* Best Selling Section */}
       <BestSellingSection products={bestSellers} />
 
-      {/* most popular section */}
+      {/* Most Popular Section */}
       <MostPopularSection
         products={popularProducts}
         occasions={occasions}
         selectedOccasionId={selectedOccasionId}
       />
-      {/* about section */}
+
+      {/* About Section */}
       <AboutSection />
-      {/* allery section */}
+
+      {/* Gallery Section */}
       <GallerySection />
 
-      {/*companies section */}
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Companies Section */}
       <CompaniesSection />
     </main>
   );
