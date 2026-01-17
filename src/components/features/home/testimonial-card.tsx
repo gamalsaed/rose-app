@@ -3,6 +3,7 @@ import { cn } from "@/lib/utilits/cn";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import StarRating from "@/components/shared/star-rating";
 
 type TestimonialCardProps = {
   name: string;
@@ -46,13 +47,7 @@ export const TestimonialCard = ({
           <h4 className="font-semibold text-zinc-800">{name}</h4>
 
           {/* Rating */}
-          {/* TODO: Replace with StarRating Component */}
-          <div className="mt-9 mb-2.5">
-            <p className="text-sm font-semibold">
-              Rating Placeholder:{" "}
-              <span className="text-amber-400 font-bold">{rating}</span>
-            </p>
-          </div>
+          <StarRating rating={rating} className="mt-9 mb-2.5" />
 
           {/* Quote */}
           <blockquote className="font-medium text-zinc-800">{quote}</blockquote>
