@@ -11,20 +11,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-
+import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import getAllNotifications from '@/lib/actions/getallnotification.api';
 import deleteNotification from '@/lib/actions/deletenotification.action';
 import markAsReadNotification from '@/lib/actions/markasreadnotification.action';
 import clearAllNotifications from '@/lib/actions/clearallnotifications.action';
 import markAllAsRead from '@/lib/actions/markallasread.actions';
-
 import { NotificationType } from '@/lib/types/notification-schema';
 
 export default function NotificationDropDown() {
  const {
     data,
     isLoading,
-    isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
@@ -42,25 +41,31 @@ export default function NotificationDropDown() {
     .flatMap((page) => page?.notifications || [])
     .map((notification: NotificationType) => notification) ?? [];
 
+   
+
   return (
-    <div className="container text-center m-auto">
+
+    <div className="container text-center m-auto ">
+
+ //* Notification Dropdown Menu
+
       <DropdownMenu modal={true}>
         <DropdownMenuTrigger className="m-auto">
           <Bell />
         </DropdownMenuTrigger>
-
-        <DropdownMenuContent className="w-96 max-h-[70vh] overflow-y-auto">
-          <div className="bg-maroon-700 text-white px-5 py-3 font-semibold flex justify-between items-center sticky top-0 z-10">
+//*header
+        <DropdownMenuContent id="scrollableDiv" className="w-80 h-fit mr-4 overflow-y-auto">
+          <div className="bg-maroon-700 text-white px-5 py-3 font-semibold flex items-center gap-1">
             <span>Notifications</span>
             <span className="text-sm opacity-90">({notifications.length})</span>
           </div>
 
-          <div className="px-5 py-2.5 flex justify-between text-sm border-b sticky top-[52px] bg-white z-10">
+          <div className=" flex justify-between text-sm h-10 pt-3 bg-white ">
             <button
               onClick={async () => {
                 await clearAllNotifications();
               }}
-              className="flex items-center gap-1.5 text-red-600 hover:text-red-800"
+              className="flex gap-1 text-red-600 hover:text-red-800"
             >
               <BrushCleaning  />
               Clear All notifications
@@ -70,13 +75,27 @@ export default function NotificationDropDown() {
               onClick={async () => {
                 await markAllAsRead();
               }}
-              className="flex items-center gap-1.5 "
+              className="flex"
             >
               <CheckCheck  />
               Mark All as Read
             </button>
           </div>
 
+          //* Notification List with Infinite Scroll
+                <InfiniteScroll
+        dataLength={notifications.length}
+         next={fetchNextPage}
+          hasMore={hasNextPage}
+           loader={<div className="py-6 text-center">Loading..</div>}
+            scrollableTarget="scrollableDiv"   
+           endMessage={
+               <p className="py-6 text-center text-muted-foreground">
+            No more notifications
+             </p>
+            }
+          >
+            //* Loading State, Empty State, and Notification Items 
           {isLoading ? (
             <div className="p-4 space-y-4">
                 <div  className="flex gap-3 px-4 py-3">
@@ -96,17 +115,17 @@ export default function NotificationDropDown() {
             <>
               {notifications.map((notification) => (
                 <div key={notification._id}>
-                  <div className="px-5 py-3.5 hover:bg-muted/50 transition-colors">
+                  <div className="px-5 py-3 w-80 hover:bg-muted/50 transition-colors">
                     <div className="flex justify-between items-start gap-3">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-[15px] leading-tight">
+                        <h3 className="font-semibold text-base">
                           {notification.title}
                         </h3>
                         <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
                           {notification.body}
                         </p>
                       </div>
-
+        //* Dropdown Menu for Each Notification */
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon" className="h-8 w-8 -mt-1">
@@ -135,19 +154,12 @@ export default function NotificationDropDown() {
                       </DropdownMenu>
                     </div>
                   </div>
-                  <DropdownMenuSeparator className="my-0 last:hidden" />
+                  <DropdownMenuSeparator className=" w-full bg-gray-300" />
                 </div>
               ))}
-
-              {hasNextPage && (
-                <div className="py-6 text-center">
-                  <Button onClick={() => fetchNextPage()}disabled={isFetchingNextPage}>
-                  Load more...
-                  </Button>
-                </div>
-              )}
             </>
           )}
+          </InfiniteScroll>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
