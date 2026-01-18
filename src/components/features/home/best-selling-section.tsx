@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import ProductCard from "../product-card";
 import { Button } from "@/components/ui/button";
 import { ProductAPI } from "@/lib/services/products";
+import { useTranslations } from "next-intl";
 
 interface BestSellingSectionProps {
   products: ProductAPI[];
@@ -13,6 +14,10 @@ interface BestSellingSectionProps {
 export default function BestSellingSection({
   products,
 }: BestSellingSectionProps) {
+  // Translation
+  const t = useTranslations();
+
+  // slider state
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
 
@@ -35,31 +40,30 @@ export default function BestSellingSection({
         <div className="flex h-full flex-col justify-between">
           <div className="space-y-4">
             <h4 className="text-[16px] font-bold uppercase tracking-widest text-softPink-500 dark:text-maroon-400">
-              Best Selling
+              {t("section-title.best-selling")}
             </h4>
             <h2 className="text-[30px] font-bold leading-none text-maroon-700 dark:text-softPink-200">
               <span className="text-softPink-500 dark:text-maroon-400">
-                Check Out
+                {t("best-selling.headline-accent-1")}
               </span>{" "}
-              What <br />
-              Everyone's{" "}
+              {t("best-selling.headline-main")} <br />
+              {t("best-selling.headline-accent-2")}
+              <br />{" "}
               <span className="text-softPink-500 dark:text-maroon-400">
-                Buying
+                {t("best-selling.headline-main-2")}
               </span>{" "}
               <br />
-              Right Now
+              {t("best-selling.headline-end")}
             </h2>
             <p className=" font-normal leading-tight text-zinc-500 dark:text-zinc-400">
-              Not sure what to choose? <br />
-              Start with our best sellers, these are the gifts our customers
-              keep coming back for. Whether you're celebrating a birthday,
-              anniversary or wedding, our top picks are guaranteed to leave a
-              lasting impression.
+              {t("best-selling.paragraph-question")}
+              <br />
+              {t("best-selling.paragraph")}
             </p>
           </div>
 
           <Button className="bg-maroon-600 hover:bg-maroon-800 text-white rounded-md flex items-center gap-2 dark:bg-softPink-200 dark:text-maroon-700 dark:hover:bg-softPink-300 h-9 w-[155px]">
-            Explore gifts
+            {t("best-selling.cta")}
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
