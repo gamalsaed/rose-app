@@ -47,13 +47,10 @@ export default function NotificationDropDown() {
 
     <div className="container text-center m-auto ">
 
- //* Notification Dropdown Menu
-
       <DropdownMenu modal={true}>
         <DropdownMenuTrigger className="m-auto">
           <Bell />
         </DropdownMenuTrigger>
-//*header
         <DropdownMenuContent id="scrollableDiv" className="w-80 h-fit mr-4 overflow-y-auto">
           <div className="bg-maroon-700 text-white px-5 py-3 font-semibold flex items-center gap-1">
             <span>Notifications</span>
@@ -82,7 +79,7 @@ export default function NotificationDropDown() {
             </button>
           </div>
 
-          //* Notification List with Infinite Scroll
+           {/* Notification List with Infinite Scroll */}
                 <InfiniteScroll
         dataLength={notifications.length}
          next={fetchNextPage}
@@ -95,7 +92,7 @@ export default function NotificationDropDown() {
              </p>
             }
           >
-            //* Loading State, Empty State, and Notification Items 
+            {/* Loading State, Empty State, and Notification Items  */}
           {isLoading ? (
             <div className="p-4 space-y-4">
                 <div  className="flex gap-3 px-4 py-3">
@@ -125,7 +122,7 @@ export default function NotificationDropDown() {
                           {notification.body}
                         </p>
                       </div>
-        //* Dropdown Menu for Each Notification */
+        {/* Dropdown Menu for Each Notification */}
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon" className="h-8 w-8 -mt-1">
