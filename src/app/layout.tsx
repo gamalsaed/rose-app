@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
-import { Sarabun, Tajawal } from "next/font/google";
 import "./globals.css";
+<<<<<<< HEAD
 import Providers from "@/components/providers/Provider";
 
 // Layouts
@@ -20,12 +19,15 @@ const tajawal = Tajawal({
   weight: ["200", "300", "400", "500", "700", "800", "900"],
   variable: "--font-tajawal",
 });
+=======
+>>>>>>> 3c35f48b304ac573556e7973cd223a2657b7efad
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+<<<<<<< HEAD
   return (
     <html lang="en">
       <body
@@ -38,4 +40,7 @@ export default function RootLayout({
       </body>
     </html>
   );
+=======
+  return children;
+>>>>>>> 3c35f48b304ac573556e7973cd223a2657b7efad
 }

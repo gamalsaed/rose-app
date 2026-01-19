@@ -1,5 +1,6 @@
 import { User } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 export default function UserDropDown() {
   return (
     <Link href="#" className=" flex gap-1 cursor-pointer">
