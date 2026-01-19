@@ -62,12 +62,12 @@ export default async function LocaleLayout({
       >
         <Providers>
           {/* TODO: move header and footer to a separate home page layout */}
-          <Header />
+          {/* <Header /> */}
 
           {children}
           <Toaster />
 
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>

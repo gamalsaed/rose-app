@@ -1,6 +1,26 @@
 {
-  "i18n-ally.localesPaths": ["src/i18n/messages"],
-  "i18n-ally.enabledFrameworks": ["next-intl"],
+  "i18n-ally.localesPaths": [
+    "src/i18n/messages"
+  ],
+  "i18n-ally.enabledFrameworks": [
+    "next-intl"
+  ],
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.annotationMaxLength": 100
+  "i18n-ally.annotationMaxLength": 100,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
