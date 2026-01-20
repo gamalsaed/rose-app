@@ -4,7 +4,13 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utilits/cn";
 export default function GiftCard() {
+   //translation
+    const t = useTranslations('banner');
+    const locale = useLocale();
+    const isRTL = locale === "ar";
   return (
     <>
       <div className="rounded-xl  relative overflow-hidden">
@@ -20,13 +26,13 @@ export default function GiftCard() {
         {/* Overlay content on top of the image */}
 
         <div className="left-6 top-64 absolute">
-          <Badge variant="warning">Staring from 10.99 EGP</Badge>
+          <Badge variant="warning" className="capitalize">{t('badge')}</Badge>
           <p className="font-semibold text-2xl mt-3 text-white w-64 h-20">
-            Special Gifts For The People You Love
+            {t('special-gifts')}
           </p>
           <Link href="/products">
-            <Button variant="secondary">
-              Shop Now <ArrowRight aria-hidden="true" />
+            <Button variant="secondary" className="px-4 py-2 mt-2 h-9 w-[8.125rem] capitalize">
+              {t('shop-now')} <ArrowRight className={cn(isRTL && "rotate-180")} aria-hidden="true" />
             </Button>
           </Link>
         </div>
