@@ -24,7 +24,6 @@ export default function PaginationTest() {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={(page) => setCurrentPage(page)}
-        // direction="rtl" // Uncomment to test RTL
       />
       <PassInput />
     </div>
