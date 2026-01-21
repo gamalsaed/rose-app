@@ -28,6 +28,9 @@ export default function UserDropDown() {
 
   // Variables
   const isLoggedIn = !!session?.user;
+  const handleLogout = async () => {
+    logout();
+  };
 
   return isLoggedIn ? (
     <DropdownMenu>
@@ -66,7 +69,7 @@ export default function UserDropDown() {
         <DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Button variant="ghost" onClick={() => logout()}>
+            <Button variant="ghost" onClick={handleLogout}>
               <LogOut size={18} className="me-1" />
               {t('homepage.logout-cta')}
             </Button>
