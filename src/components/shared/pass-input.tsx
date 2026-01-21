@@ -14,7 +14,7 @@ export default function PassInput() {
     <div className="relative flex items-center">
       <Input type={!isVisible ? "password" : "text"} placeholder="**********" />
       <span
-        className="absolute right-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
+        className="absolute rtl:left-4 ltr:right-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
         onClick={handleVisible}
       >
         {isVisible ? (

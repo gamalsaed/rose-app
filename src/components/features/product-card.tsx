@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ShoppingCart, Eye, Heart } from "lucide-react";
 import StarRating from "../shared/star-rating";
+import { useTranslations } from "next-intl";
 
 // Get styles based on badge name
 const getBadgeStyles = (text: string) => {
@@ -39,6 +40,9 @@ export default function ProductCard({
   sold,
   createdAt,
 }: ProductProps) {
+  // Translation
+  const t = useTranslations();
+
   // --- DYNAMIC BADGE LOGIC ---
   const displayBadges: string[] = [...(badges || [])];
 
@@ -103,7 +107,7 @@ export default function ProductCard({
               <span
                 key={index}
                 className={`cursor-pointer rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider transition-colors ${getBadgeStyles(
-                  badge
+                  badge,
                 )}`}
               >
                 {badge}
@@ -129,17 +133,17 @@ export default function ProductCard({
         {/* price */}
         <div className="flex items-center gap-2 text-[16px] font-bold">
           <span className="text-maroon-700 dark:text-softPink-200">
-            {priceAfterDiscount} EGP
+            {t("price", { amount: priceAfterDiscount })}
           </span>
           <span className="text-[14px] text-gray-400 dark:text-gray-500 line-through">
-            {price} EGP
+            {t("price", { amount: price })}
           </span>
         </div>
 
         {/* ADD TO CART */}
         <button
           type="button"
-          className="absolute bottom-0 right-0 flex h-[40px] w-[40px] items-center justify-center rounded-full transition-colors bg-maroon-600 text-white dark:bg-maroon-500 dark:text-maroon-50 hover:bg-maroon-700"
+          className="absolute bottom-0 end-0 flex h-[40px] w-[40px] items-center justify-center rounded-full transition-colors bg-maroon-600 text-white dark:bg-maroon-500 dark:text-maroon-50 hover:bg-maroon-700"
           aria-label="Add to cart"
         >
           <ShoppingCart size={24} />
