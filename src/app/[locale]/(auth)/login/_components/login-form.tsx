@@ -70,6 +70,7 @@ export function LoginForm() {
           control={form.control}
           name="email"
           render={({ field, fieldState: { error } }) => (
+            // TODO: Replace FormItem with InputWrapper reusable component when merged on dev
             <FormItem className="mb-4">
               <FormLabel>{t('auth.email')}</FormLabel>
 
@@ -92,6 +93,7 @@ export function LoginForm() {
           control={form.control}
           name="password"
           render={({ field, fieldState: { error } }) => (
+            // TODO: Replace FormItem with InputWrapper reusable component when merged on dev
             <FormItem className="mb-2.5">
               <FormLabel>{t('auth.password')}</FormLabel>
 
@@ -112,7 +114,7 @@ export function LoginForm() {
 
         {/* Forgot password */}
         <Link
-          href={'/forgot-password'}
+          href={'/forgot-password'} // TODO: Validate that this is the correct route for forgot password when merged on dev
           className="text-sm font-semibold ms-auto mb-6 text-maroon-700 dark:text-softPink-300"
         >
           {t('auth.forgot-your-password')}
@@ -145,7 +147,7 @@ export function LoginForm() {
           {t.rich('auth.do-not-have-account', {
             cta: (chunks: React.ReactNode) => (
               <Link
-                href="/signup"
+                href="/signup" // TODO: Validate that this is the correct route for signup when merged on dev
                 className="text-maroon-700 dark:text-softPink-300"
               >
                 {chunks}
