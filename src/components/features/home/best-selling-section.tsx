@@ -47,8 +47,7 @@ export default function BestSellingSection({
                 {t("best-selling.headline-accent-1")}
               </span>{" "}
               {t("best-selling.headline-main")} <br />
-              {t("best-selling.headline-accent-2")}
-              <br />{" "}
+              {t("best-selling.headline-accent-2")}{" "}
               <span className="text-softPink-500 dark:text-maroon-400">
                 {t("best-selling.headline-main-2")}
               </span>{" "}
