@@ -1,10 +1,9 @@
 declare type SuccessResponse<T> = {
-  message: "success";
+  message: 'success';
 } & T;
 
 declare type ErrorResponse = {
-  message: string;
-  code: number;
+  error: string;
 };
 
 declare type ApiResponse<T> = ErrorResponse | SuccessResponse<T>;
