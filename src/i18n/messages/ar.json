@@ -12,5 +12,19 @@
   },
   "shared": {
     "language-switcher": "English"
+  },
+  "auth": {
+    "login-meta-title": "تسجيل الدخول - ورود",
+    "welcome-back": "مرحبا بعودتك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot-your-password": "هل نسيت كلمة المرور؟",
+    "remember-me": "تذكرني",
+    "login": "تسجيل الدخول",
+    "do-not-have-account": "ليس لديك حساب؟ <cta>إنشاء حساب الآن!</cta>",
+    "email-required": "البريد الإلكتروني مطلوب",
+    "email-invalid": "البريد الإلكتروني غير صالح",
+    "password-required": "كلمة المرور مطلوبة",
+    "login-fallback-error": "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى."
   }
 }

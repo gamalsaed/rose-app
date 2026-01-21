@@ -12,5 +12,19 @@
   },
   "shared": {
     "language-switcher": "العربية"
+  },
+  "auth": {
+    "login-meta-title": "Rose App - Login",
+    "welcome-back": "Welcome Back",
+    "email": "Email",
+    "password": "Password",
+    "forgot-your-password": "Forgot your password?",
+    "remember-me": "Remember me",
+    "login": "Login",
+    "do-not-have-account": "Don't have an account? <cta>Create one now!</cta>",
+    "email-required": "Email is required",
+    "email-invalid": "Please enter a valid email address",
+    "password-required": "Password is required",
+    "login-fallback-error": "Failed to login, please try again."
   }
 }
