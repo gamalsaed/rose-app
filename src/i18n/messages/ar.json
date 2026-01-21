@@ -6,12 +6,14 @@
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
   },
-  "homepage": {
-    "testimonials-title": "آراء العملاء",
-    "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام"
-  },
   "shared": {
     "language-switcher": "English"
+  },
+  "homepage": {
+    "testimonials-title": "آراء العملاء",
+    "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام",
+    "hello-user": "مرحبا <span>{name}</span>",
+    "logout-cta": "تسجيل الخروج"
   },
   "auth": {
     "login-meta-title": "تسجيل الدخول - ورود",
@@ -25,6 +27,7 @@
     "email-required": "البريد الإلكتروني مطلوب",
     "email-invalid": "البريد الإلكتروني غير صالح",
     "password-required": "كلمة المرور مطلوبة",
-    "login-fallback-error": "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى."
+    "login-fallback-error": "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى.",
+    "logout-fallback-error": "فشل تسجيل الخروج، يرجى المحاولة مرة أخرى."
   }
 }

@@ -6,12 +6,14 @@
     "title": "404 - Not Found",
     "description": "The page you’re looking for doesn’t exist or may have been moved."
   },
-  "homepage": {
-    "testimonials-title": "testimonials",
-    "testimonials-subtitle": "Real Words from Happy Customers"
-  },
   "shared": {
     "language-switcher": "العربية"
+  },
+  "homepage": {
+    "testimonials-title": "testimonials",
+    "testimonials-subtitle": "Real Words from Happy Customers",
+    "hello-user": "Hello <span>{name}</span>",
+    "logout-cta": "Log Out"
   },
   "auth": {
     "login-meta-title": "Rose App - Login",
@@ -25,6 +27,7 @@
     "email-required": "Email is required",
     "email-invalid": "Please enter a valid email address",
     "password-required": "Password is required",
-    "login-fallback-error": "Failed to login, please try again."
+    "login-fallback-error": "Failed to login, please try again.",
+    "logout-fallback-error": "Failed to logout, please try again."
   }
 }
