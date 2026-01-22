@@ -12,5 +12,49 @@
   },
   "shared": {
     "language-switcher": "العربية"
+  },
+  "register": {
+    "firstName": {
+      "min": "First name is too short",
+      "max": "First name is too long",
+      "label": "First name",
+      "placeholder": "Jonathan"
+    },
+    "lastName": {
+      "min": "Last name is too short",
+      "max": "Last name is too long",
+      "label": "Last name",
+      "placeholder": "Adrian"
+    },
+    "email": {
+      "invalid": "Invalid email address",
+      "label": "Email",
+      "placeholder": "user@example.com"
+    },
+    "phone": {
+      "invalid": "Invalid phone number",
+      "label": "Phone",
+      "placeholder": "1012345678"
+    },
+    "gender": {
+      "required": "Gender is required",
+      "label": "Gender",
+      "placeholder": "Select gender"
+    },
+    "password": {
+      "min": "Password must be at least 8 characters",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "special": "Password must contain at least one special character",
+      "label": "Password"
+    },
+    "rePassword": {
+      "match": "Passwords do not match",
+      "label": "Confirm Password"
+    },
+    "createAcc": "Create Account",
+    "registerMsg": "Already have an account?",
+    "login": "Login",
+    "register-title": "Become part of our family!"
   }
 }

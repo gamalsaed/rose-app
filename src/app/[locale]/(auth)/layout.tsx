@@ -10,26 +10,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     `;
 
   return (
-    <div className="flex h-screen w-screen">
+    <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
       {/* Left */}
-      <div className="flex w-1/2 max-md:w-full items-center justify-center">
-        <div className="flex flex-col items-center relative">
-          <div className="absolute -top-20 rtl:left-0 ltr:right-0 ">
-            <LanguageSwitcher />
+      <div className="flex justify-center py-10">
+        <div className="w-full max-w-md my-auto ">
+          <div className="w-full flex flex-col items-center">
+            {/* Language */}
+            <div className="w-full rtl:text-left ltr:text-right">
+              <LanguageSwitcher />
+            </div>
+
+            <div className={cn(SeparatorClass, "mb-8")} />
+
+            {children}
+
+            <div className={cn(SeparatorClass, "rotate-180 mt-8")} />
           </div>
-          <div className={cn(SeparatorClass)} />
-          {children}
-          <div className={cn(SeparatorClass, "rotate-180")} />
         </div>
       </div>
 
       {/* Right */}
-      <div className="relative max-md:hidden w-1/2">
+      <div className="relative hidden lg:block">
         <Image
           src="/assets/images/auth/authside.svg"
           alt="side Image"
           fill
-          className="object-cover "
+          className="object-cover"
           priority
         />
       </div>
