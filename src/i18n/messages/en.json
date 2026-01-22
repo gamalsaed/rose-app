@@ -20,38 +20,58 @@
     "special-gifts": "Special Gifts For The People You Love",
     "shop-now": "shop now",
     "badge": "Staring from 10.99 EGP"
-
   },
   "occasions": {
-  "wedding": {
-    "badge": "Wedding",
-    "text": "Celebrate Her Forever with a Gift She’ll Always Remember"
+    "wedding": {
+      "badge": "Wedding",
+      "text": "Celebrate Her Forever with a Gift She’ll Always Remember"
+    },
+    "engagement": {
+      "badge": "Engagement",
+      "text": "Honor the Beginning of a Beautiful Journey Together"
+    },
+    "anniversary": {
+      "badge": "Anniversary",
+      "text": "Mark Every Year of Love with a Meaningful Surprise"
+    }
   },
-  "engagement": {
-    "badge": "Engagement",
-    "text": "Honor the Beginning of a Beautiful Journey Together"
+  "features": {
+    "freeDelivery": {
+      "title": "Free Delivery",
+      "description": "For orders above 120 EGP"
+    },
+    "getRefund": {
+      "title": "Get Refund",
+      "description": "Refunds within 30 days"
+    },
+    "safePayment": {
+      "title": "Safe Payment",
+      "description": "100% Secure Payment"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Contact us at any time"
+    }
   },
-  "anniversary": {
-    "badge": "Anniversary",
-    "text": "Mark Every Year of Love with a Meaningful Surprise"
+  "auth": {
+    "forgot-password-page-title": "Forgot Password ?",
+    "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
+    "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
+    "email-required": "Your Email is required",
+    "invalid-email": "Not a valid email",
+    "email": "Email",
+    "otp-sent-successfull": "OTP sent to your email",
+    "continue": "Continue",
+    "password-required": "Password is required",
+    "repassword-required": "rePassword is required",
+    "invalid-password": "Your Password must be 8 characters long , contains at least 1 uppercase ,1 lowercase and 1 number",
+    "passwords-match": "Passwords do not match",
+    "password-reset-successful": "Your password has been successfully reset.",
+    "password": "Password",
+    "re-password": "Confirm Password",
+    "reset-password": "Reset Password",
+    "new-password-page-title": "Create a new password",
+    "new-password-page-desc": "Set a strong password to secure your account.",
+    "need-help": "Need help? <a>Contact Us </a>"
   }
-},
-"features": {
-  "freeDelivery": {
-    "title": "Free Delivery",
-    "description": "For orders above 120 EGP"
-  },
-  "getRefund": {
-    "title": "Get Refund",
-    "description": "Refunds within 30 days"
-  },
-  "safePayment": {
-    "title": "Safe Payment",
-    "description": "100% Secure Payment"
-  },
-  "support": {
-    "title": "24/7 Support",
-    "description": "Contact us at any time"
-  }
-}
 }
