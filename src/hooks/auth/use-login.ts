@@ -5,7 +5,7 @@ import { LoginFields } from '@/lib/types/auth';
 import { signIn } from 'next-auth/react';
 import { getPathnameWithLocale } from '@/i18n/navigation';
 
-import { DEFAULT_AUTHORIZED_ROUTE } from '@/lib/constants/navigation.constants';
+import { DEFAULT_ROUTE } from '@/lib/constants/navigation.constants';
 
 export function useLogin() {
   // * translation
@@ -32,7 +32,7 @@ export function useLogin() {
     onSuccess: () => {
       const callbackUrl =
         new URLSearchParams(location.search).get('callbackUrl') ||
-        getPathnameWithLocale(locale, DEFAULT_AUTHORIZED_ROUTE);
+        getPathnameWithLocale(locale, DEFAULT_ROUTE);
 
       // * refresh the page and make sure date is updated correctly
       window.location.href = callbackUrl;

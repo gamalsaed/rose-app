@@ -1,5 +1,8 @@
-export const DEFAULT_AUTHORIZED_ROUTE = '/';
+export const DEFAULT_ROUTE = '/'; // Home page
 
-export const DEFAULT_PUBLIC_ROUTE = '/';
+export const SYSTEM_ROUTES = ['/unauthorized', '/not-found', '/error'];
 export const AUTH_ROUTES = ['/login', '/signup', '/forgot-password'];
-export const PUBLIC_ROUTES = [...AUTH_ROUTES, '/']; // * kept for future use and extendability
+export const PUBLIC_ROUTES = [...AUTH_ROUTES, DEFAULT_ROUTE];
+export const PROTECTED_ROUTES = [
+  // TODO: Add protected routes here, except for the home page
+];
