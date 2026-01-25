@@ -40,15 +40,17 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    jwt: ({ token, user }) => ({
-      // * user & token provided by authorize callback return
-      ...token,
-      ...(user ? { accessToken: user?.accessToken, user: user.user } : {}),
-    }),
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.user = user.user;
+        token.token = user.accessToken;
+      }
+
+      return token;
+    },
     session: ({ session, token }) => {
       return {
         ...session,
-        // * don't pass the accessToken to the session as it could be vulnerable on the client side
         user: token.user,
       };
     },

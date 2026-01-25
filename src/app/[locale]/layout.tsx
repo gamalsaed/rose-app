@@ -64,7 +64,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body
         className={`${sarabun.variable} ${tajawal.variable} ${edwardianScript.variable} antialiased dark:bg-zinc-800 `}
       >

@@ -31,13 +31,13 @@ export function LoginForm() {
   const t = useTranslations();
 
   // Hooks
-  const schema = useMemo(
+  const loginSchema = useMemo(
     () => createLoginSchema(t as (key: string) => string),
     [t]
   );
 
   const form = useForm<LoginFields>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',

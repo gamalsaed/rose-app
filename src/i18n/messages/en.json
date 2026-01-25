@@ -7,7 +7,8 @@
     "description": "The page you’re looking for doesn’t exist or may have been moved."
   },
   "shared": {
-    "language-switcher": "العربية"
+    "language-switcher": "العربية",
+    "general-error-message": "Something went wrong!"
   },
   "homepage": {
     "testimonials-title": "testimonials",

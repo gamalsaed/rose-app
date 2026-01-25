@@ -69,7 +69,11 @@ export default function UserDropDown() {
         <DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Button variant="ghost" onClick={handleLogout}>
+            <Button
+              variant="ghost"
+              onClick={handleLogout}
+              className="w-full justify-start"
+            >
               <LogOut size={18} className="me-1" />
               {t('homepage.logout-cta')}
             </Button>

@@ -7,7 +7,8 @@
     "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
   },
   "shared": {
-    "language-switcher": "English"
+    "language-switcher": "English",
+    "general-error-message": "حدث خطأ ما!"
   },
   "homepage": {
     "testimonials-title": "آراء العملاء",
