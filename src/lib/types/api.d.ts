@@ -3,8 +3,7 @@ declare type SuccessResponse<T> = {
 } & T;
 
 declare type ErrorResponse = {
-  message: string;
-  code: number;
+  error: string;
 };
 
 declare type ApiResponse<T> = ErrorResponse | SuccessResponse<T>;
