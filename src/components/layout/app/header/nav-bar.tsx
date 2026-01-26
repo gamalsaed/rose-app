@@ -1,5 +1,5 @@
 import NavLink from "./nav-link";
-import { NAV_DATA } from "@/lib/constants/paths";
+import { NAV_DATA } from "@/lib/constants/paths.constants";
 
 export default function NavBar() {
   return (
