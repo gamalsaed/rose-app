@@ -12,5 +12,32 @@
   },
   "shared": {
     "language-switcher": "English"
-  }
+  },
+  "forgotpassword": "نسيت كلمة المرور",
+  "forgot your password": "هل نسيت كلمة المرور",
+  "Create a new password": "ادخل الرقم السرى الجديد",
+  "Enter the code we sent": "ادخل الرمز المرسل اليك",
+  "forgot-password": {
+    "steps": {
+      "email": {
+        "description": "لا تقلق سنرسل لك تعليمات لكى تستعيد الرقم السرى"
+      },
+      "otp": {
+        "description": "تم ارسال كود مكون من 6 ارقام الى {email} <button>تعديل</button>"
+      },
+      "new-password": {
+        "description": "انشأ رقم سرى قوى لتأمين حسابك\n"
+      }
+    },
+    "footer": "ليس لديك حساب . <a>تسجيل الدخول</a>"
+  },
+  "otp is required": "ادخل الكود المرسل اليك",
+  "otp": {
+    "label": "رمز التحقق",
+    "verfiy": "تأكيد الكود"
+  },
+  "password-rest": "تم نجاح تغيير الرقم السرى",
+  "resend-otp": "لم يصلك الكود <button>اعادة الارسال</button>",
+  "try-send-it-again": "خطأ فى ارسال الكود",
+  "request-another-code": "يمكنك طلب كود أخر فى {seconds , plural , =0 {# ثانيه} , =1 {1 ثانيه} other {# ثانيه} ,{seconds: countdown}"
 }

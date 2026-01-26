@@ -12,5 +12,31 @@
   },
   "shared": {
     "language-switcher": "العربية"
-  }
+  },
+  "forgot your password": "Forgot password",
+  "Enter the code we sent": "Enter the OTP code",
+  "Create a new password": "Creat new password",
+  "forgot-password": {
+    "steps": {
+      "email": {
+        "description": "Worry not, we’ll send you instructions to help you reset it."
+      },
+      "otp": {
+        "description": "We have sent a 6-digit code to {email} <button>Edit</button>"
+      },
+      "new-password": {
+        "description": "Set a strong password to secure your account"
+      }
+    },
+    "footer": "Don’t have an account yet? Create one now!"
+  },
+  "otp is required": "OTP is required",
+  "otp": {
+    "label": "OTP code",
+    "verfiy": "Verify OTP"
+  },
+  "password-rest": "Your password has been successfuly reset",
+  "resend-otp": "didn't recieve your code <button>Resend</button>",
+  "try-send-it-again": "error sending your code!",
+  "request-another-code": "You can request another code in {seconds , plural , =0 {# seconds} , =1 {1 seconds} other {# seconds} ,{seconds: countdown}"
 }
