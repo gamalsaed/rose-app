@@ -7,7 +7,7 @@ import NewPasswordStep from "./_components/new-password-step";
 export default function page() {
   return (
     <main className="flex flex-col justify-center items-center h-screen">
-      <EmailStep />
+      <NewPasswordStep />
     </main>
   );
 }

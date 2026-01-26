@@ -28,12 +28,14 @@ interface EmailStepProps {
 }
 
 export default function EmailStep() {
-  //translation
+ // Translation
   const t = useTranslations("auth");
-  // hooks
-  //const {storedValue:otpCooldown,setValue} = useLocaleStore(OTP_COOLDOWN_KEY,null);
+
+  // Hooks
+  // const {storedValue:otpCooldown,setValue} = useLocaleStore(OTP_COOLDOWN_KEY,null);
   const { forgetPassword, isPending, error } = useForgetPassword();
-  //form
+
+  // Form & validation
   const form = useForm<forgetPasswordFormFields>({
     defaultValues: {
       // email:email|""
@@ -41,15 +43,16 @@ export default function EmailStep() {
     },
     resolver: zodResolver(forgetPasswordFormSchema(t)),
   });
-  //Functions
+
+  // Functions
   const onSubmit: SubmitHandler<forgetPasswordFormFields> = (values) => {
     // TODO: check for cooldown
     // if (otpCooldown) {
-    //store email in the state of the parent component
+    // store email in the state of the parent component
     // setEmail(values.email);
-    //   move to the next step once cooldown is not experied
-    //   setStep(FORGOT_PASSWORD_STEPS.OTP);
-    //   return;
+    // move to the next step once cooldown is not experied
+    // setStep(FORGOT_PASSWORD_STEPS.OTP);
+    // return;
     // }
 
     forgetPassword(values);
@@ -59,13 +62,12 @@ export default function EmailStep() {
     // Todo: set the cooldown
     //const nextAllowedTime = Date.now(Date.now() + OTP_COOLDOWN_TIME) ;
     //setValue(nextAllowedTime.toISOString());
-   
+
     // TODO: move to the next step
     // setStep(FORGOT_PASSWORD_STEPS.OTP);
   };
   return (
     // TODO: headline & description will be dynamic based on current step in the flow currently using static values just for testing
-
     <>
       {/* Headline */}
       <div className="headline capitalize text-zinc-800 w-[25.375rem] mx-auto mb-6 dark:text-zinc-50 ">
@@ -76,7 +78,7 @@ export default function EmailStep() {
           {t("forgot-password-page-desc")}
         </p>
       </div>
-      {/*Forget password form*/}
+      {/* Forget password form */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -103,13 +105,13 @@ export default function EmailStep() {
               </FormItem>
             )}
           ></FormField>
-          {/*Feedback*/}
+          {/* Feedback */}
           {error && (
             <SubmissionFeedback className="mt-4">
               {error.message}
             </SubmissionFeedback>
           )}
-          {/*Submit button*/}
+          {/* Submit button */}
           <Button
             loading={isPending}
             disabled={!form.formState.isValid && form.formState.isSubmitted}
@@ -121,7 +123,7 @@ export default function EmailStep() {
           </Button>
         </form>
       </Form>
-      {/*Footer*/}
+      {/* Footer */}
       <p className="text-zinc-800 font-medium  text-sm dark:text-zinc-50 mt-5">
         {t.rich("forgot-password-page-footer", {
           a: (chunk) => (

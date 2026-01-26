@@ -84,6 +84,7 @@ export default function NewPasswordStep() {
                     placeholder="*********"
                     {...field}
                     autoComplete="new-password"
+                    type="password"
                     className="rounded-lg w-full border-b text-sm font-normal border-zinc-300 p-4 text-zinc-400 "
                   />
                 </FormControl>
@@ -105,6 +106,7 @@ export default function NewPasswordStep() {
                     placeholder="**********"
                     {...field}
                     autoComplete="new-password"
+                    type="password"
                     className="rounded-lg w-full border-b text-sm font-normal border-zinc-300 p-4 text-zinc-400"
                   />
                 </FormControl>

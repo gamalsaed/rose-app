@@ -5,7 +5,7 @@ import {
   ForgotPasswordResponse,
 } from "@/lib/types/auth";
 
-export async function handleForgetPassword(values: forgetPasswordFormFields) {
+export async function forgotPasswordAction(values: forgetPasswordFormFields) {
   const res = await fetch(`${process.env.BASE_API}auth/forgotPassword`, {
     method: "POST",
     body: JSON.stringify(values),
