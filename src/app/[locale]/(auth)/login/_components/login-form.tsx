@@ -147,7 +147,7 @@ export function LoginForm() {
           {t.rich('auth.do-not-have-account', {
             cta: (chunks: React.ReactNode) => (
               <Link
-                href="/signup" // TODO: Validate that this is the correct route for signup when merged on dev
+                href="/register"
                 className="text-maroon-700 dark:text-softPink-300"
               >
                 {chunks}

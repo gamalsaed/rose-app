@@ -60,7 +60,7 @@ export default withAuth(
     }
 
     // * Auth routes
-    // - if not logged in -> allow (show login/signup/forgot)
+    // - if not logged in -> allow (show login/register/forgot)
     if (!token) return intlResponse;
 
     // - if logged in -> redirect away from auth pages
