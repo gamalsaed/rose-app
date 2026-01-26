@@ -1,6 +1,7 @@
 import { getRequestConfig } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing } from "./routing";
+import { cookies } from "next/headers";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // variables
@@ -9,6 +10,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requestedLocale
     : routing.defaultLocale;
   const numberingSystem = locale === "ar" ? "arab" : "latn";
+
 
   return {
     locale,

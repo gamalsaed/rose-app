@@ -5,7 +5,6 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { Sarabun, Tajawal } from "next/font/google";
 import Providers from "@/components/providers";
-
 import { Toaster } from "@/components/ui/toaster";
 // Layouts
 import Header from "@/components/layout/app/header/header";
@@ -54,21 +53,17 @@ export default async function LocaleLayout({
 
   // Enable static rendering
   setRequestLocale(locale);
-
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
       >
-        <Providers>
-          {/* TODO: move header and footer to a separate home page layout */}
-          <Header />
-
-          {children}
-          <Toaster />
-
-          <Footer />
-        </Providers>
+          <Providers>
+            <Header />
+            {children}
+            <Toaster />
+            <Footer />
+          </Providers>
       </body>
     </html>
   );
