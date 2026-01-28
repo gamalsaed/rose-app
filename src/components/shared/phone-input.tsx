@@ -4,7 +4,7 @@ import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
-
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -35,19 +35,21 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
   React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
     ({ className, onChange, value, error, ...props }, ref) => {
       const [isFocused, setIsFocused] = React.useState(false);
+      const t = useTranslations("register");
       return (
         <div
-          className={`flex flex-col gap-2.5 w-full  group group  rounded-md  `}
+          className={`flex flex-col gap-1.5 w-full  group group  rounded-md  `}
         >
+          <p>{t("phone.label")}</p>
           <label
             className={cn(
               props.disabled && "border-none outline-none",
-              "group duration-200 w-full rounded-md border border-zinc-300 dark:border-zinc-600",
+              "group overflow-hidden duration-200 w-full rounded-md border border-zinc-300 dark:border-zinc-600",
               "transition-colors",
               !isFocused &&
                 "group-hover:border-zinc-400 dark:group-hover:border-zinc-500",
               isFocused && "border-maroon-600 dark:border-softPink-400",
-              error && " !border-red-600 dark:!border-red-500"
+              error && " !border-red-600 dark:!border-red-500",
             )}
           >
             <RPNInput.default
@@ -76,7 +78,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
           </label>
         </div>
       );
-    }
+    },
   );
 PhoneInput.displayName = "PhoneInput";
 
@@ -87,9 +89,9 @@ const InputComponent = React.forwardRef<
   <Input
     className={cn(
       "border-0 outline-none ring-0",
-      "rounded-bl-none rounded-tl-none rounded-r-md text-zinc-800 dark:text-zinc-50",
+      " rounded-none  text-zinc-800 dark:text-zinc-50",
       "dark:text-zinc-50",
-      className
+      className,
     )}
     {...props}
     autoFocus={isFocus}
@@ -129,7 +131,7 @@ const CountrySelect = ({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          className="flex gap-2 w-3/12 !rounded-l-md  !border-none rounded-none disabled:bg-zinc-100   ring-0 focus:z-10 bg-white dark:bg-zinc-700 hover:bg-white font-mono "
+          className="flex gap-2 w-3/12  border-none rounded-none disabled:bg-zinc-100   ring-0 focus:z-10 bg-white dark:bg-zinc-700 hover:bg-white font-mono "
           disabled={disabled}
           onMouseDown={(e) => e.preventDefault()}
         >
@@ -142,7 +144,7 @@ const CountrySelect = ({
             <span>
               (+
               {RPNInput.getCountryCallingCode(
-                selectedCountry === undefined ? "EG" : selectedCountry
+                selectedCountry === undefined ? "EG" : selectedCountry,
               )}
               )
             </span>
@@ -150,7 +152,7 @@ const CountrySelect = ({
           <ChevronsUpDown
             className={cn(
               "-mr-2 size-4 opacity-50 text-gray-500 ",
-              disabled ? "hidden" : "opacity-100"
+              disabled ? "hidden" : "opacity-100",
             )}
           />
         </Button>
@@ -164,7 +166,7 @@ const CountrySelect = ({
               setTimeout(() => {
                 if (scrollAreaRef.current) {
                   const viewportElement = scrollAreaRef.current.querySelector(
-                    "[data-radix-scroll-area-viewport]"
+                    "[data-radix-scroll-area-viewport]",
                   );
                   if (viewportElement) {
                     viewportElement.scrollTop = 0;
@@ -188,7 +190,7 @@ const CountrySelect = ({
                       onChange={onChange}
                       onSelectComplete={() => setIsOpen(false)}
                     />
-                  ) : null
+                  ) : null,
                 )}
               </CommandGroup>
             </ScrollArea>

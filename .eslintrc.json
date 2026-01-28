@@ -1,5 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier"
+  ],
   "rules": {
     "no-restricted-imports": [
       "error",
@@ -11,7 +15,11 @@
           },
           {
             "name": "next/navigation",
-            "importNames": ["usePathname", "useRouter", "redirect"],
+            "importNames": [
+              "usePathname",
+              "useRouter",
+              "redirect"
+            ],
             "message": "Please import from \"@/i18n/navigation\" instead of \"next/navigation\"."
           }
         ]

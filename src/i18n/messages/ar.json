@@ -12,5 +12,51 @@
   },
   "shared": {
     "language-switcher": "English"
+  },
+  "register": {
+    "firstName": {
+      "label": "الاسم الأول",
+      "placeholder": "محمد"
+    },
+    "lastName": {
+      "label": "اسم العائلة",
+      "placeholder": "أحمد"
+    },
+    "email": {
+      "label": "البريد الإلكتروني",
+      "placeholder": "user@example.com"
+    },
+    "phone": {
+      "label": "رقم الهاتف",
+      "placeholder": "01012345678"
+    },
+    "gender": {
+      "label": "النوع",
+      "placeholder": "اختر النوع"
+    },
+    "password": {
+      "label": "كلمة المرور"
+    },
+    "rePassword": {
+      "label": "تأكيد كلمة المرور"
+    },
+    "createAcc": "إنشاء حساب",
+    "registerMsg": "لديك حساب بالفعل؟",
+    "login": "تسجيل الدخول",
+    "register-title": "كن جزءًا من عائلتنا!",
+    "validation": {
+      "firstName-min": "الاسم الأول قصير جدًا",
+      "firstName-max": "الاسم الأول طويل جدًا",
+      "lastName-min": "اسم العائلة قصير جدًا",
+      "lastName-max": "اسم العائلة طويل جدًا",
+      "invalid-email": "البريد الإلكتروني غير صحيح",
+      "invalid-phone": "رقم الهاتف غير صحيح",
+      "gender-required": "النوع مطلوب",
+      "password-min": "كلمة المرور يجب ألا تقل عن 8 أحرف",
+      "password-uppercase": "يجب أن تحتوي على حرف كبير واحد على الأقل",
+      "password-number": "يجب أن تحتوي على رقم واحد على الأقل",
+      "password-special": "يجب أن تحتوي على رمز خاص واحد على الأقل",
+      "rePassword-match": "كلمتا المرور غير متطابقتين"
+    }
   }
 }

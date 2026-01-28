@@ -12,5 +12,52 @@
   },
   "shared": {
     "language-switcher": "العربية"
+  },
+  "register": {
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Jonathan"
+    },
+    "lastName": {
+      "label": "Last name",
+      "placeholder": "Adrian"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "user@example.com"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "1012345678"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "Select gender"
+    },
+    "password": {
+      "label": "Password"
+    },
+    "rePassword": {
+      "match": "Passwords do not match",
+      "label": "Confirm Password"
+    },
+    "createAcc": "Create Account",
+    "registerMsg": "Already have an account?",
+    "login": "Login",
+    "register-title": "Become part of our family!",
+    "validation": {
+      "firstName-min": "First name is too short",
+      "firstName-max": "First name is too long",
+      "lastName-min": "Last name is too short",
+      "lastName-max": "Last name is too long",
+      "invalid-email": "Invalid email address",
+      "invalid-phone": "Invalid phone number",
+      "gender-required": "Gender is required",
+      "password-min": "Password must be at least 8 characters",
+      "password-uppercase": "Password must contain at least one uppercase letter",
+      "password-number": "Password must contain at least one number",
+      "password-special": "Password must contain at least one special character",
+      "rePassword-match": "Passwords do not match"
+    }
   }
 }

@@ -5,11 +5,9 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { Sarabun, Tajawal } from "next/font/google";
 import Providers from "@/components/providers";
+import localFont from 'next/font/local';
 
 import { Toaster } from "@/components/ui/toaster";
-// Layouts
-import Header from "@/components/layout/app/header/header";
-import Footer from "@/components/layout/app/footer/footer";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -21,6 +19,16 @@ const tajawal = Tajawal({
   weight: ["200", "300", "400", "500", "700", "800", "900"],
   variable: "--font-tajawal",
 });
+
+const edwardianScript = localFont({
+  src: [
+    {
+      path: '../../../public/assets/fonts/Edwardian-Scriptitc.ttf',
+    },
+  ],
+  variable: '--font-edwardian',
+});
+
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -58,16 +66,16 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
+        className={`${sarabun.variable} ${tajawal.variable} ${edwardianScript.variable} antialiased dark:bg-zinc-800 `}
       >
         <Providers>
           {/* TODO: move header and footer to a separate home page layout */}
-          <Header />
+          {/* <Header /> */}
 
           {children}
           <Toaster />
 
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
