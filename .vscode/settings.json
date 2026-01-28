@@ -1,15 +1,15 @@
 {
-  "i18n-ally.localesPaths": [
-    "src/i18n/messages"
-  ],
-  "i18n-ally.enabledFrameworks": [
-    "next-intl"
-  ],
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.annotationMaxLength": 100,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
@@ -17,10 +17,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never",
+    "source.fixAll": "never"
   },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "i18n-ally.localesPaths": [
+    "src/i18n",
+    "src/i18n/messages"
+  ],
 }

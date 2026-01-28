@@ -15,7 +15,7 @@ import {
 interface SelectorProps extends React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Trigger
 > {
-  errorMessage?: string | undefined;
+  error?: boolean;
   label?: string;
   placeholder: string;
   className?: string;
@@ -36,7 +36,7 @@ export function Selector({
   data = [],
   onValueChange,
   placeholder,
-  errorMessage,
+  error,
   ...props
 }: SelectorProps) {
   return (
@@ -44,9 +44,7 @@ export function Selector({
       <div className="mb-1.5">{label}</div>
       <SelectTrigger
         className={cn(
-          errorMessage &&
-            errorMessage !== "register" &&
-            " border-red-600 dark:!border-red-500 ",
+          error && " border-red-600 dark:!border-red-500 ",
           "w-full focus:border-maroon-600  text-zinc-400 disabled:bg-zinc-100 dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:focus:border-softPink-400 dark:disabled:border-1 dark:disabled:bg-transparent dark:disabled:!border-zinc-700 disabled:border-transparent",
           className,
         )}
@@ -63,9 +61,6 @@ export function Selector({
           ))}
         </SelectGroup>
       </SelectContent>
-      <p className="text-red-600 dark:text-red-500 text-sm font-normal mt-1.5">
-        {errorMessage && errorMessage !== "register" && errorMessage}
-      </p>
     </Select>
   );
 }
