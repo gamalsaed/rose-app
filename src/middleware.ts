@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest, NextFetchEvent } from 'next/server';
 import { withAuth, NextRequestWithAuth } from 'next-auth/middleware';
 import createIntlMiddleware from 'next-intl/middleware';
-import { getLocaleAndBasePath, getPathnameWithLocale } from '@/i18n/navigation';
+import { getToken } from 'next-auth/jwt';
 import { routing } from '@/i18n/routing';
 
 import {
@@ -12,69 +12,94 @@ import {
   PROTECTED_ROUTES,
 } from './lib/constants/navigation.constants';
 
-const intlMiddleware = createIntlMiddleware(routing);
+function routesRegex(routes: string[]) {
+  return RegExp(
+    `^(/(${routing.locales.join('|')}))?(${routes
+      .flatMap(p => (p === '/' ? ['', '/'] : p))
+      .join('|')})/?$`,
+    'i'
+  );
+}
 
-export default withAuth(
-  function middleware(req: NextRequestWithAuth) {
-    const { pathname, origin } = req.nextUrl;
+const handleI18nRouting = createIntlMiddleware(routing);
 
-    // * handle next-intl redirect
-    const intlResponse = intlMiddleware(req);
-
-    if (intlResponse && intlResponse.status !== 200) {
-      return intlResponse;
-    }
-
-    //* Normalize path for auth checks
-    const { locale, basePath } = getLocaleAndBasePath(pathname);
-
-    const isSystemRoute = SYSTEM_ROUTES.includes(basePath);
-    const isAuthRoute = AUTH_ROUTES.includes(basePath);
-    const isPublicRoute = PUBLIC_ROUTES.includes(basePath);
-    const isProtectedRoute = PROTECTED_ROUTES.includes(basePath);
-
-    const token = req.nextauth.token;
-
-    // * System routes
-    if (isSystemRoute) {
-      return intlResponse;
-    }
-
-    // * Protected routes
-    if (isProtectedRoute) {
-      if (token) return intlResponse;
-
-      // Redirect to localized login
-      const loginPath = getPathnameWithLocale(locale, '/login');
-      const redirectUrl = new URL(loginPath, origin);
-
-      // Keep full original path (including locale) so callback returns correctly
-      redirectUrl.searchParams.set('callbackUrl', pathname);
-
-      return NextResponse.redirect(redirectUrl);
-    }
-
-    // * Public but not auth routes
-    if (isPublicRoute && !isAuthRoute) {
-      return intlResponse;
-    }
-
-    // * Auth routes
-    // - if not logged in -> allow (show login/register/forgot)
-    if (!token) return intlResponse;
-
-    // - if logged in -> redirect away from auth pages
-    const authorizedPath = getPathnameWithLocale(locale, DEFAULT_ROUTE);
-
-    return NextResponse.redirect(new URL(authorizedPath, origin));
+const authMiddleware = withAuth(
+  // Note that this callback is only invoked if
+  // the `authorized` callback has returned `true`
+  // and not for pages listed in `pages`.
+  function onSuccess(req) {
+    return handleI18nRouting(req);
   },
   {
     callbacks: {
-      // * Always authorize to handle redirects manually with locale support
-      authorized: () => true,
+      authorized: ({ token }) => token != null,
+    },
+    pages: {
+      signIn: '/login',
     },
   }
 );
+
+export default async function middleware(
+  req: NextRequest,
+  event: NextFetchEvent
+) {
+  const { pathname, origin } = req.nextUrl;
+
+  // * handle next-intl redirect
+  const intlResponse = handleI18nRouting(req);
+
+  if (intlResponse && intlResponse.status !== 200) {
+    return intlResponse;
+  }
+
+  //* Normalize path for auth checks
+
+  const publicRouteRegex = routesRegex(PUBLIC_ROUTES);
+  const isPublicRoute = publicRouteRegex.test(pathname);
+
+  const authRouteRegex = routesRegex(AUTH_ROUTES);
+  const isAuthRoute = authRouteRegex.test(pathname);
+
+  const protectedRouteRegex = routesRegex(PROTECTED_ROUTES);
+  const isProtectedRoute = protectedRouteRegex.test(pathname);
+
+  const systemRouteRegex = routesRegex(SYSTEM_ROUTES);
+  const isSystemRoute = systemRouteRegex.test(pathname);
+
+  const token = await getToken({ req });
+
+  // * System routes
+  if (isSystemRoute) {
+    return intlResponse;
+  }
+
+  // * Auth routes
+  if (isAuthRoute) {
+    const redirectUrl = new URL(DEFAULT_ROUTE, origin);
+
+    // - if logged in -> redirect away from auth pages
+    if (token) {
+      return NextResponse.redirect(redirectUrl);
+    }
+
+    // - if not logged in -> allow (show login/register/forgot)
+    return handleI18nRouting(req);
+  }
+
+  // * Public routes (No auth required)
+  if (isPublicRoute) {
+    return intlResponse;
+  }
+
+  // * Protected routes (Auth required)
+  if (isProtectedRoute) {
+    return authMiddleware(req as NextRequestWithAuth, event);
+  }
+
+  // * Default behavior - unknown routes (404)
+  return handleI18nRouting(req);
+}
 
 export const config = {
   // Match all pathnames except for
