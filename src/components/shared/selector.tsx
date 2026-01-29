@@ -16,6 +16,7 @@ interface SelectorProps extends React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Trigger
 > {
   error?: boolean;
+  label?: string;
   placeholder: string;
   className?: string;
   data: string[];
@@ -29,21 +30,23 @@ interface SelectorProps extends React.ComponentPropsWithoutRef<
 // Error true or false
 
 export function Selector({
-  error,
   className,
+  label,
   value = "",
   data = [],
   onValueChange,
   placeholder,
+  error,
   ...props
 }: SelectorProps) {
   return (
     <Select value={value} onValueChange={onValueChange}>
+      <div className="mb-1.5">{label}</div>
       <SelectTrigger
         className={cn(
           error && " border-red-600 dark:!border-red-500 ",
           "w-full focus:border-maroon-600  text-zinc-400 disabled:bg-zinc-100 dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:focus:border-softPink-400 dark:disabled:border-1 dark:disabled:bg-transparent dark:disabled:!border-zinc-700 disabled:border-transparent",
-          className
+          className,
         )}
         {...props}
       >
