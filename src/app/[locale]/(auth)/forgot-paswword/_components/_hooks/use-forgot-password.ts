@@ -5,15 +5,12 @@ import { sendOtpAction } from "@/lib/actions/auth.action";
 export default function useForgetPassword() {
   //translation
   const t = useTranslations();
-
-
-  // mutation
-  
+  // mutation 
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (email: string) => {
-      const payload = await sendOtpAction (email);
+      const payload = await sendOtpAction(email);
 
-      if (payload&&"error" in payload) {
+      if (payload && "error" in payload) {
         throw new Error(payload.error);
       }
       return payload;

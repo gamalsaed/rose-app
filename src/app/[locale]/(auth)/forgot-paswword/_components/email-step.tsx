@@ -1,4 +1,5 @@
 "use client";
+
 import { forgetPasswordFormFields, ForgotPasswordStep } from "@/lib/types/auth";
 import { useTranslations } from "next-intl";
 import React, { Dispatch, SetStateAction } from "react";
@@ -18,7 +19,11 @@ import Link from "next/link";
 import useForgetPassword from "./_hooks/use-forgot-password";
 import SubmissionFeedback from "@/components/shared/submission-feedback";
 import { forgetPasswordFormSchema } from "@/lib/schemas/auth-schema";
-import { FORGOT_PASSWORD_STEPS, OTP_COOLDOWN_KEY, OTP_COOLDOWN_TIME } from "@/lib/constants/auth.constants";
+import {
+  FORGOT_PASSWORD_STEPS,
+  OTP_COOLDOWN_KEY,
+  OTP_COOLDOWN_TIME,
+} from "@/lib/constants/auth.constants";
 import { useLocalStorage } from "@/hooks/shared/use-local-storage";
 
 // Ensure setStep is defined in the props
@@ -28,11 +33,15 @@ interface EmailStepProps {
   setEmail: Dispatch<SetStateAction<string | null>>;
 }
 
-export default function EmailStep({ email , setStep, setEmail }: EmailStepProps) {
+export default function EmailStep({
+  email,
+  setStep,
+  setEmail,
+}: EmailStepProps) {
   //translation
   const t = useTranslations();
   // hooks
-const [otpCooldown, setOtpCooldown] = useLocalStorage(OTP_COOLDOWN_KEY, null);
+  const [otpCooldown, setOtpCooldown] = useLocalStorage(OTP_COOLDOWN_KEY, null);
 
   //const {storedValue:otpCooldown,setValue} = useLocaleStore(OTP_COOLDOWN_KEY,null);
   const { sendOtp, isPending, error } = useForgetPassword();
@@ -50,20 +59,19 @@ const [otpCooldown, setOtpCooldown] = useLocalStorage(OTP_COOLDOWN_KEY, null);
       //store email in the state of the parent component
       setEmail(values.email);
       //   move to the next step once cooldown is not experied
-        setStep(FORGOT_PASSWORD_STEPS.OTP);
-          return;
+      setStep(FORGOT_PASSWORD_STEPS.OTP);
+      return;
     }
 
-    sendOtp(values.email,{
-      onSuccess : ()=>{
+    sendOtp(values.email, {
+      onSuccess: () => {
         setEmail(values.email);
         // set the cooldown
-       const nextAllowedTime = new Date(Date.now() + OTP_COOLDOWN_TIME);
+        const nextAllowedTime = new Date(Date.now() + OTP_COOLDOWN_TIME);
         setOtpCooldown(nextAllowedTime.toISOString());
-        setStep(FORGOT_PASSWORD_STEPS.OTP)
+        setStep(FORGOT_PASSWORD_STEPS.OTP);
       },
-    })
-  
+    });
   };
   return (
     // TODO: headline & description will be dynamic based on current step in the flow currently using static values just for testing
