@@ -58,5 +58,66 @@
       "password-special": "يجب أن تحتوي على رمز خاص واحد على الأقل",
       "rePassword-match": "كلمتا المرور غير متطابقتين"
     }
+  },
+  "banner": {
+    "title": "عبّر بالزهور ",
+    "description": "هدايا رائعة لكل مناسبة",
+    "buy-now": "تسوق الان",
+    "special-gifts": "هدايا خاصة للأشخاص الذين تحبهم",
+    "shop-now": "اشتري الآن",
+    "badge": "الأسعار تبدأ من 10.99 ج.م."
+  },
+  "occasions": {
+    "wedding": {
+      "badge": "الزفاف",
+      "text": "اجعل هذه اللحظة الخالدة أكثر تميزًا بهدية لا تُنسى"
+    },
+    "engagement": {
+      "badge": "الخطوبة",
+      "text": "احتفلوا ببداية قصة جميلة تجمع بينكما"
+    },
+    "anniversary": {
+      "badge": "الذكرى السنوية",
+      "text": "فاجئ من تحب بهدية تعبّر عن مشاعرك بصدق"
+    }
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "توصيل مجاني",
+      "description": "للطلبات التي تزيد عن 120 ج.م"
+    },
+    "getRefund": {
+      "title": "استرجاع سهل",
+      "description": "استرداد المبلغ خلال 30 يومًا"
+    },
+    "safePayment": {
+      "title": "دفع آمن",
+      "description": "معاملات آمنة بنسبة 100٪"
+    },
+    "support": {
+      "title": "دعم متواصل",
+      "description": "فريقنا متواجد لخدمتك على مدار الساعة"
+    }
+  },
+  "auth": {
+    "forgot-password-page-title": "اعادة تعيين كلمة المرور",
+    "forgot-password-page-desc": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه.",
+    "forgot-password-page-footer": " ليس لديك حساب؟ <a>  انشاء حساب الآن</a>",
+    "email-required": "البريد الإلكتروني الخاص بك مطلوب",
+    "invalid-email": "البريد الإلكتروني غير صالح",
+    "email": "البريد الالكتروني",
+    "otp-sent-successfull": "تم إرسال OTP إلى بريدك الإلكتروني",
+    "continue": "استمرار",
+    "password-required": "كلمة المرور مطلوبة",
+    "repassword-required": "تاكيد كلمة المرور مطلوبة",
+    "invalid-password": "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف، وتحتوي على حرف واحد كبير وحرف صغير ورقم واحد على الأقل",
+    "passwords-match": "كلمة المرور غير متطابقة",
+    "password-reset-successful": "تم تغيير كلمة المرور بنجاح",
+    "password": "كلمة المرور",
+    "re-password": "تاكيد كلمة المرور",
+    "reset-password": "اعادة تعيين كلمة المرور",
+    "new-password-page-title": "اعادة تعيين كلمة المرور",
+    "new-password-page-desc": "قم بتعيين كلمة مرور قوية لتأمين حسابك"
+
   }
 }
