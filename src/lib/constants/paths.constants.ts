@@ -5,37 +5,37 @@ import {
   PartyPopper,
   Headset,
   CircleAlert,
-} from "lucide-react";
+} from 'lucide-react';
 
 export const NAV_DATA = [
   {
     icon: House,
-    lable: "home",
-    path: "/",
+    lable: 'home',
+    path: '/',
   },
   {
     icon: Gift,
-    lable: "products",
-    path: "/products",
+    lable: 'products',
+    path: '/products',
   },
   {
     icon: ClipboardList,
-    lable: "categories",
-    path: "#",
+    lable: 'categories',
+    path: '#',
   },
   {
     icon: PartyPopper,
-    lable: "occasions",
-    path: "#",
+    lable: 'occasions',
+    path: '#',
   },
   {
     icon: Headset,
-    lable: "contact",
-    path: "#",
+    lable: 'contact',
+    path: '#',
   },
   {
     icon: CircleAlert,
-    lable: "about",
-    path: "#",
+    lable: 'about',
+    path: '#',
   },
 ];

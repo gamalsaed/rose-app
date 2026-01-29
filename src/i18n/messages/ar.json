@@ -6,12 +6,65 @@
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
   },
+  "shared": {
+    "language-switcher": "English",
+    "general-error-message": "حدث خطأ ما!"
+  },
   "homepage": {
     "testimonials-title": "آراء العملاء",
-    "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام"
+    "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام",
+    "hello-user": "مرحبا <span>{name}</span>",
+    "logout-cta": "تسجيل الخروج"
   },
-  "shared": {
-    "language-switcher": "English"
+  "auth": {
+    "login-meta-title": "تسجيل الدخول - ورود",
+    "welcome-back": "مرحبا بعودتك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot-your-password": "هل نسيت كلمة المرور؟",
+    "remember-me": "تذكرني",
+    "login": "تسجيل الدخول",
+    "do-not-have-account": "ليس لديك حساب؟ <cta>إنشاء حساب الآن!</cta>",
+    "email-required": "البريد الإلكتروني مطلوب",
+    "email-invalid": "البريد الإلكتروني غير صالح",
+    "password-required": "كلمة المرور مطلوبة",
+    "login-fallback-error": "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى.",
+    "logout-fallback-error": "فشل تسجيل الخروج، يرجى المحاولة مرة أخرى.",
+    "forgot-password-page-title": "اعادة تعيين كلمة المرور",
+    "forgot-password-page-desc": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه.",
+    "forgot-password-page-footer": " ليس لديك حساب؟ <a>  انشاء حساب الآن</a>",
+    "invalid-email": "البريد الإلكتروني غير صالح",
+    "otp-sent-successfull": "تم إرسال OTP إلى بريدك الإلكتروني",
+    "continue": "استمرار",
+    "repassword-required": "تاكيد كلمة المرور مطلوبة",
+    "invalid-password": "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف، وتحتوي على حرف واحد كبير وحرف صغير ورقم واحد على الأقل",
+    "passwords-match": "كلمة المرور غير متطابقة",
+    "password-reset-successful": "تم تغيير كلمة المرور بنجاح",
+    "re-password": "تاكيد كلمة المرور",
+    "reset-password": "اعادة تعيين كلمة المرور",
+    "new-password-page-title": "اعادة تعيين كلمة المرور",
+    "new-password-page-desc": "قم بتعيين كلمة مرور قوية لتأمين حسابك",
+    "forgot your password": "هل نسيت كلمة المرور",
+    "forgot-password": {
+      "steps": {
+        "email": {
+          "description": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه."
+        },
+        "otp": {
+          "description": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email} <button>Edit</button>"
+        },
+        "new-password": {
+          "description": "قم بتعيين كلمة مرور قوية لتأمين حسابك."
+        }
+      },
+      "footer": "نسيت كلمة السر"
+    },
+    "Enter the code we sent": "أدخل رمز OTP",
+    "Create a new password": "قم بإنشاء كلمة مرور جديدة",
+    "otp": {
+      "verfiy": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+      "label": "الكود الخاصة بك"
+    }
   },
   "forgotpassword": "نسيت كلمة المرور",
   "forgot your password": "هل نسيت كلمة المرور",
@@ -124,47 +177,6 @@
     "support": {
       "title": "دعم متواصل",
       "description": "فريقنا متواجد لخدمتك على مدار الساعة"
-    }
-  },
-  "auth": {
-    "forgot-password-page-title": "اعادة تعيين كلمة المرور",
-    "forgot-password-page-desc": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه.",
-    "forgot-password-page-footer": " ليس لديك حساب؟ <a>  انشاء حساب الآن</a>",
-    "email-required": "البريد الإلكتروني الخاص بك مطلوب",
-    "invalid-email": "البريد الإلكتروني غير صالح",
-    "email": "البريد الالكتروني",
-    "otp-sent-successfull": "تم إرسال OTP إلى بريدك الإلكتروني",
-    "continue": "استمرار",
-    "password-required": "كلمة المرور مطلوبة",
-    "repassword-required": "تاكيد كلمة المرور مطلوبة",
-    "invalid-password": "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف، وتحتوي على حرف واحد كبير وحرف صغير ورقم واحد على الأقل",
-    "passwords-match": "كلمة المرور غير متطابقة",
-    "password-reset-successful": "تم تغيير كلمة المرور بنجاح",
-    "password": "كلمة المرور",
-    "re-password": "تاكيد كلمة المرور",
-    "reset-password": "اعادة تعيين كلمة المرور",
-    "new-password-page-title": "اعادة تعيين كلمة المرور",
-    "new-password-page-desc": "قم بتعيين كلمة مرور قوية لتأمين حسابك",
-    "forgot your password": "هل نسيت كلمة المرور",
-    "forgot-password": {
-      "steps": {
-        "email": {
-          "description": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه."
-        },
-        "otp": {
-          "description": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email} <button>Edit</button>"
-        },
-        "new-password": {
-          "description": "قم بتعيين كلمة مرور قوية لتأمين حسابك."
-        }
-      },
-      "footer": "نسيت كلمة السر"
-    },
-    "Enter the code we sent": "أدخل رمز OTP",
-    "Create a new password": "قم بإنشاء كلمة مرور جديدة",
-    "otp": {
-      "verfiy": "التحقق من كلمة المرور لمرة واحدة (OTP).",
-      "label": "الكود الخاصة بك"
     }
   },
   "otp-sent-successfull": "تم اريال الرمز بنجاح"

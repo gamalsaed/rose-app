@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { forgetPasswordFormFields, ForgotPasswordStep } from "@/lib/types/auth";
-import { useTranslations } from "next-intl";
-import React, { Dispatch, SetStateAction } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { forgetPasswordFormFields, ForgotPasswordStep } from '@/lib/types/auth';
+import { useTranslations } from 'next-intl';
+import React, { Dispatch, SetStateAction } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Form,
   FormControl,
@@ -12,20 +12,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import useForgetPassword from "./_hooks/use-forgot-password";
-import SubmissionFeedback from "@/components/shared/submission-feedback";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
+import useForgetPassword from './_hooks/use-forgot-password';
+import SubmissionFeedback from '@/components/shared/submission-feedback';
 
 import {
   FORGOT_PASSWORD_STEPS,
   OTP_COOLDOWN_KEY,
   OTP_COOLDOWN_TIME,
-} from "@/lib/constants/auth.constants";
-import { useLocalStorage } from "@/hooks/shared/use-local-storage";
-import { forgetPasswordFormSchema } from "@/lib/schemas/auth-schema";
+} from '@/lib/constants/auth.constants';
+import { useLocalStorage } from '@/hooks/shared/use-local-storage';
+import { forgetPasswordFormSchema } from '@/lib/schemas/auth.schema';
 
 // Ensure setStep is defined in the props
 interface EmailStepProps {
@@ -50,11 +50,11 @@ export default function EmailStep({
   const form = useForm<forgetPasswordFormFields>({
     resolver: zodResolver(forgetPasswordFormSchema(t)),
     defaultValues: {
-      email: email || "",
+      email: email || '',
     },
   });
   //Functions
-  const onSubmit: SubmitHandler<forgetPasswordFormFields> = (values) => {
+  const onSubmit: SubmitHandler<forgetPasswordFormFields> = values => {
     // check for cooldown
     if (otpCooldown) {
       //store email in the state of the parent component
@@ -81,10 +81,10 @@ export default function EmailStep({
       {/* Headline */}
       <div className="headline capitalize text-zinc-800 w-[25.375rem] mx-auto mb-6 dark:text-zinc-50 ">
         <h1 className="text-2xl font-semibold">
-          {t("forgot-password-page-title")}
+          {t('forgot-password-page-title')}
         </h1>
         <p className="text-base font-normal text-nowrap">
-          {t("forgot-password-page-desc")}
+          {t('forgot-password-page-desc')}
         </p>
       </div>
       {/*Forget password form*/}
@@ -100,7 +100,7 @@ export default function EmailStep({
             render={({ field }) => (
               <FormItem className="space-y-0 mt-6">
                 <FormLabel className="text-zinc-800 dark:text-zinc-50 mb-[0.375rem]">
-                  {t("email")}
+                  {t('email')}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -125,17 +125,17 @@ export default function EmailStep({
             loading={isPending}
             disabled={!form.formState.isValid && form.formState.isSubmitted}
             type="submit"
-            variant={"default"}
+            variant={'default'}
             className="w-full text-white my-9"
           >
-            {t("continue")}
+            {t('continue')}
           </Button>
         </form>
       </Form>
       {/*Footer*/}
       <p className="text-zinc-800 font-medium  text-sm dark:text-zinc-50 mt-5">
-        {t.rich("forgot-password-page-footer", {
-          a: (chunk) => (
+        {t.rich('forgot-password-page-footer', {
+          a: chunk => (
             <Link
               href="/register"
               className="text-maroon-700 capitalize font-bold dark:text-softPink-300"

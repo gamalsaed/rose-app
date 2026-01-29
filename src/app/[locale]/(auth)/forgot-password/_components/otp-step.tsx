@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useTranslations } from "use-intl";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from 'use-intl';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Form,
   FormControl,
@@ -10,23 +10,23 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { InputOTP, InputOTPSlot } from "@/components/ui/input-otp";
-import { Button } from "@/components/ui/button";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { ForgotPasswordStep, OtpStepField } from "@/lib/types/auth";
-import useVerifyOtp from "./_hooks/use-verify-otp";
-import SubmissionFeedback from "@/components/shared/submission-feedback";
+} from '@/components/ui/form';
+import { InputOTP, InputOTPSlot } from '@/components/ui/input-otp';
+import { Button } from '@/components/ui/button';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { ForgotPasswordStep, OtpStepField } from '@/lib/types/auth';
+import useVerifyOtp from './_hooks/use-verify-otp';
+import SubmissionFeedback from '@/components/shared/submission-feedback';
 import {
   FORGOT_PASSWORD_STEPS,
   OTP_COOLDOWN_KEY,
   OTP_COOLDOWN_TIME,
-} from "@/lib/constants/auth.constants";
-import { toast } from "sonner";
-import { useLocalStorage } from "@/hooks/shared/use-local-storage";
-import { Link } from "@/i18n/navigation";
-import useForgetPassword from "./_hooks/use-forgot-password";
-import { OtpStepSchema } from "@/lib/schemas/auth-schema";
+} from '@/lib/constants/auth.constants';
+import { toast } from 'sonner';
+import { useLocalStorage } from '@/hooks/shared/use-local-storage';
+import { Link } from '@/i18n/navigation';
+import useForgetPassword from './_hooks/use-forgot-password';
+import { OtpStepSchema } from '@/lib/schemas/auth.schema';
 
 interface OtpStepProps {
   email: string | null;
@@ -36,7 +36,7 @@ interface OtpStepProps {
 
 export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
   //translation
-  const t = useTranslations("auth");
+  const t = useTranslations('auth');
   //mutation
   const {
     verifyOtp,
@@ -47,11 +47,11 @@ export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
   const form = useForm<OtpStepField>({
     resolver: zodResolver(OtpStepSchema(t)),
     defaultValues: {
-      otp: "",
+      otp: '',
     },
   });
   //   functions
-  const onsubmit: SubmitHandler<OtpStepField> = (values) => {
+  const onsubmit: SubmitHandler<OtpStepField> = values => {
     verifyOtp(values, {
       onSuccess: () => {
         setStep(FORGOT_PASSWORD_STEPS.NEW_PASSWORD);
@@ -71,10 +71,10 @@ export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
             name="otp"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">{t("otp.label")}</FormLabel>
+                <FormLabel className="sr-only">{t('otp.label')}</FormLabel>
                 <FormControl>
                   <InputOTP maxLength={6} {...field}>
-                    {Array.from({ length: 6 }, (_, i) => i).map((i) => (
+                    {Array.from({ length: 6 }, (_, i) => i).map(i => (
                       <InputOTPSlot key={i} index={i} />
                     ))}
                   </InputOTP>
@@ -99,14 +99,14 @@ export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
             type="submit"
             className="mt-6 w-full bg-maroon-700"
           >
-            {t("otp.verfiy")}
+            {t('otp.verfiy')}
           </Button>
         </form>
       </Form>
       <footer className="flex justify-center  mt-8 text-sm text-zinc-800 dark:text-zinc-50 w-full text-center ">
         <p className="text-gray-800 text-sm dark:text-gray-50 w-full">
-          {t.rich("forgot-password.footer", {
-            a: (chunk) => (
+          {t.rich('forgot-password.footer', {
+            a: chunk => (
               <Link href="/login" className="text-blue-600 ">
                 {chunk}
               </Link>
@@ -124,7 +124,7 @@ function ResendOtp({ email }: { email: string | null }) {
   //hooks
   const [otpCooldown, setValue, removeValue] = useLocalStorage(
     OTP_COOLDOWN_KEY,
-    new Date(Date.now() + OTP_COOLDOWN_TIME).toISOString(),
+    new Date(Date.now() + OTP_COOLDOWN_TIME).toISOString()
   );
 
   // state
@@ -133,7 +133,7 @@ function ResendOtp({ email }: { email: string | null }) {
 
     const cooldown = new Date(otpCooldown);
     const remainingTime = Math.floor(
-      (cooldown.getTime() - new Date().getTime()) / 1000,
+      (cooldown.getTime() - new Date().getTime()) / 1000
     );
     return remainingTime;
   });
@@ -154,12 +154,12 @@ function ResendOtp({ email }: { email: string | null }) {
       {
         onSuccess: () => {
           setCooldown(new Date());
-          toast.success(t("otp-sent-successfull"));
+          toast.success(t('otp-sent-successfull'));
         },
-        onError: (error) => {
-          toast.error(t("try-send-it-again"));
+        onError: error => {
+          toast.error(t('try-send-it-again'));
         },
-      },
+      }
     );
   };
 
@@ -184,14 +184,14 @@ function ResendOtp({ email }: { email: string | null }) {
   if (countdown > 0) {
     return (
       <p className="text-sm text-muted-foreground text-center">
-        {t("request-another-code")} ({countdown}s)
+        {t('request-another-code')} ({countdown}s)
       </p>
     );
   }
 
   return (
     <p className="text-muted-foreground text-center">
-      {t.rich("resend-otp", {
+      {t.rich('resend-otp', {
         button: (chunk: any) => (
           <Button
             type="button"

@@ -1,7 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import { cn } from "@/lib/utilits/cn";
-import { LanguageSwitcher } from "@/components/shared/language-switcher";
+import React from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utilits/cn';
+import { LanguageSwitcher } from '@/components/shared/language-switcher';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const SeparatorClass = `
     bg-[url('/assets/images/auth/separator-light.svg')]
@@ -20,11 +21,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <LanguageSwitcher />
             </div>
 
-            <div className={cn(SeparatorClass, "mb-8")} />
+            <div className={cn(SeparatorClass, 'mb-8')} />
 
             {children}
 
-            <div className={cn(SeparatorClass, "rotate-180 mt-8")} />
+            <div className={cn(SeparatorClass, 'rotate-180 mt-8')} />
           </div>
         </div>
       </div>

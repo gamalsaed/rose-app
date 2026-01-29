@@ -6,12 +6,67 @@
     "title": "404 - Not Found",
     "description": "The page you’re looking for doesn’t exist or may have been moved."
   },
+  "shared": {
+    "language-switcher": "العربية",
+    "general-error-message": "Something went wrong!"
+  },
   "homepage": {
     "testimonials-title": "testimonials",
-    "testimonials-subtitle": "Real Words from Happy Customers"
+    "testimonials-subtitle": "Real Words from Happy Customers",
+    "hello-user": "Hello <span>{name}</span>",
+    "logout-cta": "Log Out"
   },
-  "shared": {
-    "language-switcher": "العربية"
+  "auth": {
+    "login-meta-title": "Rose App - Login",
+    "welcome-back": "Welcome Back",
+    "email": "Email",
+    "password": "Password",
+    "forgot-your-password": "Forgot your password?",
+    "remember-me": "Remember me",
+    "login": "Login",
+    "do-not-have-account": "Don't have an account? <cta>Create one now!</cta>",
+    "email-required": "Your Email is required",
+    "email-invalid": "Please enter a valid email address",
+    "password-required": "Password is required",
+    "login-fallback-error": "Failed to login, please try again.",
+    "logout-fallback-error": "Failed to logout, please try again.",
+    "forgot-password-page-title": "Forgot Password ?",
+    "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
+    "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
+    "invalid-email": "Not a valid email",
+    "otp.label": "your otp",
+    "otp-sent-successfull": "OTP sent to your email",
+    "continue": "Continue",
+    "repassword-required": "rePassword is required",
+    "invalid-password": "Your Password must be 8 characters long , contains at least 1 uppercase ,1 lowercase and 1 number",
+    "passwords-match": "Passwords do not match",
+    "password-reset-successful": "Your password has been successfully reset.",
+    "re-password": "Confirm Password",
+    "reset-password": "Reset Password",
+    "new-password-page-title": "Create a new password",
+    "new-password-page-desc": "Set a strong password to secure your account.",
+    "need-help": "Need help? <a>Contact Us </a>",
+    "forgot your password": "Forgot your password",
+    "forgot-password": {
+      "steps": {
+        "email": {
+          "description": "Worry not, we’ll send you instructions to help you reset it."
+        },
+        "otp": {
+          "description": "We have sent a 6-digit code to {email} <button>Edit</button>\n"
+        },
+        "new-password": {
+          "description": "Set a strong password to secure your account."
+        }
+      },
+      "footer": "Forgot your password"
+    },
+    "Enter the code we sent": "Enter the OTP Code",
+    "Create a new password": "Create a new password",
+    "otp": {
+      "verfiy": "Verify OTP",
+      "label": "Your otp"
+    }
   },
   "register": {
     "firstName": {
@@ -98,49 +153,6 @@
     "support": {
       "title": "24/7 Support",
       "description": "Contact us at any time"
-    }
-  },
-  "auth": {
-    "forgot-password-page-title": "Forgot Password ?",
-    "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
-    "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
-    "email-required": "Your Email is required",
-    "invalid-email": "Not a valid email",
-    "otp.label": "your otp",
-    "email": "Email",
-    "otp-sent-successfull": "OTP sent to your email",
-    "continue": "Continue",
-    "password-required": "Password is required",
-    "repassword-required": "rePassword is required",
-    "invalid-password": "Your Password must be 8 characters long , contains at least 1 uppercase ,1 lowercase and 1 number",
-    "passwords-match": "Passwords do not match",
-    "password-reset-successful": "Your password has been successfully reset.",
-    "password": "Password",
-    "re-password": "Confirm Password",
-    "reset-password": "Reset Password",
-    "new-password-page-title": "Create a new password",
-    "new-password-page-desc": "Set a strong password to secure your account.",
-    "need-help": "Need help? <a>Contact Us </a>",
-    "forgot your password": "Forgot your password",
-    "forgot-password": {
-      "steps": {
-        "email": {
-          "description": "Worry not, we’ll send you instructions to help you reset it."
-        },
-        "otp": {
-          "description": "We have sent a 6-digit code to {email} <button>Edit</button>\n"
-        },
-        "new-password": {
-          "description": "Set a strong password to secure your account."
-        }
-      },
-      "footer": "Forgot your password"
-    },
-    "Enter the code we sent": "Enter the OTP Code",
-    "Create a new password": "Create a new password",
-    "otp": {
-      "verfiy": "Verify OTP",
-      "label": "Your otp"
     }
   },
   "try-send-it-again": "try sending your code again",

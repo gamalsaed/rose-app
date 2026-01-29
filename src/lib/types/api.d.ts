@@ -1,5 +1,5 @@
 declare type SuccessResponse<T> = {
-  message: "success";
+  message: 'success';
 } & T;
 
 declare type ErrorResponse = {
