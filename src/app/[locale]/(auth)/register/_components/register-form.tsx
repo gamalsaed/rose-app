@@ -1,43 +1,43 @@
-"use client";
+'use client';
 
-import { useForm } from "react-hook-form";
-import { Selector } from "@/components/shared/selector";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterFormValues, registerSchema } from "@/lib/schemas/auth.s";
-import { PhoneInput } from "@/components/shared/phone-input";
-import { Input } from "@/components/ui/input";
-import PassInput from "@/components/shared/pass-input";
-import { Button } from "@/components/ui/button";
-import { useRouter, Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
-import { ErrorBox } from "@/components/shared/error-box";
+import { useForm } from 'react-hook-form';
+import { Selector } from '@/components/shared/selector';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { RegisterFormValues, registerSchema } from '@/lib/schemas/auth.schema';
+import { PhoneInput } from '@/components/shared/phone-input';
+import { Input } from '@/components/ui/input';
+import PassInput from '@/components/shared/pass-input';
+import { Button } from '@/components/ui/button';
+import { useRouter, Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
+import { ErrorBox } from '@/components/shared/error-box';
 import {
   Form,
   FormField,
   FormLabel,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { useSignup } from "@/hooks/auth/use-signup";
-import { FieldGroup } from "@/components/ui/field";
+} from '@/components/ui/form';
+import { useSignup } from '@/hooks/auth/use-signup';
+import { FieldGroup } from '@/components/ui/field';
 
 export default function RegisterForm() {
   // Navigation
   const router = useRouter();
 
   // Translation
-  const t = useTranslations("register");
-  const validationMessages = useTranslations("register.validation");
+  const t = useTranslations('register');
+  const validationMessages = useTranslations('register.validation');
   // Form & validation
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema(validationMessages)),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      password: "",
-      rePassword: "",
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      password: '',
+      rePassword: '',
     },
   });
 
@@ -62,11 +62,11 @@ export default function RegisterForm() {
             render={({ field, fieldState: { error } }) => {
               return (
                 <FormItem className=" w-full">
-                  <FormLabel>{t("firstName.label")}</FormLabel>
+                  <FormLabel>{t('firstName.label')}</FormLabel>
                   <Input
                     {...field}
                     error={!!error}
-                    placeholder={t("firstName.placeholder")}
+                    placeholder={t('firstName.placeholder')}
                   />
 
                   <FormMessage>{error?.message}</FormMessage>
@@ -79,11 +79,11 @@ export default function RegisterForm() {
             render={({ field, fieldState: { error } }) => {
               return (
                 <FormItem className=" w-full">
-                  <FormLabel>{t("firstName.label")}</FormLabel>
+                  <FormLabel>{t('firstName.label')}</FormLabel>
                   <Input
                     {...field}
                     error={!!error}
-                    placeholder={t("firstName.placeholder")}
+                    placeholder={t('firstName.placeholder')}
                   />
                   <FormMessage>{error?.message}</FormMessage>
                 </FormItem>
@@ -98,11 +98,11 @@ export default function RegisterForm() {
           render={({ field, fieldState: { error } }) => {
             return (
               <FormItem className=" w-full">
-                <FormLabel>{t("email.label")}</FormLabel>
+                <FormLabel>{t('email.label')}</FormLabel>
                 <Input
                   {...field}
                   error={!!error}
-                  placeholder={t("email.placeholder")}
+                  placeholder={t('email.placeholder')}
                 />
                 <FormMessage>{error?.message}</FormMessage>
               </FormItem>
@@ -119,7 +119,7 @@ export default function RegisterForm() {
                 <PhoneInput
                   onChange={field.onChange}
                   value={field.value}
-                  placeholder={t("phone.placeholder")}
+                  placeholder={t('phone.placeholder')}
                   error={!!error}
                 />
                 <FormMessage>{error?.message}</FormMessage>
@@ -135,9 +135,9 @@ export default function RegisterForm() {
             return (
               <FormItem className=" w-full">
                 <Selector
-                  label={t("gender.label")}
-                  placeholder={t("gender.placeholder")}
-                  data={["Male", "Female"]}
+                  label={t('gender.label')}
+                  placeholder={t('gender.placeholder')}
+                  data={['Male', 'Female']}
                   value={field.value}
                   onValueChange={field.onChange}
                   error={!!error}
@@ -154,7 +154,7 @@ export default function RegisterForm() {
           render={({ field, fieldState: { error } }) => {
             return (
               <FormItem className=" w-full">
-                <FormLabel>{t("password.label")}</FormLabel>
+                <FormLabel>{t('password.label')}</FormLabel>
                 <PassInput
                   error={!!error}
                   onChange={field.onChange}
@@ -172,7 +172,7 @@ export default function RegisterForm() {
           render={({ field, fieldState: { error } }) => {
             return (
               <FormItem className=" w-full">
-                <FormLabel>{t("rePassword.label")}</FormLabel>
+                <FormLabel>{t('rePassword.label')}</FormLabel>
                 <PassInput
                   error={!!error}
                   onChange={field.onChange}
@@ -189,16 +189,16 @@ export default function RegisterForm() {
 
         {/* Submit */}
         <Button type="submit" loading={isPending} className=" capitalize">
-          {t("createAcc")}
+          {t('createAcc')}
         </Button>
 
         <p className="text-center">
-          {t("registerMsg")}{" "}
+          {t('registerMsg')}{' '}
           <Link
             href="/login"
             className="text-maroon-700 dark:text-softPink-300"
           >
-            {t("login")}
+            {t('login')}
           </Link>
         </p>
       </form>

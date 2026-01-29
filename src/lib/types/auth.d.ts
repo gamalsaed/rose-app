@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import z from 'zod';
 import { User } from 'next-auth';
-import OtpStepSchema from '@/lib/schemas/auth-schema';
+import { OtpStepSchema } from '@/lib/schemas/auth.schema';
 import { createLoginSchema } from '@/lib/schemas/auth.schema';
 
 // Login
