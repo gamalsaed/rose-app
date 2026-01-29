@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
-import { sendOtpAction } from "@/lib/actions/auth.action";
+import { forgotPasswordAction } from "@/lib/actions/auth.action";
 
 export default function useForgetPassword() {
   //translation
@@ -8,7 +8,7 @@ export default function useForgetPassword() {
   // mutation 
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (email: string) => {
-      const payload = await sendOtpAction(email);
+      const payload = await forgotPasswordAction(email);
 
       if (payload && "error" in payload) {
         throw new Error(payload.error);

@@ -1,7 +1,7 @@
 
 'use server';
 
-export async function sendOtpAction (email : string){
+export async function forgotPasswordAction (email : string){
 
      const response = await fetch(`${process.env.BASE_API}auth/forgotPassword`,{
             method : "POST",

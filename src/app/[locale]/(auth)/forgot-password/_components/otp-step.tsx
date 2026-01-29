@@ -15,7 +15,6 @@ import { InputOTP, InputOTPSlot } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ForgotPasswordStep, OtpStepField } from "@/lib/types/auth";
-import { OtpStepSchema } from "@/lib/schemas/auth-schema";
 import useVerifyOtp from "./_hooks/use-verify-otp";
 import SubmissionFeedback from "@/components/shared/submission-feedback";
 import {
@@ -23,10 +22,11 @@ import {
   OTP_COOLDOWN_KEY,
   OTP_COOLDOWN_TIME,
 } from "@/lib/constants/auth.constants";
-import useForgetPassword from "./_hooks/use-forgot-password";
 import { toast } from "sonner";
 import { useLocalStorage } from "@/hooks/shared/use-local-storage";
 import { Link } from "@/i18n/navigation";
+import useForgetPassword from "./_hooks/use-forgot-password";
+import { OtpStepSchema } from "@/lib/schemas/auth-schema";
 
 interface OtpStepProps {
   email: string | null;
@@ -34,9 +34,9 @@ interface OtpStepProps {
   setEmail: Dispatch<SetStateAction<string | null>>;
 }
 
-export default function OtpStep({ email, setStep }: OtpStepProps) {
+export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
   //translation
-  const t = useTranslations();
+  const t = useTranslations("auth");
   //mutation
   const {
     verifyOtp,
@@ -154,7 +154,7 @@ function ResendOtp({ email }: { email: string | null }) {
       {
         onSuccess: () => {
           setCooldown(new Date());
-          toast.success(t("try-send-it-again"));
+          toast.success(t("otp-sent-successfull"));
         },
         onError: (error) => {
           toast.error(t("try-send-it-again"));

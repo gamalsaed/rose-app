@@ -13,34 +13,6 @@
   "shared": {
     "language-switcher": "العربية"
   },
-<<<<<<< HEAD
-  "forgot your password": "Forgot password",
-  "Enter the code we sent": "Enter the OTP code",
-  "Create a new password": "Creat new password",
-  "forgot-password": {
-    "steps": {
-      "email": {
-        "description": "Worry not, we’ll send you instructions to help you reset it."
-      },
-      "otp": {
-        "description": "We have sent a 6-digit code to {email} <button>Edit</button>"
-      },
-      "new-password": {
-        "description": "Set a strong password to secure your account"
-      }
-    },
-    "footer": "Don’t have an account yet? Create one now!"
-  },
-  "otp is required": "OTP is required",
-  "otp": {
-    "label": "OTP code",
-    "verfiy": "Verify OTP"
-  },
-  "password-rest": "Your password has been successfuly reset",
-  "resend-otp": "didn't recieve your code <button>Resend</button>",
-  "try-send-it-again": "error sending your code!",
-  "request-another-code": "You can request another code in {seconds , plural , =0 {# seconds} , =1 {1 seconds} other {# seconds} ,{seconds: countdown}"
-=======
   "register": {
     "firstName": {
       "label": "First name",
@@ -87,6 +59,92 @@
       "password-special": "Password must contain at least one special character",
       "rePassword-match": "Passwords do not match"
     }
-  }
->>>>>>> 02f3b26765c0ea1fc269f3f99c5cb4e323f56931
+  },
+  "banner": {
+    "title": "Say It with Flowers",
+    "description": "Elegant gifts for every special moment.",
+    "buy-now": "i’m buying",
+    "special-gifts": "Special Gifts For The People You Love",
+    "shop-now": "shop now",
+    "badge": "Staring from 10.99 EGP"
+  },
+  "occasions": {
+    "wedding": {
+      "badge": "Wedding",
+      "text": "Celebrate Her Forever with a Gift She’ll Always Remember"
+    },
+    "engagement": {
+      "badge": "Engagement",
+      "text": "Honor the Beginning of a Beautiful Journey Together"
+    },
+    "anniversary": {
+      "badge": "Anniversary",
+      "text": "Mark Every Year of Love with a Meaningful Surprise"
+    }
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "Free Delivery",
+      "description": "For orders above 120 EGP"
+    },
+    "getRefund": {
+      "title": "Get Refund",
+      "description": "Refunds within 30 days"
+    },
+    "safePayment": {
+      "title": "Safe Payment",
+      "description": "100% Secure Payment"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Contact us at any time"
+    }
+  },
+  "auth": {
+    "forgot-password-page-title": "Forgot Password ?",
+    "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
+    "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
+    "email-required": "Your Email is required",
+    "invalid-email": "Not a valid email",
+    "otp.label": "your otp",
+    "email": "Email",
+    "otp-sent-successfull": "OTP sent to your email",
+    "continue": "Continue",
+    "password-required": "Password is required",
+    "repassword-required": "rePassword is required",
+    "invalid-password": "Your Password must be 8 characters long , contains at least 1 uppercase ,1 lowercase and 1 number",
+    "passwords-match": "Passwords do not match",
+    "password-reset-successful": "Your password has been successfully reset.",
+    "password": "Password",
+    "re-password": "Confirm Password",
+    "reset-password": "Reset Password",
+    "new-password-page-title": "Create a new password",
+    "new-password-page-desc": "Set a strong password to secure your account.",
+    "need-help": "Need help? <a>Contact Us </a>",
+    "forgot your password": "Forgot your password",
+    "forgot-password": {
+      "steps": {
+        "email": {
+          "description": "Worry not, we’ll send you instructions to help you reset it."
+        },
+        "otp": {
+          "description": "We have sent a 6-digit code to {email} <button>Edit</button>\n"
+        },
+        "new-password": {
+          "description": "Set a strong password to secure your account."
+        }
+      },
+      "footer": "Forgot your password"
+    },
+    "Enter the code we sent": "Enter the OTP Code",
+    "Create a new password": "Create a new password",
+    "otp": {
+      "verfiy": "Verify OTP",
+      "label": "Your otp"
+    }
+  },
+  "try-send-it-again": "try sending your code again",
+  "otp-sent-successfull": "Otp send succefully",
+  "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
+  "resend-otp": "didn't get your code <button>resend</button>"
 }

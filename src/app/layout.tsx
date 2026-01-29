@@ -35,8 +35,8 @@ export default function RootLayout({
       <body
         className={`${sarabun.variable} ${tajawal.variable} antialiased dark:bg-zinc-800 `}
       >
-         {/* <Providers> */}
-        {/* <Header /> */}
+         {/* <Providers>  */}
+         {/* <Header /> */}
        {children}
        {/* </Providers> */}
       </body>

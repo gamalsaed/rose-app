@@ -7,6 +7,7 @@ export type ForgotPasswordStep = (typeof FORGOT_PASSWORD_STEPS)[keyof typeof FOR
 export type OtpStepField = z.infer<ReturnType<typeof OtpStepSchema>>;
 
 
+
 declare type ForgotPasswordResponse = {
   info: string;
   message: string;

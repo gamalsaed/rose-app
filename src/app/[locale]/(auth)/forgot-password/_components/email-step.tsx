@@ -18,13 +18,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import useForgetPassword from "./_hooks/use-forgot-password";
 import SubmissionFeedback from "@/components/shared/submission-feedback";
-import { forgetPasswordFormSchema } from "@/lib/schemas/auth-schema";
+
 import {
   FORGOT_PASSWORD_STEPS,
   OTP_COOLDOWN_KEY,
   OTP_COOLDOWN_TIME,
 } from "@/lib/constants/auth.constants";
 import { useLocalStorage } from "@/hooks/shared/use-local-storage";
+import { forgetPasswordFormSchema } from "@/lib/schemas/auth-schema";
 
 // Ensure setStep is defined in the props
 interface EmailStepProps {
@@ -39,7 +40,7 @@ export default function EmailStep({
   setEmail,
 }: EmailStepProps) {
   //translation
-  const t = useTranslations();
+  const t = useTranslations('auth');
   // hooks
   const [otpCooldown, setOtpCooldown] = useLocalStorage(OTP_COOLDOWN_KEY, null);
 
