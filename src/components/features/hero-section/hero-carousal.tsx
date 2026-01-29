@@ -13,6 +13,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utilits/cn";
+import { useLocale, useTranslations } from "next-intl";
 
 // Carousel slides data
 const heroImages = [
@@ -38,6 +39,11 @@ const heroImages = [
   },
 ];
 export function HeroCarousel() {
+  //translation
+  const t = useTranslations('banner');
+  const locale = useLocale();
+  const isRTL = locale === "ar";
+  //state
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
@@ -49,8 +55,13 @@ export function HeroCarousel() {
 
     //Keyboard Navigation
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") api.canScrollNext();
-      if (e.key === "ArrowLeft") api.canScrollPrev();
+      if (isRTL) {
+      if (e.key === "ArrowRight" && api.canScrollPrev()) api.scrollPrev();
+      if (e.key === "ArrowLeft" && api.canScrollNext()) api.scrollNext();
+    } else {
+      if (e.key === "ArrowRight" && api.canScrollNext()) api.scrollNext();
+      if (e.key === "ArrowLeft" && api.canScrollPrev()) api.scrollPrev();
+    }
     };
     window.addEventListener("keydown", handleKeyDown);
 
@@ -59,11 +70,17 @@ export function HeroCarousel() {
       api.off("select", onSelect);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [api]);
+  }, [api, isRTL]);
 
   return (
     <div className="w-full">
-      <Carousel setApi={setApi} className="rounded-2xl w-full overflow-hidden">
+      <Carousel
+        setApi={setApi}
+        className="rounded-2xl w-full overflow-hidden"
+        opts={{
+          direction: isRTL ? "rtl" : "ltr",
+        }}
+      >
         <CarouselContent>
           {heroImages.map((img) => (
             <CarouselItem
@@ -79,31 +96,47 @@ export function HeroCarousel() {
               />
               {/*carousel layer*/}
               <div className="absolute inset-0 z-10 bg-gradient-to-r  from-black/80 to-transparent"></div>
-              <div className="left-9 bottom-9 absolute z-10">
+              <div
+                className={cn(
+                  "bottom-9 absolute z-10",
+                  isRTL ? "right-9 text-right" : "left-9 text-left",
+                )}
+              >
                 <p className="font-semibold text-3xl mt-3 text-white w-72 h-9">
-                  Say It with Flowers
+                  {t('title')}
                 </p>
                 <p className="text-white font-normal  text-base h-12">
-                  Elegant gifts for every special moment.
+                  {t('description')}
                 </p>
                 <Link href="/products">
-                  <Button variant="secondary">I’m buying!</Button>
+                  <Button
+                    variant="secondary"
+                    className="px-4 py-2 mt-2 h-9 w-32 capitalize"
+                  >
+                    {t('buy-now')} !
+                  </Button>
                 </Link>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
         {/*carousel next and previous button */}
-        <div className="flex justify-between absolute bottom-8 right-8 z-10 bg-maroon-50  rounded-full shadow-md">
+        <div
+          className={cn(
+            "flex justify-between absolute bottom-8 z-10 bg-maroon-50 rounded-full shadow-md",
+            isRTL ? "left-8" : "right-8",
+          )}
+        >
           <button onClick={() => api?.scrollPrev()}>
             <span className="sr-only">Previous slide</span>
             <ChevronLeft
               aria-hidden="true"
               className={cn(
+                isRTL && "rotate-180",
                 "size-[30px]",
                 api?.canScrollPrev()
                   ? "text-maroon-700 cursor-pointer"
-                  : "text-zinc-400 cursor-not-allowed"
+                  : "text-zinc-400 cursor-not-allowed",
               )}
             />
           </button>
@@ -113,10 +146,11 @@ export function HeroCarousel() {
 
             <ChevronRight
               className={cn(
+                isRTL && "rotate-180",
                 "size-[30px]",
                 api?.canScrollNext()
                   ? "text-maroon-700 cursor-pointer"
-                  : "text-zinc-400 cursor-not-allowed"
+                  : "text-zinc-400 cursor-not-allowed",
               )}
             />
           </button>
@@ -130,7 +164,7 @@ export function HeroCarousel() {
               onClick={() => api?.scrollTo(index)}
               className={cn(
                 "h-2.5 rounded-[2.9125rem] transition-all duration-300",
-                current === index ? "bg-maroon-600 w-9" : "bg-maroon-50 w-2.5"
+                current === index ? "bg-maroon-600 w-9" : "bg-maroon-50 w-2.5",
               )}
             ></button>
           ))}

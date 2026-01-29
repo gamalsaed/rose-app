@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
-export default function PassInput() {
+export default function PassInput({
+  error,
+  ...props
+}: React.ComponentProps<"input"> & { error?: boolean }) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   function handleVisible() {
@@ -12,9 +15,14 @@ export default function PassInput() {
   }
   return (
     <div className="relative flex items-center">
-      <Input type={!isVisible ? "password" : "text"} placeholder="**********" />
+      <Input
+        type={!isVisible ? "password" : "text"}
+        placeholder="**********"
+        {...props}
+        error={error}
+      />
       <span
-        className="absolute right-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
+        className="absolute ltr:right-4 rtl:left-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
         onClick={handleVisible}
       >
         {isVisible ? (

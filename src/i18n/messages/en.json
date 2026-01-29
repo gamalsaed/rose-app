@@ -25,10 +25,138 @@
     "remember-me": "Remember me",
     "login": "Login",
     "do-not-have-account": "Don't have an account? <cta>Create one now!</cta>",
-    "email-required": "Email is required",
+    "email-required": "Your Email is required",
     "email-invalid": "Please enter a valid email address",
     "password-required": "Password is required",
     "login-fallback-error": "Failed to login, please try again.",
-    "logout-fallback-error": "Failed to logout, please try again."
-  }
+    "logout-fallback-error": "Failed to logout, please try again.",
+    "forgot-password-page-title": "Forgot Password ?",
+    "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
+    "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
+    "invalid-email": "Not a valid email",
+    "otp.label": "your otp",
+    "otp-sent-successfull": "OTP sent to your email",
+    "continue": "Continue",
+    "repassword-required": "rePassword is required",
+    "invalid-password": "Your Password must be 8 characters long , contains at least 1 uppercase ,1 lowercase and 1 number",
+    "passwords-match": "Passwords do not match",
+    "password-reset-successful": "Your password has been successfully reset.",
+    "re-password": "Confirm Password",
+    "reset-password": "Reset Password",
+    "new-password-page-title": "Create a new password",
+    "new-password-page-desc": "Set a strong password to secure your account.",
+    "need-help": "Need help? <a>Contact Us </a>",
+    "forgot your password": "Forgot your password",
+    "forgot-password": {
+      "steps": {
+        "email": {
+          "description": "Worry not, we’ll send you instructions to help you reset it."
+        },
+        "otp": {
+          "description": "We have sent a 6-digit code to {email} <button>Edit</button>\n"
+        },
+        "new-password": {
+          "description": "Set a strong password to secure your account."
+        }
+      },
+      "footer": "Forgot your password"
+    },
+    "Enter the code we sent": "Enter the OTP Code",
+    "Create a new password": "Create a new password",
+    "otp": {
+      "verfiy": "Verify OTP",
+      "label": "Your otp"
+    }
+  },
+  "register": {
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Jonathan"
+    },
+    "lastName": {
+      "label": "Last name",
+      "placeholder": "Adrian"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "user@example.com"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "1012345678"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeholder": "Select gender"
+    },
+    "password": {
+      "label": "Password"
+    },
+    "rePassword": {
+      "match": "Passwords do not match",
+      "label": "Confirm Password"
+    },
+    "createAcc": "Create Account",
+    "registerMsg": "Already have an account?",
+    "login": "Login",
+    "register-title": "Become part of our family!",
+    "validation": {
+      "firstName-min": "First name is too short",
+      "firstName-max": "First name is too long",
+      "lastName-min": "Last name is too short",
+      "lastName-max": "Last name is too long",
+      "invalid-email": "Invalid email address",
+      "invalid-phone": "Invalid phone number",
+      "gender-required": "Gender is required",
+      "password-min": "Password must be at least 8 characters",
+      "password-uppercase": "Password must contain at least one uppercase letter",
+      "password-number": "Password must contain at least one number",
+      "password-special": "Password must contain at least one special character",
+      "rePassword-match": "Passwords do not match"
+    }
+  },
+  "banner": {
+    "title": "Say It with Flowers",
+    "description": "Elegant gifts for every special moment.",
+    "buy-now": "i’m buying",
+    "special-gifts": "Special Gifts For The People You Love",
+    "shop-now": "shop now",
+    "badge": "Staring from 10.99 EGP"
+  },
+  "occasions": {
+    "wedding": {
+      "badge": "Wedding",
+      "text": "Celebrate Her Forever with a Gift She’ll Always Remember"
+    },
+    "engagement": {
+      "badge": "Engagement",
+      "text": "Honor the Beginning of a Beautiful Journey Together"
+    },
+    "anniversary": {
+      "badge": "Anniversary",
+      "text": "Mark Every Year of Love with a Meaningful Surprise"
+    }
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "Free Delivery",
+      "description": "For orders above 120 EGP"
+    },
+    "getRefund": {
+      "title": "Get Refund",
+      "description": "Refunds within 30 days"
+    },
+    "safePayment": {
+      "title": "Safe Payment",
+      "description": "100% Secure Payment"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Contact us at any time"
+    }
+  },
+  "try-send-it-again": "try sending your code again",
+  "otp-sent-successfull": "Otp send succefully",
+  "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
+  "resend-otp": "didn't get your code <button>resend</button>"
 }

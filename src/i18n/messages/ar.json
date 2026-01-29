@@ -29,6 +29,155 @@
     "email-invalid": "البريد الإلكتروني غير صالح",
     "password-required": "كلمة المرور مطلوبة",
     "login-fallback-error": "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى.",
-    "logout-fallback-error": "فشل تسجيل الخروج، يرجى المحاولة مرة أخرى."
-  }
+    "logout-fallback-error": "فشل تسجيل الخروج، يرجى المحاولة مرة أخرى.",
+    "forgot-password-page-title": "اعادة تعيين كلمة المرور",
+    "forgot-password-page-desc": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه.",
+    "forgot-password-page-footer": " ليس لديك حساب؟ <a>  انشاء حساب الآن</a>",
+    "invalid-email": "البريد الإلكتروني غير صالح",
+    "otp-sent-successfull": "تم إرسال OTP إلى بريدك الإلكتروني",
+    "continue": "استمرار",
+    "repassword-required": "تاكيد كلمة المرور مطلوبة",
+    "invalid-password": "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف، وتحتوي على حرف واحد كبير وحرف صغير ورقم واحد على الأقل",
+    "passwords-match": "كلمة المرور غير متطابقة",
+    "password-reset-successful": "تم تغيير كلمة المرور بنجاح",
+    "re-password": "تاكيد كلمة المرور",
+    "reset-password": "اعادة تعيين كلمة المرور",
+    "new-password-page-title": "اعادة تعيين كلمة المرور",
+    "new-password-page-desc": "قم بتعيين كلمة مرور قوية لتأمين حسابك",
+    "forgot your password": "هل نسيت كلمة المرور",
+    "forgot-password": {
+      "steps": {
+        "email": {
+          "description": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه."
+        },
+        "otp": {
+          "description": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email} <button>Edit</button>"
+        },
+        "new-password": {
+          "description": "قم بتعيين كلمة مرور قوية لتأمين حسابك."
+        }
+      },
+      "footer": "نسيت كلمة السر"
+    },
+    "Enter the code we sent": "أدخل رمز OTP",
+    "Create a new password": "قم بإنشاء كلمة مرور جديدة",
+    "otp": {
+      "verfiy": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+      "label": "الكود الخاصة بك"
+    }
+  },
+  "forgotpassword": "نسيت كلمة المرور",
+  "forgot your password": "هل نسيت كلمة المرور",
+  "Create a new password": "ادخل الرقم السرى الجديد",
+  "Enter the code we sent": "ادخل الرمز المرسل اليك",
+  "forgot-password": {
+    "steps": {
+      "email": {
+        "description": "لا تقلق سنرسل لك تعليمات لكى تستعيد الرقم السرى"
+      },
+      "otp": {
+        "description": "تم ارسال كود مكون من 6 ارقام الى {email} <button>تعديل</button>"
+      },
+      "new-password": {
+        "description": "انشأ رقم سرى قوى لتأمين حسابك\n"
+      }
+    },
+    "footer": "ليس لديك حساب . <a>تسجيل الدخول</a>"
+  },
+  "otp is required": "ادخل الكود المرسل اليك",
+  "otp": {
+    "label": "رمز التحقق",
+    "verfiy": "تأكيد الكود"
+  },
+  "password-rest": "تم نجاح تغيير الرقم السرى",
+  "resend-otp": "لم يصلك الكود <button>اعادة الارسال</button>",
+  "try-send-it-again": "حاول إرسال الرمز الخاص بك مرة أخرى",
+  "request-another-code": "يمكنك طلب كود أخر فى {seconds , plural , =0 {# ثانيه} , =1 {1 ثانيه} other {# ثانيه} ,{seconds: countdown}",
+  "register": {
+    "firstName": {
+      "label": "الاسم الأول",
+      "placeholder": "محمد"
+    },
+    "lastName": {
+      "label": "اسم العائلة",
+      "placeholder": "أحمد"
+    },
+    "email": {
+      "label": "البريد الإلكتروني",
+      "placeholder": "user@example.com"
+    },
+    "phone": {
+      "label": "رقم الهاتف",
+      "placeholder": "01012345678"
+    },
+    "gender": {
+      "label": "النوع",
+      "placeholder": "اختر النوع"
+    },
+    "password": {
+      "label": "كلمة المرور"
+    },
+    "rePassword": {
+      "label": "تأكيد كلمة المرور"
+    },
+    "createAcc": "إنشاء حساب",
+    "registerMsg": "لديك حساب بالفعل؟",
+    "login": "تسجيل الدخول",
+    "register-title": "كن جزءًا من عائلتنا!",
+    "validation": {
+      "firstName-min": "الاسم الأول قصير جدًا",
+      "firstName-max": "الاسم الأول طويل جدًا",
+      "lastName-min": "اسم العائلة قصير جدًا",
+      "lastName-max": "اسم العائلة طويل جدًا",
+      "invalid-email": "البريد الإلكتروني غير صحيح",
+      "invalid-phone": "رقم الهاتف غير صحيح",
+      "gender-required": "النوع مطلوب",
+      "password-min": "كلمة المرور يجب ألا تقل عن 8 أحرف",
+      "password-uppercase": "يجب أن تحتوي على حرف كبير واحد على الأقل",
+      "password-number": "يجب أن تحتوي على رقم واحد على الأقل",
+      "password-special": "يجب أن تحتوي على رمز خاص واحد على الأقل",
+      "rePassword-match": "كلمتا المرور غير متطابقتين"
+    }
+  },
+  "banner": {
+    "title": "عبّر بالزهور ",
+    "description": "هدايا رائعة لكل مناسبة",
+    "buy-now": "تسوق الان",
+    "special-gifts": "هدايا خاصة للأشخاص الذين تحبهم",
+    "shop-now": "اشتري الآن",
+    "badge": "الأسعار تبدأ من 10.99 ج.م."
+  },
+  "occasions": {
+    "wedding": {
+      "badge": "الزفاف",
+      "text": "اجعل هذه اللحظة الخالدة أكثر تميزًا بهدية لا تُنسى"
+    },
+    "engagement": {
+      "badge": "الخطوبة",
+      "text": "احتفلوا ببداية قصة جميلة تجمع بينكما"
+    },
+    "anniversary": {
+      "badge": "الذكرى السنوية",
+      "text": "فاجئ من تحب بهدية تعبّر عن مشاعرك بصدق"
+    }
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "توصيل مجاني",
+      "description": "للطلبات التي تزيد عن 120 ج.م"
+    },
+    "getRefund": {
+      "title": "استرجاع سهل",
+      "description": "استرداد المبلغ خلال 30 يومًا"
+    },
+    "safePayment": {
+      "title": "دفع آمن",
+      "description": "معاملات آمنة بنسبة 100٪"
+    },
+    "support": {
+      "title": "دعم متواصل",
+      "description": "فريقنا متواجد لخدمتك على مدار الساعة"
+    }
+  },
+  "otp-sent-successfull": "تم اريال الرمز بنجاح"
 }
