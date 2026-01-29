@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import useForgetPassword from "../_hooks/use-forgot-password";
 import SubmissionFeedback from "@/components/shared/submission-feedback";
-import { forgetPasswordFormSchema } from "@/lib/schemas/auth-schema";
+import { forgetPasswordFormSchema } from "@/lib/schemas/auth.schema";
 
 // TODO: setStep & setEmail will be passed from parent once forget-password flow is finalized
 interface EmailStepProps {

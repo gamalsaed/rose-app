@@ -1,5 +1,5 @@
 "use client";
-import { setPasswordFormSchema } from "@/lib/schemas/auth-schema";
+import { setPasswordFormSchema } from "@/lib/schemas/auth.schema";
 import { useTranslations } from "next-intl";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
