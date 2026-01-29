@@ -19,6 +19,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import PassInput from '@/components/shared/pass-input';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ErrorBox } from '@/components/shared/error-box';
@@ -70,7 +71,6 @@ export function LoginForm() {
           control={form.control}
           name="email"
           render={({ field, fieldState: { error } }) => (
-            // TODO: Replace FormItem with InputWrapper reusable component when merged on dev
             <FormItem className="mb-4">
               <FormLabel>{t('auth.email')}</FormLabel>
 
@@ -93,15 +93,12 @@ export function LoginForm() {
           control={form.control}
           name="password"
           render={({ field, fieldState: { error } }) => (
-            // TODO: Replace FormItem with InputWrapper reusable component when merged on dev
             <FormItem className="mb-2.5">
               <FormLabel>{t('auth.password')}</FormLabel>
 
               <FormControl>
-                {/* TODO: Replace password input with the new password component */}
-                <Input
+                <PassInput
                   {...field}
-                  type="password"
                   placeholder="**********"
                   error={!!error}
                 />
@@ -114,7 +111,7 @@ export function LoginForm() {
 
         {/* Forgot password */}
         <Link
-          href={'/forgot-password'} // TODO: Validate that this is the correct route for forgot password when merged on dev
+          href={'/forgot-password'}
           className="text-sm font-semibold ms-auto mb-6 text-maroon-700 dark:text-softPink-300"
         >
           {t('auth.forgot-your-password')}
