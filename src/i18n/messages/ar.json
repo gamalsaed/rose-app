@@ -16,6 +16,7 @@
     "hello-user": "مرحبا <span>{name}</span>",
     "logout-cta": "تسجيل الخروج"
   },
+
   "auth": {
     "login-meta-title": "تسجيل الدخول - ورود",
     "welcome-back": "مرحبا بعودتك",
@@ -179,5 +180,23 @@
       "description": "فريقنا متواجد لخدمتك على مدار الساعة"
     }
   },
-  "otp-sent-successfull": "تم اريال الرمز بنجاح"
+  "otp-sent-successfull": "تم اريال الرمز بنجاح",
+
+  "section-title": {
+    "most-popular": "الأكثر شعبية",
+    "best-selling": "الأكثر مبيعًا"
+  },
+  "best-selling": {
+    "headline-accent-1": "اكتشف",
+    "headline-main": "ما",
+    "headline-accent-2": "يشتريه ",
+    "headline-main-2": " الجميع",
+    "headline-end": "الان",
+    "paragraph-question": "لست متأكدًا ماذا تختار؟ ",
+    "paragraph": "ابدأ بأكثر المنتجات مبيعًا لدينا، فهذه هي الهدايا التي يعود عملاؤنا لشرائها مرارًا وتكرارًا. سواء كنت تحتفل بعيد ميلاد، ذكرى زواج أو حفل زفاف، فإن اختياراتنا المميزة مضمونة لترك انطباع دائم.",
+    "cta": "استكشف الهدايا"
+  },
+  "most-popular": {
+    "view-all": "عرض الكل"
+  }
 }

@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { useState } from 'react';
+import { Eye, EyeOff } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 export default function PassInput({
   error,
   ...props
-}: React.ComponentProps<"input"> & { error?: boolean }) {
+}: React.ComponentProps<'input'> & { error?: boolean }) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   function handleVisible() {
-    setIsVisible((prev) => !prev);
+    setIsVisible(prev => !prev);
   }
   return (
     <div className="relative flex items-center">
       <Input
-        type={!isVisible ? "password" : "text"}
+        type={!isVisible ? 'password' : 'text'}
         placeholder="**********"
         {...props}
         error={error}
       />
       <span
-        className="absolute ltr:right-4 rtl:left-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
+        className="absolute rtl:left-4 ltr:right-4 cursor-pointer text-zinc-400 dark:text-zinc-500"
         onClick={handleVisible}
       >
         {isVisible ? (

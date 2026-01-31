@@ -5,7 +5,6 @@ import AboutSection from "@/components/features/home/about-section";
 import GallerySection from "@/components/features/home/gallery-section";
 import { TestimonialsSection } from "@/components/features/home/testimonials-section";
 import CompaniesSection from "@/components/features/home/companies-section";
-
 import { getHomePageData } from "@/lib/services/products";
 
 // Define Props Interface
@@ -22,7 +21,6 @@ export default async function Home({ searchParams }: HomeProps) {
   // Render the homepage with fetched data
   return (
     <main>
-      {/* Hero Section */}
       <HeroWrapper />
 
       {/* Best Selling Section */}

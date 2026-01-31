@@ -16,6 +16,7 @@
     "hello-user": "Hello <span>{name}</span>",
     "logout-cta": "Log Out"
   },
+
   "auth": {
     "login-meta-title": "Rose App - Login",
     "welcome-back": "Welcome Back",
@@ -158,5 +159,23 @@
   "try-send-it-again": "try sending your code again",
   "otp-sent-successfull": "Otp send succefully",
   "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
-  "resend-otp": "didn't get your code <button>resend</button>"
+  "resend-otp": "didn't get your code <button>resend</button>",
+
+  "section-title": {
+    "most-popular": "Most Popular",
+    "best-selling": "BEST SELLING"
+  },
+  "best-selling": {
+    "headline-accent-1": "Check Out",
+    "headline-main": "What",
+    "headline-accent-2": "Everyone's",
+    "headline-main-2": "Buying",
+    "headline-end": "Right Now",
+    "paragraph-question": "Not sure what to choose? ",
+    "paragraph": "Start with our best sellers, these are the gifts our customers keep coming back for. Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed to leave a lasting impression.",
+    "cta": "Check Out Gifts"
+  },
+  "most-popular": {
+    "view-all": "View All"
+  }
 }
