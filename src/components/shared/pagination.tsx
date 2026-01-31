@@ -46,7 +46,7 @@ export default function Pagination({
         page.push("...");
       }
     }
-    // return page.filter((item, pos, self) => self.indexOf(item) === pos);
+
     return page;
   };
   const pages = getpage();
