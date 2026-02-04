@@ -12,5 +12,15 @@
   },
   "shared": {
     "language-switcher": "English"
+  },
+  "forgot-password-step-one-title": "هل نسيت كلمة السر؟",
+  "forgot-password-step-one-description": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة ضبطه.",
+  "forgot-password-step-two-title": "أدخل رمز OTP",
+  "forgot-password-step-two-description": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email} <button>تعديل</button>",
+  "forgot-password-step-three-title": "إنشاء كلمة مرور جديدة",
+  "forgot-password-step-three-description": "قم بتعيين كلمة مرور قوية لتأمين حسابك.",
+  "auth": {
+    "forgot-password-meta-title": "تطبيق روز -آعادة كلمة المرور"
   }
 }
+

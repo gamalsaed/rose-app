@@ -12,5 +12,14 @@
   },
   "shared": {
     "language-switcher": "العربية"
+  },
+  "forgot-password-step-one-title": "Forgot Password?",
+  "forgot-password-step-one-description": "Worry not, we’ll send you instructions to help you reset it.",
+  "forgot-password-step-two-title": "Enter the OTP Code",
+  "forgot-password-step-two-description": "We have sent a 6-digit code to {email} <button>Edit</button>",
+  "forgot-password-step-three-title": "Create a new password",
+  "forgot-password-step-three-description": "Set a strong password to secure your account.",
+  "auth": {
+    "forgot-password-meta-title": "Rose App - Forgot password "
   }
 }
