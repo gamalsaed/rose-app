@@ -16,7 +16,6 @@
     "hello-user": "مرحبا <span>{name}</span>",
     "logout-cta": "تسجيل الخروج"
   },
-
   "auth": {
     "login-meta-title": "تسجيل الدخول - ورود",
     "welcome-back": "مرحبا بعودتك",
@@ -181,7 +180,6 @@
     }
   },
   "otp-sent-successfull": "تم اريال الرمز بنجاح",
-
   "section-title": {
     "most-popular": "الأكثر شعبية",
     "best-selling": "الأكثر مبيعًا"
@@ -198,5 +196,10 @@
   },
   "most-popular": {
     "view-all": "عرض الكل"
-  }
+  },
+  "remove-from-wishlist": "حذف من قائمة المفضلة ",
+  "add-to-wishlist": "أضف إلى قائمة المفضلة",
+  "something-went-wrong": "حدث خطأ ما",
+  "added-to-wishlist-successfully": "تمت اضافة المنتج الى قايمة المفضلة بنجاح",
+  "remove-from-wishlist-successfully": "تم حذف المنتج من قايمة المفضلة بنجاح"
 }

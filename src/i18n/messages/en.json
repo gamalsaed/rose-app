@@ -16,7 +16,6 @@
     "hello-user": "Hello <span>{name}</span>",
     "logout-cta": "Log Out"
   },
-
   "auth": {
     "login-meta-title": "Rose App - Login",
     "welcome-back": "Welcome Back",
@@ -47,7 +46,7 @@
     "new-password-page-title": "Create a new password",
     "new-password-page-desc": "Set a strong password to secure your account.",
     "need-help": "Need help? <a>Contact Us </a>",
-    "forgot your password": "Forgot your password",
+    "forgot your password": "Forgot password ?",
     "forgot-password": {
       "steps": {
         "email": {
@@ -160,7 +159,6 @@
   "otp-sent-successfull": "Otp send succefully",
   "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
   "resend-otp": "didn't get your code <button>resend</button>",
-
   "section-title": {
     "most-popular": "Most Popular",
     "best-selling": "BEST SELLING"
@@ -177,5 +175,10 @@
   },
   "most-popular": {
     "view-all": "View All"
-  }
+  },
+  "add-to-wishlist": "Add to wishlist",
+  "remove-from-wishlist":"Remove from whishlist",
+  "something-went-wrong": "Something went wrong",
+  "added-to-wishlist-successfully": "Added to whishlist successfully",
+  "remove-from-wishlist-successfully": "Removed from whishlist successfully"
 }
