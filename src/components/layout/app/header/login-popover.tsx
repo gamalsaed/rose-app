@@ -11,7 +11,6 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 import { LoginForm } from '@/app/[locale]/(auth)/login/_components/login-form';
-import RegisterForm from '@/app/[locale]/(auth)/register/_components/register-form';
 
 /*
   Added varient system to TabsTrigger component
@@ -38,31 +37,26 @@ export default function LoginPopover() {
         </Button>
       </HoverCardTrigger>
 
-      <HoverCardContent className="flex w-96 p-0 flex-col gap-0.5 border-none rounded-xl ">
-        <Tabs defaultValue="login" className="w-full m-0">
+      <HoverCardContent className="flex dark:bg-zinc-800  w-96 p-0.5 flex-col gap-0.5 border-none rounded-xl ">
+        <Tabs defaultValue="login" className="w-full p-0 m-0">
           <TabsList>
             <TabsTrigger
               value="login"
-              className="rounded-b-none rounded-r-none !border-r-0"
+              className="rounded-b-none rounded-r-none z-10"
             >
               Login
             </TabsTrigger>
-            <TabsTrigger
-              value="register"
-              className="rounded-b-none rounded-l-none !border-l-0"
+            <Link
+              href="/register"
+              className="inline-flex w-full h-full items-center justify-center rounded-none ring-2  ring-zinc-300 dark:ring-zinc-600  whitespace-nowrap dark:bg-zinc-700 rounded-tr-lg"
             >
               Register
-            </TabsTrigger>
+            </Link>
           </TabsList>
 
           {/* Login Tab */}
-          <TabsContent value="login" className="m-4">
+          <TabsContent value="login" className="p-4  ">
             <LoginForm />
-          </TabsContent>
-
-          {/* Register Tab */}
-          <TabsContent value="register" className="m-4">
-            <RegisterForm />
           </TabsContent>
         </Tabs>
       </HoverCardContent>
