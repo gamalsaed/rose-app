@@ -1,7 +1,6 @@
-import { getRequestConfig } from "next-intl/server";
-import { hasLocale } from "next-intl";
-import { routing } from "./routing";
-import { cookies } from "next/headers";
+import { getRequestConfig } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
+import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // variables
@@ -9,8 +8,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = hasLocale(routing.locales, requestedLocale)
     ? requestedLocale
     : routing.defaultLocale;
-  const numberingSystem = locale === "ar" ? "arab" : "latn";
-
+  const numberingSystem = locale === 'ar' ? 'arab' : 'latn';
 
   return {
     locale,
@@ -18,8 +16,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
     formats: {
       number: {
         // 65,000.00
-        "price": {
-          style: "decimal",
+        price: {
+          style: 'decimal',
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+          numberingSystem,
+        },
+        'price-without-currency': {
+          style: 'decimal',
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
           numberingSystem,
@@ -27,17 +31,17 @@ export default getRequestConfig(async ({ requestLocale }) => {
       },
       dateTime: {
         // January 12, 2025
-        "long-date": {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
+        'long-date': {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
           numberingSystem,
         },
         // Jan 12, 2025
-        "medium-date": {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
+        'medium-date': {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
           numberingSystem,
         },
       },

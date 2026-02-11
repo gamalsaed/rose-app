@@ -1,4 +1,4 @@
-const BASE_URL = "https://flower.elevateegy.com/api/v1";
+const BASE_URL = 'https://flower.elevateegy.com/api/v1';
 
 // Define Interfaces
 export interface ProductAPI {
@@ -25,7 +25,7 @@ export async function getHomePageData(searchParams: {
   [key: string]: string | string[] | undefined;
 }) {
   const occasionId =
-    typeof searchParams.occasion === "string"
+    typeof searchParams.occasion === 'string'
       ? searchParams.occasion
       : undefined;
 
@@ -33,7 +33,7 @@ export async function getHomePageData(searchParams: {
   const [bestSellersRes, popularRes, occasionsRes] = await Promise.all([
     // Best Sellers
     fetch(`${BASE_URL}/products?sort=-sold&limit=10`, {
-      cache: "no-store",
+      cache: 'no-store',
     }),
 
     // Most Popular Products (Filtered by Occasion)
@@ -41,12 +41,12 @@ export async function getHomePageData(searchParams: {
       occasionId
         ? `${BASE_URL}/products?occasion=${occasionId}&limit=12`
         : `${BASE_URL}/products?limit=12&sort=-rateAvg`,
-      { cache: "no-store" }
+      { cache: 'no-store' }
     ),
 
     // Occasions List
     fetch(`${BASE_URL}/occasions`, {
-      cache: "force-cache",
+      cache: 'force-cache',
     }),
   ]);
 
@@ -64,4 +64,16 @@ export async function getHomePageData(searchParams: {
     occasions: topFourOccasions,
     selectedOccasionId: occasionId,
   };
+}
+
+export async function getProductDetails(productId: string) {
+  const response = await fetch(`/api/product-details?productId=${productId}`);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch product details');
+  }
+
+  const payload = await response.json();
+
+  return payload;
 }

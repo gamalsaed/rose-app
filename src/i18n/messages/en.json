@@ -2,6 +2,8 @@
   "meta-title": "Rose App – Fresh Roses for Every Moment",
   "meta-description": "Discover the beauty of fresh roses with our app. Perfect for any occasion.",
   "price": "{amount, number, price} EGP",
+  "price-without-currency": "{amount, number, price-without-currency}",
+  "currency": "EGP",
   "not-found": {
     "title": "404 - Not Found",
     "description": "The page you’re looking for doesn’t exist or may have been moved."
@@ -35,7 +37,7 @@
     "forgot-password-page-desc": "Worry not, we’ll send you instructions to help you reset it.",
     "forgot-password-page-footer": "Don't have an account? <a>create one now!</a>",
     "invalid-email": "Not a valid email",
-    "otp.label": "your otp",
+    "otp-label": "your otp",
     "otp-sent-successfull": "OTP sent to your email",
     "continue": "Continue",
     "repassword-required": "rePassword is required",
@@ -177,5 +179,16 @@
   },
   "most-popular": {
     "view-all": "View All"
+  },
+  "product-details": {
+    "out-of-stock": "Out of Stock",
+    "left-in-stock": "Left in stock",
+    "rating": "Rating",
+    "ratings": "ratings",
+    "add-to-cart": "Add to Cart",
+    "add-to-wishlist": "Add to Wishlist",
+    "added-cart-success": "Added to Cart successfully",
+    "no-available-images": "No Available Images",
+    "no-available-images-description": "No available images for this product."
   }
 }
