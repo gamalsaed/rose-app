@@ -1,13 +1,15 @@
-import Image from "next/image";
-import SearchInput from "@/components/shared/search-input";
-import UserDropDown from "./user-dropdown";
-import { Link } from "@/i18n/navigation";
-import { Heart, ShoppingCart } from "lucide-react";
-import NotificationDropDown from "./notification-dropdown";
-import LocationSelector from "./location-selector";
-import NavBar from "./nav-bar";
-import { Separator } from "@/components/ui/separator";
-import { LanguageSwitcher } from "@/components/shared/language-switcher";
+import Image from 'next/image';
+import SearchInput from '@/components/shared/search-input';
+import UserDropDown from './user-dropdown';
+import { Link } from '@/i18n/navigation';
+import { Heart, ShoppingCart } from 'lucide-react';
+import NotificationDropDown from './notification-dropdown';
+import LocationSelector from './location-selector';
+import NavBar from './nav-bar';
+import { Separator } from '@/components/ui/separator';
+import { LanguageSwitcher } from '@/components/shared/language-switcher';
+import { Tabs } from '@radix-ui/react-tabs';
+import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function Header() {
   return (
@@ -26,7 +28,7 @@ export default function Header() {
           className="h-14 grow"
           placeholder="What awesome gift are you looking for?"
         />
-        {/* User Drop Down list */}
+        {/* User Drop Down list & Login Popover */}
         <UserDropDown />
         {/* just divider */}
         <Separator orientation="vertical" className="h-12" />

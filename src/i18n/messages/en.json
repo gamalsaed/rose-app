@@ -25,6 +25,7 @@
     "forgot-your-password": "Forgot your password?",
     "remember-me": "Remember me",
     "login": "Login",
+    "register": "Register",
     "do-not-have-account": "Don't have an account? <cta>Create one now!</cta>",
     "email-required": "Your Email is required",
     "email-invalid": "Please enter a valid email address",
