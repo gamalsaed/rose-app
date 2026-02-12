@@ -191,16 +191,6 @@ export default function RegisterForm() {
         <Button type="submit" loading={isPending} className=" capitalize">
           {t('createAcc')}
         </Button>
-
-        <p className="text-center">
-          {t('registerMsg')}{' '}
-          <Link
-            href="/login"
-            className="text-maroon-700 dark:text-softPink-300"
-          >
-            {t('login')}
-          </Link>
-        </p>
       </form>
     </Form>
   );

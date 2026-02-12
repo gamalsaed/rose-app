@@ -59,13 +59,6 @@ export function LoginForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col items-stretch w-full max-w-[25.375rem] mx-auto"
       >
-        {/* Title */}
-        <h1 className="text-center text-5xl text-maroon-700 dark:text-softPink-300 font-edwardian">
-          {t('auth.welcome-back')}
-        </h1>
-
-        <Separator className="w-full mt-4 mb-6" />
-
         {/* Email */}
         <FormField
           control={form.control}
@@ -137,21 +130,6 @@ export function LoginForm() {
           </Button>
         </div>
 
-        <Separator className="w-full mt-9 mb-5" />
-
-        {/* Don't have an account? */}
-        <p className="text-center text-sm font-medium">
-          {t.rich('auth.do-not-have-account', {
-            cta: (chunks: React.ReactNode) => (
-              <Link
-                href="/register"
-                className="text-maroon-700 dark:text-softPink-300"
-              >
-                {chunks}
-              </Link>
-            ),
-          })}
-        </p>
       </form>
     </Form>
   );
