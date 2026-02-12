@@ -27,6 +27,7 @@
     "forgot-your-password": "هل نسيت كلمة المرور؟",
     "remember-me": "تذكرني",
     "login": "تسجيل الدخول",
+    "register": "أنشاء حساب جديد",
     "do-not-have-account": "ليس لديك حساب؟ <cta>إنشاء حساب الآن!</cta>",
     "email-required": "البريد الإلكتروني مطلوب",
     "email-invalid": "البريد الإلكتروني غير صالح",
