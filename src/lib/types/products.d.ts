@@ -2,6 +2,12 @@ import { z } from 'zod';
 import { productSchema, addToCartSchema } from '@/lib/schemas/products.schema';
 
 export type Product = z.infer<ReturnType<typeof productSchema>>;
+export type CartProduct = {
+  product: Product;
+  price: number;
+  quantity: number;
+  _id: string;
+};
 
 //* Get Product Details
 export type ProductResponse = ApiResponse<{ product: Product }>;

@@ -1,8 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useSession } from 'next-auth/react';
-import { useRouter } from '@/i18n/navigation';
 import { cn } from '@/lib/utilits/cn';
 
 import { useAddToCart } from '@/hooks/products/use-add-to-cart';
@@ -21,27 +19,12 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
   // Translations
   const t = useTranslations();
 
-  // Navigation
-  const router = useRouter();
-
-  // Hooks
-  const { data: session } = useSession();
-  const isLoggedIn = !!session?.user;
-
   // Mutations
-  const { mutate: addToCart, isPending } = useAddToCart();
+  const { addToCart, isPending } = useAddToCart();
 
   // Functions
-  const handleAddToCart = (productId: string) => {
-    if (!isLoggedIn) {
-      router.push(
-        `/login?callbackUrl=${encodeURIComponent(window.location.pathname)}`
-      );
-
-      return;
-    }
-
-    addToCart({ productId, quantity: 1 });
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
   };
 
   // Variables
@@ -120,7 +103,7 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
 
         {/* Add to Cart */}
         <Button
-          onClick={handleAddToCart.bind(null, product?._id)}
+          onClick={handleAddToCart.bind(null, product)}
           className=""
           disabled={!isInStock}
           loading={isPending}
