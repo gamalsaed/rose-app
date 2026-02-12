@@ -5,6 +5,7 @@ export type Product = z.infer<ReturnType<typeof productSchema>>;
 
 //* Get Product Details
 export type ProductResponse = ApiResponse<{ product: Product }>;
+export type ProductSuccessResponse = ApiSuccessResponse<{ product: Product }>;
 
 //* Add to Cart
 export type AddToCartPayload = z.infer<ReturnType<typeof addToCartSchema>>;

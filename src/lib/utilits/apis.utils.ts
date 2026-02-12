@@ -1,29 +1,24 @@
-import { NextRequest } from 'next/server';
-import { headers } from 'next/headers';
-import { getToken } from 'next-auth/jwt';
+import { cookies } from 'next/headers';
+import { decode, JWT } from 'next-auth/jwt';
 
-import { API } from '../constants/api.constants';
+const AUTH_COOKIE = 'next-auth.session-token';
 
-export const getApiHeaders = async (request?: NextRequest) => {
-  let nextRequest = request;
+export const getAccessToken = async () => {
+  const cookieStore = cookies();
+  // authCookie: The raw encrypted JWT string stored in the browser cookie.
+  const authCookie = cookieStore.get(AUTH_COOKIE)?.value;
 
-  if (!request) {
-    // getToken() reads req.cookies. NextRequest built from next/headers ReadonlyHeaders
-    // may not expose cookies correctly. Copy into a plain Headers so NextRequest
-    // parses Cookie and getToken() can read the session.
-    const headersList = headers();
-    const newHeaders = new Headers();
-    headersList.forEach((value, key) => newHeaders.set(key, value));
-    nextRequest = new NextRequest(API, { headers: newHeaders });
+  let jwt: JWT | null = null;
+
+  try {
+    // Decode the JWT to get the backend cookie
+    jwt = await decode({
+      token: authCookie,
+      secret: process.env.NEXTAUTH_SECRET!,
+    });
+  } catch (error) {
+    console.error('Error decoding token', error);
   }
 
-  const token = await getToken({
-    req: nextRequest as NextRequest,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
-
-  return {
-    'Content-Type': 'application/json',
-    ...(token?.token ? { Authorization: `Bearer ${token.token}` } : {}),
-  };
+  return jwt?.token || null;
 };

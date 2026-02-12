@@ -24,14 +24,18 @@ import { ImageIcon } from 'lucide-react';
 type ProductGalleryProps = {
   images: string[];
   className?: string;
+  title: string;
 };
 
-export function ProductGallery({ images, className }: ProductGalleryProps) {
+export function ProductGallery({
+  images,
+  title,
+  className,
+}: ProductGalleryProps) {
   // Translations
   const t = useTranslations();
 
   // States
-
   const [mainApi, setMainApi] = React.useState<CarouselApi | null>(null);
   const [thumbApi, setThumbApi] = React.useState<CarouselApi | null>(null);
   const [selected, setSelected] = React.useState(0);
@@ -59,8 +63,7 @@ export function ProductGallery({ images, className }: ProductGalleryProps) {
     };
   }, [mainApi, thumbApi]);
 
-  // * Functions
-
+  // Functions
   const goTo = React.useCallback(
     (index: number) => {
       setSelected(index);
@@ -95,7 +98,7 @@ export function ProductGallery({ images, className }: ProductGalleryProps) {
               <div className="relative aspect-[100/66] w-full overflow-hidden rounded-2xl bg-muted">
                 <Image
                   src={img}
-                  alt={`Product Image ${i + 1}`}
+                  alt={`${title} Product`}
                   fill
                   className="object-cover"
                   priority={i === 0}

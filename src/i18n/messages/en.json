@@ -162,6 +162,7 @@
   "try-send-it-again": "try sending your code again",
   "otp-sent-successfull": "Otp send succefully",
   "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
+  "password-rest": "Password reset successfully",
   "resend-otp": "didn't get your code <button>resend</button>",
 
   "section-title": {

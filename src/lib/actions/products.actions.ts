@@ -1,16 +1,20 @@
 'use server';
-import { getApiHeaders } from '@/lib/utilits/apis.utils';
+
+import { getAccessToken } from '@/lib/utilits/apis.utils';
 
 import { AddToCartPayload, AddToCartResponse } from '@/lib/types/products';
 
-import { API } from '@/lib/constants/api.constants';
+const BASE_API = process.env.BASE_API as string;
 
 export async function addToCart(payload: AddToCartPayload) {
-  const headers = await getApiHeaders();
+  const accessToken = await getAccessToken();
 
-  const response = await fetch(`${API}/cart`, {
+  const response = await fetch(`${BASE_API}/cart`, {
     method: 'POST',
-    headers,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify({
       product: payload.productId,
       quantity: payload.quantity,
