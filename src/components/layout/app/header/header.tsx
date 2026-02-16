@@ -8,8 +8,6 @@ import LocationSelector from './location-selector';
 import NavBar from './nav-bar';
 import { Separator } from '@/components/ui/separator';
 import { LanguageSwitcher } from '@/components/shared/language-switcher';
-import { Tabs } from '@radix-ui/react-tabs';
-import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function Header() {
   return (

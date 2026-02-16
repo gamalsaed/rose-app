@@ -6,4 +6,5 @@ export const PUBLIC_ROUTES = [DEFAULT_ROUTE];
 export const PROTECTED_ROUTES = [
   // TODO: Add protected routes here, except for the home page
   '/products',
+  '/checkout',
 ];

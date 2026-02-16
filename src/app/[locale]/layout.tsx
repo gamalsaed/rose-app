@@ -8,7 +8,7 @@ import { Sarabun, Tajawal } from 'next/font/google';
 import Providers from '@/components/providers';
 import localFont from 'next/font/local';
 
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 
 const sarabun = Sarabun({
   subsets: ['latin'],
