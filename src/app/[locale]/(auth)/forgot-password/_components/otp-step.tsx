@@ -71,7 +71,7 @@ export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
             name="otp"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">{t('otp.label')}</FormLabel>
+                <FormLabel className="sr-only">{t('otp-label')}</FormLabel>
                 <FormControl>
                   <InputOTP maxLength={6} {...field}>
                     {Array.from({ length: 6 }, (_, i) => i).map(i => (
