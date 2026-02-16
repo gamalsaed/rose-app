@@ -2,6 +2,8 @@
   "meta-title": "ورود - مناسبتك علينا",
   "meta-description": "اكتشف الجمال الخاص بالورود مع تطبيقنا. مثالي لأي مناسبة.",
   "price": "{amount, number, price} ج.م.",
+  "price-without-currency": "{amount, number, price-without-currency}",
+  "currency": "ج.م.",
   "not-found": {
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
@@ -199,5 +201,16 @@
   },
   "most-popular": {
     "view-all": "عرض الكل"
+  },
+  "product-details": {
+    "out-of-stock": "غير متوفر",
+    "left-in-stock": "متبقى في المخزن",
+    "rating": "تقييم",
+    "ratings": "تقييمات",
+    "add-to-cart": "إضافة للعربة",
+    "add-to-wishlist": "إضافة للمفضلة",
+    "added-cart-success": "تم إضافتة للعربة بنجاح",
+    "no-available-images": "لا يوجد صور متوفرة لهذا المنتج",
+    "no-available-images-description": "لا يوجد صور متوفرة لهذا المنتج."
   }
 }

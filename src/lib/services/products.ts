@@ -1,4 +1,7 @@
-const BASE_URL = "https://flower.elevateegy.com/api/v1";
+import { ProductSuccessResponse } from '../types/products';
+import { getAccessToken } from '../utilits/apis.utils';
+
+const BASE_API = process.env.BASE_API;
 
 // Define Interfaces
 export interface ProductAPI {
@@ -25,28 +28,28 @@ export async function getHomePageData(searchParams: {
   [key: string]: string | string[] | undefined;
 }) {
   const occasionId =
-    typeof searchParams.occasion === "string"
+    typeof searchParams.occasion === 'string'
       ? searchParams.occasion
       : undefined;
 
   // Parallel Fetching
   const [bestSellersRes, popularRes, occasionsRes] = await Promise.all([
     // Best Sellers
-    fetch(`${BASE_URL}/products?sort=-sold&limit=10`, {
-      cache: "no-store",
+    fetch(`${BASE_API}/products?sort=-sold&limit=10`, {
+      cache: 'no-store',
     }),
 
     // Most Popular Products (Filtered by Occasion)
     fetch(
       occasionId
-        ? `${BASE_URL}/products?occasion=${occasionId}&limit=12`
-        : `${BASE_URL}/products?limit=12&sort=-rateAvg`,
-      { cache: "no-store" }
+        ? `${BASE_API}/products?occasion=${occasionId}&limit=12`
+        : `${BASE_API}/products?limit=12&sort=-rateAvg`,
+      { cache: 'no-store' }
     ),
 
     // Occasions List
-    fetch(`${BASE_URL}/occasions`, {
-      cache: "force-cache",
+    fetch(`${BASE_API}/occasions`, {
+      cache: 'force-cache',
     }),
   ]);
 
@@ -64,4 +67,24 @@ export async function getHomePageData(searchParams: {
     occasions: topFourOccasions,
     selectedOccasionId: occasionId,
   };
+}
+
+export async function getProductDetails(productId: string) {
+  const accessToken = await getAccessToken();
+
+  const response = await fetch(`${BASE_API}/products/${productId}`, {
+    cache: 'no-store',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch product details');
+  }
+
+  const payload: ProductSuccessResponse = await response.json();
+
+  return payload;
 }
