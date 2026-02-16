@@ -199,5 +199,35 @@
   },
   "most-popular": {
     "view-all": "عرض الكل"
+  },
+  "checkout": {
+    "new-address": "اضافة عنوان جديد",
+    "addresses-title": "عناوين الشحن",
+    "next": "التالي",
+    "back": "الرجوع",
+    "method": "طرق الدفع",
+    "checkout": "الدفع",
+    "success-order-toast": "طلبك في طريقه إليك، شكرًا لثقتك",
+    "cash": {
+      "title": "الدفع عند الاستلام",
+      "description": "ستدفع نقداً عند تسليم طلبك."
+    },
+    "credit": {
+      "title": "بطاقة إئتمان",
+      "description": "سيتم تحويلك بشكل آمن إلى موقع ستريب لإتمام عملية الدفع."
+    }
+  },
+  "summary": {
+    "title": "ملخص",
+    "total": "الاجمالي",
+    "subtotal": "قبل الخصم",
+    "discorunt": "خصم",
+    "apply-coupon": "استخدم القسيمة",
+    "coupon-code": "كود الخصم",
+    "no-coupons-applied": "لم يتم تطبيق أي كوبونات",
+    "egp": "جم"
+  },
+  "error": {
+    "default-error-msg": "حدث خطاء غير متوقع يرجي المحاولة مرة اخري لاحقا"
   }
 }

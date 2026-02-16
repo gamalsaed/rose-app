@@ -11,7 +11,7 @@ import { useMutation } from '@tanstack/react-query';
 import { ErrorBox } from '@/components/shared/error-box';
 import { useRouter } from '@/i18n/navigation';
 import { toast } from 'sonner';
-
+import { useTranslations } from 'next-intl';
 type PaymentStepType = {
   handleStep: (num: number) => void;
   currentAddress: Address | null;
@@ -28,6 +28,9 @@ export default function PaymentStep({
 }: PaymentStepType) {
   // State
   const [method, setMethod] = useState<'cash' | 'credit' | null>(null);
+
+  // Translation
+  const t = useTranslations('checkout');
 
   // Router
   const router = useRouter();
@@ -46,7 +49,7 @@ export default function PaymentStep({
     },
 
     onSuccess: () => {
-      toast.success("Your order on it's way, Thanks for your trust");
+      toast.success(t('success-order-toast'));
       setTimeout(() => {
         router.push('/');
       }, 1000);
@@ -62,25 +65,25 @@ export default function PaymentStep({
           className="w-20 border-none"
           onClick={() => handleStep(1)}
         >
-          <ArrowLeft className="ml-2" /> Back
+          <ArrowLeft className="ml-2" /> {t('back')}
         </Button>
-        <h1 className="text-3xl font-semibold">Payment Method</h1>
+        <h1 className="text-3xl font-semibold">{t('method')}</h1>
       </div>
 
       {/* Methods */}
       <div className="flex  w-full justify-evenly gap-5 mt-9">
         <MethodCard
           src="/assets/images/checkout/cash.svg"
-          title="Cash on Delivery"
-          description="You’ll pay in cash when your order is delivered."
+          title={t('cash.title')}
+          description={t('cash.description')}
           method="cash"
           handleMethod={setMethod}
           selectedMethod={method}
         />
         <MethodCard
           src="/assets/images/checkout/credit.svg"
-          title="Credit Card"
-          description="You’ll be securely redirected to Stripe to complete your payment."
+          title={t('credit.title')}
+          description={t('credit.description')}
           method="credit"
           handleMethod={setMethod}
           selectedMethod={method}
@@ -99,7 +102,9 @@ export default function PaymentStep({
         }
         disabled={isPending}
       >
-        Checkout <MoveRight />
+        <div className="flex items-center rtl:!flex-row-reverse">
+          <p>{t('checkout')}</p> <MoveRight />
+        </div>
       </Button>
     </div>
   );

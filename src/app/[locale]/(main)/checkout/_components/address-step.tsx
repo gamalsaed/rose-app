@@ -7,6 +7,7 @@ import { AddressItem } from './address-card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Addresses, Address } from '@/lib/types/checkout.t';
+import { useTranslations } from 'next-intl';
 
 type AddressStepType = {
   handleStep: (num: number) => void;
@@ -21,10 +22,13 @@ export default function AddressStep({
   Addresses,
   currentAddress,
 }: AddressStepType) {
+  // Translation
+  const t = useTranslations('checkout');
+
   return (
     <div className="w-full flex flex-col">
       {/* Title */}
-      <h1 className="text-3xl font-semibold">Shipping Address</h1>
+      <h1 className="text-3xl font-semibold">{t('addresses-title')}</h1>
 
       {/* Addresses Scroll Area */}
       {Addresses.length > 0 && (
@@ -52,17 +56,19 @@ export default function AddressStep({
 
       {/* Add a New Address Modal not finished yet */}
       <Button variant={'secondary'} className="my-5">
-        Add a New Address
+        {t('new-address')}
       </Button>
 
       {/* Next Step */}
       {Addresses.length > 0 && (
         <Button
           disabled={currentAddress === null}
-          className="w-32 mt-4 self-end"
+          className="w-32 mt-4  self-end rtl:self-start"
           onClick={() => handleStep(2)}
         >
-          Next <MoveRight className="ml-2" />{' '}
+          <div className="flex items-center ltr:flex-row-reverse">
+            <MoveRight className="ml-2" /> <p>{t('next')}</p>
+          </div>
         </Button>
       )}
     </div>

@@ -3,13 +3,16 @@
 import { cn } from '@/lib/utilits/cn';
 
 import { CircleX } from 'lucide-react';
-
+import { useTranslations } from 'next-intl';
 type ErrorBoxProps = {
   error?: string;
   className?: string;
 };
 
 export function ErrorBox({ error, className }: ErrorBoxProps) {
+  // Translation
+  const t = useTranslations('error');
+
   return (
     <p
       className={cn(
@@ -19,7 +22,7 @@ export function ErrorBox({ error, className }: ErrorBoxProps) {
     >
       {error
         ? error.charAt(0).toUpperCase() + error.slice(1)
-        : 'Unexpected Error, Something Went Wrong, Please Try Again Later'}
+        : t('default-error-msg')}
 
       <span className="absolute left-[50%] top-0 -translate-x-1/2 -translate-y-1/2 text-destructive bg-white rounded-full">
         <CircleX className="" strokeWidth={1.5} size={18} />

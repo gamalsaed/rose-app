@@ -7,6 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 import { TicketPercent } from 'lucide-react';
 import { applyCouponAction } from '@/lib/actions/checkout.action';
 import { ErrorBox } from '@/components/shared/error-box';
+import { useTranslations } from 'next-intl';
 type CodeType = {
   code: string;
 };
@@ -17,6 +18,9 @@ export default function SummaryForm() {
     mutationKey: ['apply-coupon'],
     mutationFn: (data: CodeType) => applyCouponAction(data),
   });
+
+  // Translation
+  const t = useTranslations('summary');
 
   // Submit Handler
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,10 +36,10 @@ export default function SummaryForm() {
   return (
     <form className="flex gap-4 flex-col" onSubmit={handleSubmit}>
       <div className="flex w-full gap-2.5">
-        <Input placeholder="Coupon Code" name="code" />
+        <Input placeholder={t('coupon-code')} name="code" />
         <Button className="w-fit" type="submit" disabled={isPending}>
           <TicketPercent size={24} />
-          <p>Apply Coupon</p>
+          <p>{t('apply-coupon')}</p>
         </Button>
       </div>
       {data?.error && <ErrorBox error={data.error} />}
