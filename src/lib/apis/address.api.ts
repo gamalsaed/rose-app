@@ -6,7 +6,7 @@ export async function getAllAddresses() {
     const token = await getUserToken();
 
     if (!token) {
-      throw new Error('You should sign in');
+      return [];
     }
 
     const response = await fetch(`${process.env.BASE_API}/addresses`, {
@@ -18,7 +18,7 @@ export async function getAllAddresses() {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to get addresses');
+      return [];
     }
 
     const data = await response.json();

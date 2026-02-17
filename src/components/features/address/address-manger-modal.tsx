@@ -11,6 +11,7 @@ export default function AddressManagerModal({
 }) {
   //translation
   const t = useTranslations('address');
+  
   return (
     <>
       <div className="flex   p-6 flex-col gap-4 ">

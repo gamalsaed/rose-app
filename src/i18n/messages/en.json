@@ -226,7 +226,8 @@
     "delete-error": "Something went wrong, please try again",
     "cancel": "Cancel",
     "delete": "Delete",
-    "deleting": "Deleting..."
+    "deleting": "Deleting...",
+    "no-addresses": "No addresses have been added yet"
 
   }
 }

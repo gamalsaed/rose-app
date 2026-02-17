@@ -18,11 +18,10 @@ export default function AddressCard({
   onEdit,
 }: AddressCardProps) {
   return (
-    <>
       <div
         className="relative rounded-lg border p-4 pe-9 mb-9
         border-zinc-300
-        hover:border-maroon-600 "
+        hover:border-maroon-600"
       >
         {/* Street Label */}
         <span className="absolute -top-4 left-4 bg-white px-2 text-2xl font-medium text-maroon-600">
@@ -35,10 +34,10 @@ export default function AddressCard({
             <div className="mt-1 w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center">
               <MapPin className="text-white" size={16} />
             </div>
-            <p className="font-semibold text-2xl text-zinc-800">{city}</p>
+            <p className="font-semibold text-2xl text-zinc-800 dark:text-white">{city}</p>
           </div>
           {/* Phone Section */}
-          <div className="flex items-center gap-1 font-medium text-lg text-zinc-600">
+          <div className="flex items-center gap-1 font-medium text-lg text-zinc-600 dark:text-white">
             <Phone size={16} />
             <span>{phone}</span>
           </div>
@@ -60,6 +59,5 @@ export default function AddressCard({
           <DeleteAddressModal id={_id} />
         </div>
       </div>
-    </>
   );
 }

@@ -31,10 +31,10 @@ export default function AddressesModal({
 
         <DialogContent
           dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          className="p-0 max-w-[53.125rem] [&>button]:hidden overflow-y-auto focus:outline-none"
+          className="p-0 max-w-[53.125rem] [&>button]:hidden overflow-y-auto focus:outline-none bg-white dark:bg-zinc-900 "
         >
           {view === 'default' && (
-            <div className="bg-white p-6 pe-10 dark:bg-zinc-900   h-[35rem] rounded-lg  flex flex-col">
+            <div className=" p-6 pe-10    h-[35rem] rounded-lg  flex flex-col">
               {/* Header */}
               <div className="flex items-center justify-between pb-6 border-b border-zinc-200 dark:border-zinc-800 mb-9">
                 <h2 className="text-2xl font-bold text-zink-800 dark:text-white">
@@ -64,19 +64,34 @@ export default function AddressesModal({
               </div>
               {/* Addresses list */}
               <div className="flex flex-col">
-                {addresses.map(address => (
-                  <AddressCard
-                    key={address._id}
-                    _id={address._id}
-                    street={address.street}
-                    city={address.city}
-                    phone={address.phone}
-                    onEdit={() => {
-                      setSelectedAddress(address);
-                      setView('add');
-                    }}
-                  />
-                ))}
+                {addresses.length === 0 ? (
+                  <div className="text-center space-y-4">
+                    <p className="text-zinc-500 dark:text-zinc-400 text-lg">
+                      {t('no-addresses')}
+                    </p>
+                    <Button
+                      onClick={() => setView('add')}
+                      variant="secondary"
+                      className="rounded-sm"
+                    >
+                      {t('add-address')}
+                    </Button>
+                  </div>
+                ) : (
+                  addresses.map(address => (
+                    <AddressCard
+                      key={address._id}
+                      _id={address._id}
+                      street={address.street}
+                      city={address.city}
+                      phone={address.phone}
+                      onEdit={() => {
+                        setSelectedAddress(address);
+                        setView('add');
+                      }}
+                    />
+                  ))
+                )}
               </div>
             </div>
           )}

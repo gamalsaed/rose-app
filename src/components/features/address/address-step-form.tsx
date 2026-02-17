@@ -133,7 +133,7 @@ export default function AddressForm({
         {/* Header & Back button */}
         <div className="flex items-center gap-4">
           <BackBtn onBack={step === 0 ? onBack : () => setStep(step - 1)} />
-          <h2 className="text-maroon-600 font-medium text-2xl">
+          <h2 className="text-maroon-600 dark:text-softPink-600 font-medium text-2xl">
             {stepTitles[step]}
           </h2>
         </div>

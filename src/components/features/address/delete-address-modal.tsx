@@ -44,18 +44,18 @@ export default function DeleteAddressModal({ id }: { id: string }) {
   };
 
   return (
-    <Dialog>
+    <Dialog >
       <DialogTrigger asChild>
         <button className="text-white w-9 h-9 flex items-center justify-center rounded-full bg-red-600">
           <Trash2 size={16} />
         </button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[29.625rem] rounded-2xl">
+      <DialogContent className="sm:max-w-[29.625rem] rounded-2xl dark:bg-zinc-800">
         <DialogHeader className="flex flex-col items-center mt-3">
           <button className="w-28 h-28 flex items-center justify-center rounded-full bg-[#2E2E300D]">
             <span className="w-[4.375rem] h-[4.375rem] rounded-full bg-[#2E2E3026] flex items-center justify-center">
-              <Trash2 size={29} color="#2E2E30" />
+              <Trash2 size={29} className='text-[#2E2E30] dark:text-white' />
             </span>
           </button>
 

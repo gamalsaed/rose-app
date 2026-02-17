@@ -13,7 +13,7 @@ const ProgressBar = ({ step }: { step: string }) => {
         value={value}
         className={cn(
           "h-[0.5rem] bg-zinc-200 rounded-sm",
-          "[&>div]:bg-maroon-600",
+          "[&>div]:bg-maroon-600  dark:[&>div]:bg-softPink-600",
           "[&>div]:transition-all [&>div]:duration-500",
           "rtl:scale-x-[-1]"  
         )}
@@ -25,8 +25,8 @@ const ProgressBar = ({ step }: { step: string }) => {
           className={cn(
             "w-[1.5rem] h-[1.5rem] rounded-full rtl:order-2 flex items-center justify-center text-[0.875rem] transition-colors duration-300",
             step === "1" || step === "2"
-              ? "bg-maroon-600 text-white"
-              : "bg-zinc-200 text-zinc-500"
+              ? "bg-maroon-600 text-white dark:bg-softPink-600"
+              : "bg-zinc-200 text-zinc-500 dark:bg-zinc-600"
           )}
         >
           1
@@ -37,7 +37,7 @@ const ProgressBar = ({ step }: { step: string }) => {
           className={cn(
             "w-[1.5rem] h-[1.5rem] rounded-full rtl:order-1 flex items-center justify-center text-[0.875rem] transition-colors duration-300",
             step === "2"
-              ? "bg-maroon-600 text-white"
+              ? "bg-maroon-600 text-white dark:bg-softPink-600 "
               : "bg-gray-300 text-gray-600"
           )}
         >
