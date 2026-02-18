@@ -16,6 +16,7 @@ export const createLoginSchema = (t: (key: string) => string) =>
           : t('auth.email-invalid'),
     }),
     password: z.string().min(1, t('auth.password-required')),
+    rememberMe: z.boolean(),
   });
 
 // Register Schema

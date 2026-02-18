@@ -27,11 +27,13 @@ export default function UserDropDown() {
 
   // Variables
   const isLoggedIn = !!session?.user;
+  const isAlive = sessionStorage.getItem('isAlive');
   const handleLogout = async () => {
     logout();
   };
 
-  return isLoggedIn ? (
+  return (isLoggedIn && isAlive === null && session.rememberMe === 'true') ||
+    (isLoggedIn && isAlive === 'true' && session?.rememberMe === 'false') ? (
     <DropdownMenu>
       {/* Dropdown Menu Trigger */}
       <DropdownMenuTrigger asChild>
