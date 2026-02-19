@@ -1,50 +1,19 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { getProducts, ProductFilters } from "@/lib/apis/products.api";
-import type { InfiniteData } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
+import { getProducts, ProductFilters } from '@/lib/apis/products.api';
 
-
-//Custom hook to fetch products with infinite scrolling support using react-query's useInfiniteQuery.
 export function useProductsQuery(
   filters: ProductFilters = {},
-  initialPage?: ProductsResponse
+  page = 1,
+  limit = 12,
+  initialData?: ProductsResponse
 ) {
-  return useInfiniteQuery<
-    ProductsResponse,              
-    Error,
-    InfiniteData<ProductsResponse>, 
-    ["products", ProductFilters],
-    number
-  >({
-    // Unique query key including current filters
-   queryKey: ["products",filters],
+  // Query
+  return useQuery({
+    queryKey: ['products', page, filters, limit],
+    queryFn: () => getProducts({ ...filters, page, limit }),
 
-    // Fetch function to get products for a specific page
-    queryFn: async ({ pageParam }) => {
-      const response = await getProducts({
-        ...filters,
-        page: pageParam,
-      });
+    initialData: page === 1 ? initialData : undefined,
 
-      if ("error" in response) {
-        throw new Error(response.error);
-      }
-
-      return response;
-    },
-    refetchOnWindowFocus: false,
-
-    initialPageParam: 1,
-    // Provide initial data if no filters applied and initialPage exists
-
-     initialData: !filters || Object.keys(filters).length === 0
-      ? initialPage
-        ? { pages: [initialPage], pageParams: [1] }
-        : undefined
-      : undefined,
-
-    getNextPageParam: (lastPage) => {
-      const { currentPage, totalPages } = lastPage.metadata;
-      return currentPage < totalPages ? currentPage + 1 : undefined;
-    },
+    staleTime: 1000 * 60 * 5,
   });
 }

@@ -15,6 +15,10 @@ type WishlistApiRouteResponse = {
   message?: string;
   data: WishlistResponse;
 };
+declare type CheckWishlistResponse = {
+  message: string;
+  isInWishlist: boolean;
+};
 
 declare type WishlistApiResponse = ApiResponse<WishlistApiRouteResponse>;
 

@@ -1,19 +1,16 @@
-import { getProducts } from "@/lib/apis/products.api";
-import ProductsWrapper from "./_components/products-wrapper";
-import { getUserToken } from "@/lib/utilits/get-token";
+import { getProducts } from '@/lib/apis/products.api';
+import ProductsWrapper from './_components/products-wrapper';
 
-export default async function HomePage() {
-  const response = await getProducts({ page: 1, limit: 12 });
+export default async function ProductPage() {
+  const initialPage = await getProducts({ page: 1, limit: 12 });
 
- console.log(await getUserToken())
-
-  if ("error" in response) {
+  if ('error' in initialPage) {
     return <p>Failed to load products</p>;
   }
 
   return (
     <main className="flex mx-auto px-20 gap-6 mt-16 min-h-[80vh]">
-      <ProductsWrapper initialPage={response} />
+      <ProductsWrapper initialPage={initialPage} />
     </main>
   );
 }

@@ -1,57 +1,97 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useProductsQuery } from '../_hooks/use-get-products';
 import ProductItem from './product-item';
 import Pagination from '@/components/shared/pagination';
 import type { ProductFilters } from '@/lib/apis/products.api';
 import { Separator } from '@radix-ui/react-separator';
-import { Skeleton } from '@/components/ui/skeleton';
 import ProductSkeleton from '@/components/skeletons/products.skeleton';
+import { useQueryClient } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import { addToWishlist } from '@/lib/services/wishlist.service';
+import { toast } from '@/hooks/use-toast';
 
 type Props = {
-  initialPage: ProductsResponse;
   filters?: ProductFilters;
+  initialPage?: ProductsResponse;
 };
-// ProductPagination handles displaying products with pagination support.
-export default function ProductPagination({ initialPage, filters }: Props) {
-  const [currentPage, setCurrentPage] = useState(1);
-// It fetches products based on optional filters .
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    isError,
-  } = useProductsQuery(filters || {}, initialPage);
 
+export default function ProductPagination({ filters, initialPage }: Props) {
+  // State
+  const [currentPage, setCurrentPage] = useState(
+    initialPage?.metadata?.currentPage || 1
+  );
+
+  const queryClient = useQueryClient();
+  const { status } = useSession();
+  const userIsLoggedIn = status === 'authenticated';
+
+  // Queries
+
+  const { data, isLoading, isFetching, isError } = useProductsQuery(
+    filters || {},
+    currentPage,
+    12,
+    initialPage
+  );
+
+  // Effects
   useEffect(() => {
     setCurrentPage(1);
   }, [filters]);
 
-  const currentProducts = data?.pages[currentPage - 1]?.products ?? [];
-  const totalPages = data?.pages[0]?.metadata.totalPages ?? 1;
+  // Sync guest wishlist to server after login
+  useEffect(() => {
+    if (userIsLoggedIn) {
+      const localWishlist: string[] = JSON.parse(
+        localStorage.getItem('wishlist') || '[]'
+      );
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    if (!data?.pages[page - 1] && hasNextPage) fetchNextPage();
-  };
-    
-  // Skeletons are shown while fetching, and errors are displayed if fetch fails.
-  if (isLoading) return <ProductSkeleton className='my-6'/>;
-  if (isError) return <p>Error loading products.</p>;
+      if (localWishlist.length > 0) {
+        Promise.all(localWishlist.map(id => addToWishlist(id)))
+          .then(() => {
+            localStorage.removeItem('wishlist');
+            queryClient.invalidateQueries({ queryKey: ['products'] });
+            queryClient.invalidateQueries({ queryKey: ['wishlist'] });
+          })
+          .catch(err => {
+            toast({
+              variant: 'destructive',
+              description:
+                err.message || 'Something went wrong syncing wishlist',
+            });
+          });
+      }
+    }
+  }, [userIsLoggedIn, queryClient]);
+
+  if (isLoading) {
+    return <ProductSkeleton className="my-6" />;
+  }
+
+  if (!data || 'error' in data) {
+    return <p>Error loading products.</p>;
+  }
+
+  // Variables
+  const products = data.products;
+  const totalPages = data.metadata.totalPages;
 
   return (
     <>
-      <ProductItem products={currentProducts} />
+      <ProductItem products={products} userIsLoggedIn={userIsLoggedIn} />
+
+      {isFetching && <ProductSkeleton className="my-6" />}
+
       <Separator className="my-7 h-[1px] bg-zinc-100 dark:bg-zinc-700 w-full mt-6" />
+
       <Pagination
         className="mt-5 mb-44"
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={handlePageChange}
+        onPageChange={setCurrentPage}
       />
-      {isFetchingNextPage && <ProductSkeleton className='my-6'/>}
     </>
   );
 }

@@ -1,3 +1,4 @@
+// add-to-whishlist.tsx
 'use client';
 
 import { cn } from '@/lib/utilits/cn';
@@ -10,8 +11,9 @@ type Props = {
   disabled?: boolean;
 };
 
-// Button for adding/removing a product from the wishlist
+// Wishlist button component
 export default function AddToWhishlist({ isActive, onClick, disabled }: Props) {
+  // Translation
   const t = useTranslations();
 
   return (
@@ -22,8 +24,7 @@ export default function AddToWhishlist({ isActive, onClick, disabled }: Props) {
         `absolute top-2 start-2
         group
         flex items-center gap-2
-        h-10
-        w-10 
+        h-10 w-10
         overflow-hidden
         rounded-full
         border
@@ -33,7 +34,7 @@ export default function AddToWhishlist({ isActive, onClick, disabled }: Props) {
         disabled && 'opacity-50 cursor-not-allowed',
         isActive
           ? `bg-black text-white hover:w-48 border-none`
-          : `text-maroon-600 bg-white rtl:hover:w-48 hover:w-36 `
+          : `text-maroon-600 bg-white rtl:hover:w-48 hover:w-36`
       )}
     >
       {isActive ? (

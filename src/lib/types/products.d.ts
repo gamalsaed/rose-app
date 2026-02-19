@@ -19,5 +19,15 @@ declare type Product = {
   isInWishlist: boolean;
   isSuperAdmin: boolean;
 };
+declare type ProductFilters = {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  category?: string;
+  occasion?: string;
+  rateAvg?: number;
+  priceGte?: number;
+  priceLte?: number;
+};
 
 declare type ProductsResponse = PaginatedData<Product, "products">;

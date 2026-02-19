@@ -1,35 +1,74 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import ProductCard from '@/components/features/product-card';
 import AddToWhishlist from './add-to-whishlist';
-import { useWishlist } from '../_hooks/use-add-to-whislist';
+import { useAddToWishlist } from '../_hooks/use-add-to-whislist';
+import { useQueryClient } from '@tanstack/react-query';
 
 type Props = {
-  products: ProductsResponse['products'];
+  products: Product[];
+  userIsLoggedIn: boolean;
 };
 
-// Renders a grid of products with add/remove wishlist buttons
+export default function ProductItem({ products, userIsLoggedIn }: Props) {
+  // State
+  const [guestWishlist, setGuestWishlist] = useState<string[]>([]);
+  const [isInitializing, setIsInitializing] = useState(true);
 
-export default function ProductItem({ products }: Props) {
-  const { toggleWishlist, mutation, data } = useWishlist();
+  // Queries / Mutations
+  const {
+    mutateAsync: toggleWishlist,
+    isPending,
+    variables,
+  } = useAddToWishlist();
 
-  const whishlistProducts =
-    (data && 'data' in data && data.data.wishlist.products) || [];
+  // Effects
+  useEffect(() => {
+    if (!userIsLoggedIn) {
+      const stored = localStorage.getItem('wishlist');
+      if (stored) setGuestWishlist(JSON.parse(stored));
+      setIsInitializing(false); // guests ready immediately
+    }
+  }, [userIsLoggedIn]);
 
-  const handleWishlist = (productId: string) => {
-    console.log('clicked:', productId);
-    const productIsActive = whishlistProducts.some(
-      item => item._id === productId
-    );
-    toggleWishlist({ productId, isActive: productIsActive });
+  // Functions
+  const handleWishlist = async (productId: string) => {
+    if (isPending) return;
+
+    if (!userIsLoggedIn) {
+      setGuestWishlist(prev => {
+        const isAlready = prev.includes(productId);
+        const newWishlist = isAlready
+          ? prev.filter(id => id !== productId)
+          : [...prev, productId];
+        localStorage.setItem('wishlist', JSON.stringify(newWishlist));
+        return newWishlist;
+      });
+      return;
+    }
+
+    // Optimistic update for logged-in user
+    const productIndex = products.findIndex(p => p._id === productId);
+    if (productIndex !== -1) {
+      products[productIndex].isInWishlist =
+        !products[productIndex].isInWishlist;
+    }
+
+    await toggleWishlist({ productId, isAuth: true });
   };
 
   return (
     <div className="grid grid-cols-3 gap-4 mt-20">
       {products.map(p => {
-        const isActive = whishlistProducts.some(item => item._id === p._id);
         const isPendingForThisProduct =
-          mutation.isPending && mutation.variables?.productId === p._id;
+          isPending && variables?.productId === p._id;
+
+        // Determine wishlist state for icon
+        const isActive = userIsLoggedIn
+          ? p.isInWishlist
+          : guestWishlist.includes(p._id);
+
         return (
           <div key={p._id} className="relative">
             <ProductCard
@@ -45,7 +84,10 @@ export default function ProductItem({ products }: Props) {
             <AddToWhishlist
               isActive={isActive}
               onClick={() => handleWishlist(p._id)}
-              disabled={isPendingForThisProduct}
+              // disable button if mutation is pending or still initializing
+              disabled={
+                isPendingForThisProduct || (!userIsLoggedIn && isInitializing)
+              }
             />
           </div>
         );

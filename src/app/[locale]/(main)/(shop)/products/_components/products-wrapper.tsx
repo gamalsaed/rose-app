@@ -10,6 +10,7 @@ type Props = {
 };
 // Wrapper component for the products page.
 export default function ProductsWrapper({ initialPage }: Props) {
+  // State
   const [filters, setFilters] = useState<ProductFilters>({});
 
   return (
@@ -21,10 +22,7 @@ export default function ProductsWrapper({ initialPage }: Props) {
 
       {/* Products */}
       <section className="w-full">
-        <ProductPagination
-          initialPage={initialPage}
-          filters={filters}
-        />
+        <ProductPagination initialPage={initialPage} filters={filters} />
       </section>
     </>
   );

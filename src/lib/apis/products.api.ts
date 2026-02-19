@@ -1,22 +1,28 @@
-async function apiFetch<T>(url: string): Promise<ApiResponse<T>> {
-  const response = await fetch(url);
+'use server';
+
+import { getUserToken } from '@/lib/utilits/get-token';
+
+export async function apiFetch<T>(
+  url: string,
+  options?: RequestInit
+): Promise<T> {
+  const response = await fetch(url, options);
 
   if (!response.ok) {
-    throw new Error(`Error:failed to get products"`);
-
+    throw new Error(`Error: failed request`);
   }
 
-  const payload:ApiResponse<T> = await response.json();
+  const payload = await response.json();
 
-  if (payload  && "error" in payload) {
+  if (payload && "error" in payload) {
     throw new Error(payload.error);
   }
 
-  return payload;
+  return payload as T;
 }
 
 function buildQueryParams(
-  params: Record<string, string | number | undefined>,
+  params: Record<string, string | number | undefined>
 ) {
   const searchParams = new URLSearchParams();
 
@@ -43,7 +49,7 @@ export type ProductFilters = {
 export async function getProducts(filters: ProductFilters = {}) {
   const {
     page = 1,
-    limit = 12,
+    limit ,
     sort,
     category,
     occasion,
@@ -52,6 +58,8 @@ export async function getProducts(filters: ProductFilters = {}) {
     priceLte,
   } = filters;
 
+  const token = await getUserToken();
+
   const query = buildQueryParams({
     page,
     limit,
@@ -59,11 +67,14 @@ export async function getProducts(filters: ProductFilters = {}) {
     category,
     occasion,
     rateAvg,
-    "price[gte]": priceGte,
-    "price[lte]": priceLte,
+    'price[gte]': priceGte,
+    'price[lte]': priceLte,
   });
 
   return apiFetch<ProductsResponse>(
-    `${process.env.NEXT_PUBLIC_BASE_API!}products?${query}`,
+    `${process.env.BASE_API}/products?${query}`,
+    {
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined, 
+    }
   );
 }
