@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 // Layouts
 import Header from '@/components/layout/app/header/header';
 import Footer from '@/components/layout/app/footer/footer';
+import CartContextProvider from '@/lib/context/CartContext';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -24,11 +25,14 @@ export default async function Layout({ children, params }: LocaleLayoutProps) {
 
   return (
     <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <CartContextProvider>
+
       <Header />
 
       {children}
 
       <Footer />
+      </CartContextProvider>
     </div>
   );
 }

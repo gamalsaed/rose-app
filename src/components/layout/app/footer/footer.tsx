@@ -21,7 +21,7 @@ const PATHS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-800 dark:bg-zinc-900 w-full px-20 py-10 flex justify-between">
+    <footer className="bg-zinc-800 dark:bg-zinc-900 w-full px-20 py-10 flex justify-between mt-auto">
       <div className="flex gap-8">
         <div className="flex flex-col items-center w-fit">
           <Image

@@ -14,12 +14,13 @@ export default function OccasionFilterSection({ products }: Props) {
   const t = useTranslations();
 
   return (
-    <section className="mx-auto pt-16">
-      <div className=" flex gap-2 ">
+    <section className=" h-full pt-16">
+      <div className=" flex flex-wrap gap-2 ">
         {products.map(product => (
+          <div key={product._id}>
           <ProductCard
-            key={product._id}
             {...product}
+            id={product._id}
             title={product.title}
             price={product.price}
             priceAfterDiscount={product.priceAfterDiscount}
@@ -29,6 +30,7 @@ export default function OccasionFilterSection({ products }: Props) {
             sold={product.sold}
             createdAt={product.createdAt}
           />
+        </div>
         ))}
       </div>
 

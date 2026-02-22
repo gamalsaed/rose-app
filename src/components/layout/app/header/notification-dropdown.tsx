@@ -49,7 +49,7 @@ export default function NotificationDropDown() {
 
       <DropdownMenu modal={true}>
         <DropdownMenuTrigger className="m-auto">
-          <Bell />
+          <Bell className='mb-3' />
         </DropdownMenuTrigger>
         <DropdownMenuContent id="scrollableDiv" className="w-80 h-fit mr-4 overflow-y-auto">
           <div className="bg-maroon-700 text-white px-5 py-3 font-semibold flex items-center gap-1">

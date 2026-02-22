@@ -6,12 +6,13 @@ import ProductCard from '../product-card';
 import { Button } from '@/components/ui/button';
 import { ProductAPI } from '@/lib/services/products';
 import { useTranslations } from 'next-intl';
+import SectionTitle from '../home/title-section';
 
 interface BestSellingSectionProps {
   products: ProductAPI[];
 }
 
-export default function BestSellingSection({
+export default function CartSidebarSection({
   products,
 }: BestSellingSectionProps) {
   // Translation
@@ -36,35 +37,15 @@ export default function BestSellingSection({
 
   return (
     <section className="mx-auto max-w-[1280px] py-16">
-      <div className="grid grid-cols-4 gap-6 items-stretch">
-        <div className="flex h-full flex-col justify-between">
-          <div className="space-y-4">
-            <h4 className="text-[16px] font-bold uppercase tracking-widest text-softPink-500 dark:text-maroon-400">
-              {t('section-title.best-selling')}
-            </h4>
-            <h2 className="text-[30px] font-bold leading-none text-maroon-700 dark:text-softPink-200">
-              <span className="text-softPink-500 dark:text-maroon-400">
-                {t('best-selling.headline-accent-1')}
-              </span>{' '}
-              {t('best-selling.headline-main')} <br />
-              {t('best-selling.headline-accent-2')}{' '}
-              <span className="text-softPink-500 dark:text-maroon-400">
-                {t('best-selling.headline-main-2')}
-              </span>{' '}
-              <br />
-              {t('best-selling.headline-end')}
-            </h2>
-            <p className=" font-normal leading-tight text-zinc-500 dark:text-zinc-400">
-              {t('best-selling.paragraph-question')}
-              <br />
-              {t('best-selling.paragraph')}
-            </p>
-          </div>
-
-          <Button className="bg-maroon-600 hover:bg-maroon-800 text-white rounded-md flex items-center gap-2 dark:bg-softPink-200 dark:text-maroon-700 dark:hover:bg-softPink-300 h-9 w-[155px]">
-            {t('best-selling.cta')}
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+      <div className="flex flex-col gap-6 items-stretch">
+               <div className="mb-6 flex items-center justify-between">
+                      {/* Title */}
+                      <SectionTitle
+                        label=""
+                        title={t("section-title.Product-you-may-like")}
+                        className="mb-0 w-fit items-start text-start "
+                        titleClassName="w-fit before:w-2/3 after:w-1/3 "
+                      />  
         </div>
 
         <div className="relative col-span-3">
@@ -116,7 +97,7 @@ export default function BestSellingSection({
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </section>
   );
 }

@@ -12,7 +12,7 @@ export default async function ProductsPage({ searchParams }: ProductProps) {
   const { products, occasions } = await getProductsPageData(searchParams);
 
   return (
-    <div className="flex justify-between gap-4 max-h-screen">
+    <div className="flex gap-4  ">
       {/* Sidebar */}
       <aside className="w-72 pt-20 ml-20 shrink-0 space-y-4">
         <div className=" pb-2">
@@ -24,11 +24,11 @@ export default async function ProductsPage({ searchParams }: ProductProps) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 mt-6 lg:mt-0 ">
+      <main className=" mt-6 lg:mt-0 ">
         <Suspense fallback={<div>Loading products...</div>}>
           <OccasionFilterSection products={products} />
         </Suspense>
       </main>
-    </div>
+      </div>
   );
 }
