@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { Translations } from '@/lib/types/next-intl';
 
+export const uploadProfilePhotoSchema = z.object({
+  photo: z.string(),
+});
+
 export const userProfileDataSchema = z.object({
   _id: z.string(),
   firstName: z.string(),
