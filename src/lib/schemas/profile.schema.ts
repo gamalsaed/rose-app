@@ -38,3 +38,34 @@ export const updateProfileSchema = (t: Translations) => {
     }),
   });
 };
+
+export const changePasswordFormSchema = (t: Translations) => {
+  return z
+    .object({
+      password: z
+        .string()
+        .nonempty(t('password-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+      newPassword: z
+        .string()
+        .nonempty(t('password-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+      rePassword: z
+        .string()
+        .nonempty(t('repassword-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+    })
+    .refine(data => data.newPassword === data.rePassword, {
+      message: t('passwords-match'),
+      path: ['rePassword'],
+    });
+};
