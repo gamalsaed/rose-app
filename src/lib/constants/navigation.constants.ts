@@ -8,5 +8,6 @@ export const PUBLIC_ROUTES = [
   '/products/:productId',
 ];
 export const PROTECTED_ROUTES = [
-  // TODO: Add protected routes here, except for the home page
+  '/profile/account',
+  '/profile/change-password',
 ];

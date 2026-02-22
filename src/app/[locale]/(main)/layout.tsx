@@ -23,7 +23,11 @@ export default async function Layout({ children, params }: LocaleLayoutProps) {
   setRequestLocale(locale);
 
   return (
-    <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <div
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      className="flex flex-col min-h-screen overflow-auto w-full"
+    >
       <Header />
 
       {children}
