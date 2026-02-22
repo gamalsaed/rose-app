@@ -16,7 +16,8 @@
     "testimonials-title": "آراء العملاء",
     "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام",
     "hello-user": "مرحبا <span>{name}</span>",
-    "logout-cta": "تسجيل الخروج"
+    "logout-cta": "تسجيل الخروج",
+    "my-profile": "الملف الشخصي"
   },
 
   "auth": {
@@ -212,5 +213,24 @@
     "added-cart-success": "تم إضافتة للعربة بنجاح",
     "no-available-images": "لا يوجد صور متوفرة لهذا المنتج",
     "no-available-images-description": "لا يوجد صور متوفرة لهذا المنتج."
+  },
+  "profile": {
+    "my-account": "الملف الشخصي",
+    "change-password": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "profile-avatar-alt": "صورة الملف الشخصي",
+    "upload-photo": "تحميل صورة",
+    "upload-photo-description": "يمكنك تحميل صورة .jpg, .png, أو .gif بحد أقصى 5MB.",
+    "save-changes": "حفظ التعديلات",
+    "profile-updated-successfully": "تم تحديث الملف الشخصي بنجاح!",
+    "delete-account": "حذف حسابي",
+    "delete-account-popup-title": "هل أنت متأكد من حذف حسابك؟",
+    "delete-account-popup-description": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
+    "delete-account-popup-nope": "لا, لا أريد ذلك",
+    "delete-account-popup-yes": "نعم, حذف",
+    "old-password": "كلمة المرور القديمة",
+    "new-password": "كلمة المرور الجديدة",
+    "confirm-new-password": "تأكيد كلمة المرور الجديدة",
+    "password-updated-successfully": "تم تغيير كلمة المرور بنجاح!"
   }
 }
