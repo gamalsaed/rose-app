@@ -89,12 +89,7 @@ export function UploadProfilePhoto({
     <div className="inline-flex items-center gap-4">
       <div className="relative">
         {/* Clickable Avatar */}
-        <button
-          type="button"
-          onClick={openFilePicker}
-          className="rounded-full focus:outline-none "
-          aria-label="Change profile photo"
-        >
+        <div className="rounded-full focus:outline-none ">
           <Avatar className="h-28 w-28">
             <AvatarImage
               src={previewUrl}
@@ -105,7 +100,7 @@ export function UploadProfilePhoto({
               {fallbackText}
             </AvatarFallback>
           </Avatar>
-        </button>
+        </div>
 
         {/* Small camera button overlay (like your screenshot) */}
         <Button
