@@ -16,10 +16,12 @@ import { useRouter } from 'next/navigation';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function CartPage() {
+  // translation
+  const t = useTranslations();
+  // router
   const router = useRouter();
   const queryClient = useQueryClient();
-  const t = useTranslations();
-
+// query functions
   const { data: cartItems = [], isLoading } = useQuery({
     queryKey: ['cart'],
     queryFn: async () => {
@@ -102,9 +104,9 @@ export default function CartPage() {
         <div className="mx-auto max-w-3xl">
           <div className="flex py-3 justify-between">
             <div className="flex relative">
-              <h1 className="font-bold text-5xl">Cart</h1>
+              <h1 className="font-bold text-5xl">{t('Cart')}</h1>
               <h6 className="font-thin absolute top-6 left-28 flex gap-1">
-                <span>{cartItems.length}</span> products
+                <span>{cartItems.length}</span> {t('products')}
               </h6>
             </div>
             <Button
@@ -114,7 +116,7 @@ export default function CartPage() {
               className="cursor-pointer font-light w-40 h-10"
             >
               <BrushCleaning />
-              {clearMutation.isPending} clear cart
+              {clearMutation.isPending} {t('clear-cart')}
             </Button>
           </div>
 
@@ -174,7 +176,7 @@ export default function CartPage() {
                               ) : (
                                 <Trash2 />
                               )}
-                              {isRemoving} Remove
+                              {isRemoving} {t('Remove')}
                             </Button>
                           </div>
                         </div>
@@ -248,7 +250,7 @@ export default function CartPage() {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-2xl font-bold mb-4">Your cart is empty</h1>
+          <h1 className="text-2xl font-bold mb-4">{t('Your-cart-is-empty')}</h1>
           <Button
             onClick={() => router.push('/products')}
             className="bg-maroon-600 hover:bg-maroon-800 mt-4 text-white rounded-md flex items-center gap-2 dark:bg-softPink-200 dark:text-maroon-700 dark:hover:bg-softPink-300 h-9 w-[155px]"

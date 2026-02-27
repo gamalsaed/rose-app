@@ -38,14 +38,14 @@ export default function CartSidebarSection({
   return (
     <section className="mx-auto max-w-[1280px] py-16">
       <div className="flex flex-col gap-6 items-stretch">
-               <div className="mb-6 flex items-center justify-between">
-                      {/* Title */}
-                      <SectionTitle
-                        label=""
-                        title={t("section-title.Product-you-may-like")}
-                        className="mb-0 w-fit items-start text-start "
-                        titleClassName="w-fit before:w-2/3 after:w-1/3 "
-                      />  
+        <div className="mb-6 flex items-center justify-between">
+          {/* Title */}
+          <SectionTitle
+            label=""
+            title={t('section-title.Product-you-may-like')}
+            className="mb-0 w-fit items-start text-start "
+            titleClassName="w-fit before:w-2/3 after:w-1/3 "
+          />
         </div>
 
         <div className="relative col-span-3">
@@ -97,7 +97,7 @@ export default function CartSidebarSection({
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 }

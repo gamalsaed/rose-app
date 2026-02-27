@@ -52,10 +52,13 @@ export default function VerifyOtpStep({ email, setStep }: OtpStepProps) {
   });
   //   functions
   const onsubmit: SubmitHandler<OtpStepField> = values => {
-    verifyOtp(values, {
+    verifyOtp(values , {
       onSuccess: () => {
         setStep(FORGOT_PASSWORD_STEPS.NEW_PASSWORD);
       },
+      onError: (err) => {
+        console.error(err);
+      }
     });
   };
 

@@ -179,7 +179,7 @@
       "description": "فريقنا متواجد لخدمتك على مدار الساعة"
     }
   },
-  "otp-sent-successfull": "تم اريال الرمز بنجاح",
+  "otp-sent-successfull": "تم ارسال الرمز بنجاح",
   "section-title": {
     "most-popular": "الأكثر شعبية",
     "best-selling": "الافضل مبيعا",
@@ -198,5 +198,29 @@
   },
   "most-popular": {
     "view-all": "عرض الكل"
-  }
+  },
+ 
+  "Top Selling Products": "المنتجات الأكثر مبيعا",
+  "No-more-Products": "لا مزيد من المنتجات",
+  "No-sold-Product-yet": "لا يوجد منتج مباع حتى الآن",
+  "EGP": "جنيها",
+  "Sales": "مبيعا",
+  "Low-Stock-Products": "منتجات منخفضة المخزون",
+  "No-low-stock-products": "لا توجد منتجات منخفضة المخزون",
+  "Products": "منتجا",
+  "Cart": "عربة",
+  "clear-cart": "عربة واضحة",
+  "Remove": "حذف",
+  "Your-cart-is-empty": "العربة خالية",
+  "Summary": "ملخص",
+  "Notifications": "إشعارات",
+  "Clear-All-notifications": "مسح كافة الإخطارات",
+  "Mark-All-as-Read": "وضع علامة على الكل كمقروءة",
+  "No-more-notifications": "لا مزيد من الإشعارات",
+  "No-notifications-yet": "لا يوجد إشعار حتى الآن",
+  "Mark-as-Read": "وضع علامة كمقروءة",
+  "Delete-notification": "حذف الإشعار",
+  "Top-Selling-Products": "المنتجات الأكثر مبيعا",
+  "low-stock-products": "منتجات منخفضة المخزون"
+ 
 }
