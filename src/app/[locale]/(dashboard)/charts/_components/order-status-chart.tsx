@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 // Types
 type OrderStatus = 'pending' | 'completed' | 'canceled' | 'inProgress';
 
-// Variables => Status colors
+// Variables 
 const STATUS_COLORS: Record<OrderStatus, string> = {
   completed: '#00BC7D',
   inProgress: '#2B7FFF',
@@ -26,12 +26,12 @@ export default function OrdersStatusChart() {
   const t = useTranslations('dashboard-chart');
   const { ordersByStatus = [], isLoading } = useGetOrderStatistics();
 
-  // Variables => Filter valid orders
+  // Variables 
   const filteredOrders = ordersByStatus.filter(
     item => item._id && STATUS_COLORS[item._id as OrderStatus]
   );
 
-  // Functions => Map data for chart
+  // Functions 
   const orderedData: OrderData[] = Object.keys(STATUS_COLORS)
     .map(status => {
       const s = status as OrderStatus;
@@ -40,7 +40,7 @@ export default function OrdersStatusChart() {
     })
     .filter((item): item is OrderData => item !== null);
 
-  // Variables => Total orders
+  // Variables 
   const total = orderedData.reduce((sum, item) => sum + item.value, 0);
 
   // Loading
@@ -70,7 +70,7 @@ export default function OrdersStatusChart() {
     );
   }
 
-  // Variables => Add color to chart data
+  // Variables 
   const chartData = orderedData.map(entry => ({
     ...entry,
     fill: STATUS_COLORS[entry.name],
@@ -87,14 +87,15 @@ export default function OrdersStatusChart() {
           <Pie
             data={chartData}
             dataKey="value"
-            innerRadius={40} // Donut effect
+            innerRadius={40} 
             outerRadius={80}
-            startAngle={90} // Start top
-            endAngle={-270} // Full circle
+            startAngle={90} 
+            endAngle={-270} 
             paddingAngle={0}
             labelLine={false}
             stroke="none"
-            // Functions => Custom label
+
+            // Functions 
             label={({ cx, cy, midAngle, outerRadius, percent }) => {
               if (midAngle === undefined || percent === undefined) return null;
 

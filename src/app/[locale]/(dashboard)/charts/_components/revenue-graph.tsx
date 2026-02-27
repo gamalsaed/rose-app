@@ -23,8 +23,7 @@ export default function RevenueChart() {
   // Queries
   const { data, isLoading } = useGetOrderStatistics();
 
-  // Loading state
-  // Loading state with skeleton
+  // Loading 
 if (isLoading) {
   return (
     <div className="h-96 w-full bg-white rounded-xl p-6 flex flex-col animate-pulse">
