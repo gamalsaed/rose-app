@@ -1,0 +1,148 @@
+'use client';
+
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import { useGetOrderStatistics } from '../_hooks/use-get-orders';
+import { useTranslations } from 'next-intl';
+
+// Types
+type OrderStatus = 'pending' | 'completed' | 'canceled' | 'inProgress';
+
+// Variables => Status colors
+const STATUS_COLORS: Record<OrderStatus, string> = {
+  completed: '#00BC7D',
+  inProgress: '#2B7FFF',
+  canceled: '#DC2626',
+  pending: '#ff9800',
+};
+
+// Interfaces
+interface OrderData {
+  name: OrderStatus;
+  value: number;
+}
+
+export default function OrdersStatusChart() {
+  // Hooks
+  const t = useTranslations('dashboard-chart');
+  const { ordersByStatus = [], isLoading } = useGetOrderStatistics();
+
+  // Variables => Filter valid orders
+  const filteredOrders = ordersByStatus.filter(
+    item => item._id && STATUS_COLORS[item._id as OrderStatus]
+  );
+
+  // Functions => Map data for chart
+  const orderedData: OrderData[] = Object.keys(STATUS_COLORS)
+    .map(status => {
+      const s = status as OrderStatus;
+      const item = filteredOrders.find(o => o._id === s);
+      return item ? { name: s, value: item.count } : null;
+    })
+    .filter((item): item is OrderData => item !== null);
+
+  // Variables => Total orders
+  const total = orderedData.reduce((sum, item) => sum + item.value, 0);
+
+  // Loading
+  if (isLoading) {
+    return (
+      <div className="w-72 h-96 rounded-2xl bg-white p-4 animate-pulse">
+        {/* Title skeleton */}
+        <div className="h-8 bg-zinc-300 rounded mb-6 w-1/2 mx-auto"></div>
+        {/* Pie skeleton */}
+        <div className="w-44 h-44 mx-auto bg-zinc-200 rounded-full mb-4"></div>
+        {/* Legend skeleton */}
+        <div className="space-y-2 mt-4">
+          <div className="h-4 bg-zinc-300 rounded w-3/4 mx-auto"></div>
+          <div className="h-4 bg-zinc-300 rounded w-2/4 mx-auto"></div>
+          <div className="h-4 bg-zinc-300 rounded w-5/6 mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
+  // No data
+  if (!total) {
+    return (
+      <div className="w-72 h-96 rounded-2xl mx-auto bg-white p-4 flex items-center justify-center">
+        <p className="text-zinc-500 font-semibold">No data available</p>
+      </div>
+    );
+  }
+
+  // Variables => Add color to chart data
+  const chartData = orderedData.map(entry => ({
+    ...entry,
+    fill: STATUS_COLORS[entry.name],
+  }));
+
+  return (
+    <div className="w-72 rounded-2xl h-96 text-center text-zinc-800 bg-white p-4">
+      {/* Header */}
+      <h3 className="font-semibold text-2xl">{t('order-title')}</h3>
+
+      {/* Chart */}
+      <ResponsiveContainer className="!h-48  !overflow-visible mx-auto my-3">
+        <PieChart>
+          <Pie
+            data={chartData}
+            dataKey="value"
+            innerRadius={40} // Donut effect
+            outerRadius={80}
+            startAngle={90} // Start top
+            endAngle={-270} // Full circle
+            paddingAngle={0}
+            labelLine={false}
+            stroke="none"
+            // Functions => Custom label
+            label={({ cx, cy, midAngle, outerRadius, percent }) => {
+              if (midAngle === undefined || percent === undefined) return null;
+
+              const RADIAN = Math.PI / 180;
+              const circleSize = 31.5;
+              const radius = outerRadius;
+              const x = cx + radius * Math.cos(-midAngle * RADIAN);
+              const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+              return (
+                <foreignObject
+                  x={x - circleSize / 2}
+                  y={y - circleSize / 2}
+                  width={circleSize}
+                  height={circleSize}
+                >
+                  {/* Percentage circle */}
+                  <div className="w-8 h-8 rounded-full bg-zinc-50 flex items-center justify-center text-xs font-semibold shadow">
+                    {`${(percent * 100).toFixed(0)}%`}
+                  </div>
+                </foreignObject>
+              );
+            }}
+          />
+        </PieChart>
+      </ResponsiveContainer>
+
+      {/* Legend */}
+      <div className="flex flex-col gap-3">
+        {orderedData.map(entry => (
+          <div key={entry.name} className="flex justify-between">
+            {/* Status */}
+            <div className="flex items-center">
+              <span
+                className="w-3 h-3 mr-2 rounded-full inline-block"
+                style={{ backgroundColor: STATUS_COLORS[entry.name] }}
+              />
+              <span className="font-semibold text-xs">
+                {entry.name.charAt(0).toUpperCase() + entry.name.slice(1)}
+              </span>
+            </div>
+            {/* Value & percent */}
+            <span className="font-semibold text-xs">
+              {entry.value} ({((entry.value / total) * 100).toFixed(0)}%)
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

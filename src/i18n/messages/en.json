@@ -192,5 +192,13 @@
     "added-cart-success": "Added to Cart successfully",
     "no-available-images": "No Available Images",
     "no-available-images-description": "No available images for this product."
+  },
+  "dashboard-chart":{
+    "revenue-title": "Revenue",
+    "monthly": "Monthly",
+    "last-week": "Last week",
+    "loading": "Loading...",
+    "no-data": "No data available",
+    "order-title":"Orders Status"
   }
 }

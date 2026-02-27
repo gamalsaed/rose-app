@@ -212,5 +212,13 @@
     "added-cart-success": "تم إضافتة للعربة بنجاح",
     "no-available-images": "لا يوجد صور متوفرة لهذا المنتج",
     "no-available-images-description": "لا يوجد صور متوفرة لهذا المنتج."
-  }
+  },
+  "dashboard-chart": {
+  "revenue-title": "الإيرادات",
+  "monthly": "شهريًا",
+  "last-week": "الأسبوع الماضي",
+  "loading": "جاري التحميل...",
+  "no-data": "لا توجد بيانات",
+  "order-title": "حالات الطلبات"
+}
 }
