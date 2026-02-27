@@ -41,4 +41,4 @@ export const DASHBOARD_ROUTES = [
     href: '/dashboard/products',
     icon: Package,
   },
-];
+] as const;

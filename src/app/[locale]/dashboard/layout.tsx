@@ -8,11 +8,16 @@ import { getServerSession } from 'next-auth';
 
 export default async function layout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   // User Info
   const session = await getServerSession(authOptions);
+
+  // params
+  const { locale } = await params;
 
   if (session?.user.role === 'user') {
     return (
@@ -21,8 +26,8 @@ export default async function layout({
   }
 
   return (
-    <SidebarProvider>
-      <SideBar />
+    <SidebarProvider className=" overflow-hidden">
+      <SideBar locale={locale} />
       <div className="w-full overflow-y-auto bg-zinc-50 ">
         <Header />
         <div className="max-md:mb-32 ">{children}</div>

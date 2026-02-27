@@ -19,10 +19,14 @@ import { EllipsisVertical, LogOut, User } from 'lucide-react';
 // Next Auth
 import { signOut, useSession } from 'next-auth/react';
 
+import { useTranslations } from 'next-intl';
+
 export default function DropDownMenu() {
   // Session => User Info
   const session = useSession();
 
+  // Translation
+  const t = useTranslations('dashboard.dropDownMenu');
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none m-0 pt-5">
@@ -31,13 +35,13 @@ export default function DropDownMenu() {
 
       <DropdownMenuContent className="w-64  rounded-2xl" align="end">
         <DropdownMenuLabel className="font-semibold px-3 py-2.5 text-maroon-700">
-          {session.data?.user.firstName} {session.data?.user.firstName}
+          {session.data?.user.firstName} {session.data?.user.lastName}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="p-4" asChild>
           <Link href="/dashboard/account">
             <User />
-            Account
+            {t('account')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -46,7 +50,7 @@ export default function DropDownMenu() {
           className="p-4 text-red-600"
         >
           <LogOut />
-          Logout
+          {t('logout')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

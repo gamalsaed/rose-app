@@ -24,13 +24,23 @@ import {
   SidebarHeader,
 } from '@/components/ui/sidebar';
 import { DASHBOARD_ROUTES } from '@/lib/constants/navigation.constants';
-
-export default async function SideBar() {
+import { getTranslations } from 'next-intl/server';
+export default async function SideBar({ locale }: { locale: string }) {
   // Session => User Info
   const session = await getServerSession(authOptions);
 
+  // Translation
+  const t = await getTranslations('dashboard.sidebar');
+
+  // Side Bar direction
+  const isRTL = locale === 'ar';
+
   return (
-    <Sidebar variant="inset" className="bg-white border  border-black/10">
+    <Sidebar
+      side={isRTL ? 'right' : 'left'}
+      variant="inset"
+      className="bg-white border  border-black/10"
+    >
       {/* Header */}
       <SidebarHeader className="bg-white">
         <Image
@@ -54,7 +64,7 @@ export default async function SideBar() {
           return (
             <SideLink href={link.href}>
               <link.icon />
-              <span className="capitalize">{link.text}</span>
+              <span className="capitalize">{t(link.text)}</span>
             </SideLink>
           );
         })}
