@@ -16,12 +16,8 @@ export function useUploadProfilePhoto() {
       return response;
     },
     onSuccess: async () => {
-      // Get updated user data to update the client session
-      const loggedUserData = await fetch('/api/auth', {}).then(res =>
-        res.json()
-      );
-
-      updateSession({ user: loggedUserData.user });
+      // Session was already updated on the server by updateSessionUserAction; refetch so client state syncs
+      await updateSession();
     },
   });
 

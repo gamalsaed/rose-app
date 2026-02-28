@@ -2,6 +2,7 @@
 
 import { cookies } from 'next/headers';
 import { decode, encode } from 'next-auth/jwt';
+import { User } from 'next-auth';
 
 import {
   UploadProfilePhotoPayload,
@@ -21,6 +22,39 @@ const SESSION_COOKIE = process.env.NEXTAUTH_URL?.startsWith('https://')
 
 const SESSION_MAX_AGE = 30 * 24 * 60 * 60; // 30 days, match NextAuth default
 
+/**
+ * Updates the NextAuth JWT session cookie with new user data (e.g. after profile photo upload).
+ * Call from server actions so the client gets the updated session on next refetch.
+ */
+export async function updateSessionUserAction(user: User['user']) {
+  const secret = process.env.NEXTAUTH_SECRET;
+  if (!secret) throw new Error('NEXTAUTH_SECRET is not set');
+
+  const cookieStore = await cookies();
+  const currentCookie = cookieStore.get(SESSION_COOKIE)?.value;
+  if (!currentCookie) throw new Error('No session found');
+
+  const payload = await decode({
+    token: currentCookie,
+    secret,
+  });
+  if (!payload || !payload.user) throw new Error('Invalid session');
+
+  const newEncoded = await encode({
+    token: { ...payload, user },
+    secret,
+    maxAge: SESSION_MAX_AGE,
+  });
+
+  cookieStore.set(SESSION_COOKIE, newEncoded, {
+    httpOnly: true,
+    sameSite: 'lax',
+    path: '/',
+    secure: process.env.NEXTAUTH_URL?.startsWith('https://'),
+    maxAge: SESSION_MAX_AGE,
+  });
+}
+
 export async function uploadProfilePhotoAction(
   formData: UploadProfilePhotoPayload
 ) {
@@ -39,6 +73,19 @@ export async function uploadProfilePhotoAction(
   }
 
   const result: UploadProfilePhotoResponse = await response.json();
+
+  // Update session JWT with fresh user data so client session is up to date
+  const profileRes = await fetch(`${BASE_API}/auth/profile-data`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const profilePayload: ApiResponse<User['user']> = await profileRes.json();
+  if ('user' in profilePayload && typeof profilePayload.user === 'object') {
+    await updateSessionUserAction(profilePayload.user as User['user']);
+  }
+
   return result;
 }
 
