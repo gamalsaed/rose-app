@@ -228,6 +228,7 @@
     "delete-account-popup-description": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
     "delete-account-popup-nope": "لا, لا أريد ذلك",
     "delete-account-popup-yes": "نعم, حذف",
+    "delete-account-success": "تم حذف حسابك بنجاح!",
     "old-password": "كلمة المرور القديمة",
     "new-password": "كلمة المرور الجديدة",
     "confirm-new-password": "تأكيد كلمة المرور الجديدة",

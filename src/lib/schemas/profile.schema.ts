@@ -5,20 +5,6 @@ export const uploadProfilePhotoSchema = z.object({
   photo: z.string(),
 });
 
-export const userProfileDataSchema = z.object({
-  _id: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
-  email: z.string(),
-  gender: z.string(),
-  phone: z.string(),
-  photo: z.string(),
-  role: z.string(),
-  wishlist: z.array(z.string()),
-  addresses: z.array(z.string()),
-  createdAt: z.string(),
-});
-
 export const updateProfileSchema = (t: Translations) => {
   return z.object({
     firstName: z.string().min(2, {

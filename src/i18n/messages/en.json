@@ -210,6 +210,7 @@
     "delete-account-popup-description": "This action is permanent and cannot be undone.",
     "delete-account-popup-nope": "Nope, not doing it",
     "delete-account-popup-yes": "Yes, delete",
+    "delete-account-success": "Account deleted successfully!",
     "old-password": "Old Password",
     "new-password": "New Password",
     "confirm-new-password": "Confirm New Password",

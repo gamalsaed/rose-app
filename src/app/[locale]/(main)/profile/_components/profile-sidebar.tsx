@@ -16,7 +16,6 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 
-import {} from 'lucide-react';
 import { Spinner } from '@/components/ui/spinner';
 import { LogOut, UserRoundPen, Lock } from 'lucide-react';
 

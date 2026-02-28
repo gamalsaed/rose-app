@@ -1,10 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
-import { deleteAccountAction } from '@/lib/actions/profile.actions';
+import { useTranslations } from 'next-intl';
 import { useLogout } from '@/hooks/auth/use-logout';
+import { deleteAccountAction } from '@/lib/actions/profile.actions';
 
 import { toast } from 'sonner';
 
 export function useDeleteAccount() {
+  // Translation
+  const t = useTranslations('profile');
+
   // Hooks
   const { logout } = useLogout();
 
@@ -21,7 +25,7 @@ export function useDeleteAccount() {
     onSuccess: () => {
       logout();
 
-      toast.success('Account deleted successfully');
+      toast.success(t('delete-account-success'));
     },
   });
 

@@ -38,7 +38,6 @@ export function DeleteAccountPopup() {
           type="button"
           variant="ghost"
           className="text-base text-maroon-500"
-          onClick={() => {}}
         >
           {t('delete-account')}
         </Button>
