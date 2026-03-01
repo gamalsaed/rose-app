@@ -1,6 +1,7 @@
 {
   "meta-title": "ورود - مناسبتك علينا",
   "meta-description": "اكتشف الجمال الخاص بالورود مع تطبيقنا. مثالي لأي مناسبة.",
+  "decimal-integer": "{amount, number, decimal-integer}",
   "price": "{amount, number, price} ج.م.",
   "price-without-currency": "{amount, number, price-without-currency}",
   "currency": "ج.م.",
@@ -233,5 +234,18 @@
     "new-password": "كلمة المرور الجديدة",
     "confirm-new-password": "تأكيد كلمة المرور الجديدة",
     "password-updated-successfully": "تم تغيير كلمة المرور بنجاح!"
+  },
+  "overview": {
+    "total-products": "عدد المنتجات",
+    "total-orders": "عدد الطلبات",
+    "total-categories": "عدد الفئات",
+    "total-revenue": "الإيرادات",
+    "all-categories": "جميع الفئات",
+    "products": "المنتجات",
+    "totalProducts-min": "يجب أن يكون عدد المنتجات على الأقل ٠",
+    "totalOrders-min": "يجب أن يكون عدد الطلبات على الأقل ٠",
+    "totalCategories-min": "يجب أن يكون عدد الفئات على الأقل ٠",
+    "totalRevenue-min": "يجب أن يكون عدد الإيرادات على الأقل ٠",
+    "name-min": "يجب أن يكون اسم الفئة على الأقل ٢ أحرف"
   }
 }

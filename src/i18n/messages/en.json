@@ -1,6 +1,7 @@
 {
   "meta-title": "Rose App – Fresh Roses for Every Moment",
   "meta-description": "Discover the beauty of fresh roses with our app. Perfect for any occasion.",
+  "decimal-integer": "{amount, number, decimal-integer}",
   "price": "{amount, number, price} EGP",
   "price-without-currency": "{amount, number, price-without-currency}",
   "currency": "EGP",
@@ -215,5 +216,18 @@
     "new-password": "New Password",
     "confirm-new-password": "Confirm New Password",
     "password-updated-successfully": "Password updated successfully!"
+  },
+  "overview": {
+    "total-products": "Total Products",
+    "total-orders": "Total Orders",
+    "total-categories": "Total Categories",
+    "total-revenue": "Total Revenue",
+    "all-categories": "All Categories",
+    "products": "Products",
+    "totalProducts-min": "Total products must be at least 0",
+    "totalOrders-min": "Total orders must be at least 0",
+    "totalCategories-min": "Total categories must be at least 0",
+    "totalRevenue-min": "Total revenue must be at least 0",
+    "name-min": "Name must be at least 2 characters"
   }
 }
