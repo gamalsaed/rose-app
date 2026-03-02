@@ -12,10 +12,13 @@ import {
 import { useState } from 'react';
 import { useGetOrderStatistics } from '../_hooks/use-get-orders';
 import { useTranslations } from 'next-intl';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utilits/cn';
 
 export default function RevenueChart() {
   //translation
   const t = useTranslations('dashboard-chart');
+
   // State
   const [view, setView] = useState('monthly');
   const [clickedDot, setClickedDot] = useState<number | null>(null);
@@ -23,27 +26,27 @@ export default function RevenueChart() {
   // Queries
   const { data, isLoading } = useGetOrderStatistics();
 
-  // Loading 
-if (isLoading) {
-  return (
-    <div className="h-96 w-full bg-white rounded-xl p-6 flex flex-col animate-pulse">
-      {/* Header skeleton */}
-      <div className="h-6 bg-zinc-300 rounded w-1/3 mb-6" />
+  // Loading
+  if (isLoading) {
+    return (
+      <div className="h-96 w-full bg-white rounded-xl p-6 flex flex-col">
+        {/* Header skeleton */}
+        <Skeleton className="h-6 w-1/3 mb-6" />
 
-      {/* Chart skeleton */}
-      <div className="flex-1 flex items-center justify-center">
-        <div className="w-full h-full bg-zinc-200 rounded" />
-      </div>
+        {/* Chart skeleton */}
+        <div className="flex-1 flex items-center justify-center">
+          <Skeleton className="w-full h-full rounded-md" />
+        </div>
 
-      {/* Footer / Legend skeleton */}
-      <div className="mt-4 flex gap-3">
-        <div className="h-4 bg-zinc-300 rounded w-1/6"></div>
-        <div className="h-4 bg-zinc-300 rounded w-1/6"></div>
-        <div className="h-4 bg-zinc-300 rounded w-1/6"></div>
+        {/* Footer / Legend skeleton */}
+        <div className="mt-4 flex gap-3">
+          <Skeleton className="h-4 w-1/6" />
+          <Skeleton className="h-4 w-1/6" />
+          <Skeleton className="h-4 w-1/6" />
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
   // No data state
   if (!data) {
     return (
@@ -100,11 +103,12 @@ if (isLoading) {
               setView('monthly');
               setClickedDot(null);
             }}
-            className={`text-sm capitalize ${
+            className={cn(
+              'text-sm capitalize transition-colors',
               view === 'monthly'
                 ? 'text-maroon-600 font-semibold'
                 : 'text-gray-400'
-            }`}
+            )}
           >
             {t('monthly')}
           </button>
@@ -114,11 +118,12 @@ if (isLoading) {
               setView('daily');
               setClickedDot(null);
             }}
-            className={`text-sm capitalize ${
+            className={cn(
+              'text-sm capitalize transition-colors',
               view === 'daily'
                 ? 'text-maroon-600 font-semibold'
                 : 'text-gray-400'
-            }`}
+            )}
           >
             {t('last-week')}
           </button>

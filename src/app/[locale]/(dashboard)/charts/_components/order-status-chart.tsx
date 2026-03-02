@@ -3,11 +3,12 @@
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import { useGetOrderStatistics } from '../_hooks/use-get-orders';
 import { useTranslations } from 'next-intl';
+import { Skeleton } from '@/components/ui/skeleton';
 
 // Types
 type OrderStatus = 'pending' | 'completed' | 'canceled' | 'inProgress';
 
-// Variables 
+// Variables
 const STATUS_COLORS: Record<OrderStatus, string> = {
   completed: '#00BC7D',
   inProgress: '#2B7FFF',
@@ -22,16 +23,16 @@ interface OrderData {
 }
 
 export default function OrdersStatusChart() {
-  // Hooks
+  // Translation
   const t = useTranslations('dashboard-chart');
   const { ordersByStatus = [], isLoading } = useGetOrderStatistics();
 
-  // Variables 
+  // Variables
   const filteredOrders = ordersByStatus.filter(
     item => item._id && STATUS_COLORS[item._id as OrderStatus]
   );
 
-  // Functions 
+  // Functions
   const orderedData: OrderData[] = Object.keys(STATUS_COLORS)
     .map(status => {
       const s = status as OrderStatus;
@@ -40,22 +41,24 @@ export default function OrdersStatusChart() {
     })
     .filter((item): item is OrderData => item !== null);
 
-  // Variables 
+  // Variables
   const total = orderedData.reduce((sum, item) => sum + item.value, 0);
 
   // Loading
   if (isLoading) {
     return (
-      <div className="w-72 h-96 rounded-2xl bg-white p-4 animate-pulse">
+      <div className="w-72 h-96 rounded-2xl bg-white p-4">
         {/* Title skeleton */}
-        <div className="h-8 bg-zinc-300 rounded mb-6 w-1/2 mx-auto"></div>
+        <Skeleton className="h-8 w-1/2 mx-auto mb-6" />
+
         {/* Pie skeleton */}
-        <div className="w-44 h-44 mx-auto bg-zinc-200 rounded-full mb-4"></div>
+        <Skeleton className="w-44 h-44 mx-auto rounded-full mb-4" />
+
         {/* Legend skeleton */}
-        <div className="space-y-2 mt-4">
-          <div className="h-4 bg-zinc-300 rounded w-3/4 mx-auto"></div>
-          <div className="h-4 bg-zinc-300 rounded w-2/4 mx-auto"></div>
-          <div className="h-4 bg-zinc-300 rounded w-5/6 mx-auto"></div>
+        <div className="space-y-2 mt-4 flex flex-col items-center">
+          <Skeleton className="h-4 w-3/4" />
+          <Skeleton className="h-4 w-2/4" />
+          <Skeleton className="h-4 w-5/6" />
         </div>
       </div>
     );
@@ -65,12 +68,12 @@ export default function OrdersStatusChart() {
   if (!total) {
     return (
       <div className="w-72 h-96 rounded-2xl mx-auto bg-white p-4 flex items-center justify-center">
-        <p className="text-zinc-500 font-semibold">No data available</p>
+        <p className="text-zinc-500 font-semibold">{t('no-data')}</p>
       </div>
     );
   }
 
-  // Variables 
+  // Variables
   const chartData = orderedData.map(entry => ({
     ...entry,
     fill: STATUS_COLORS[entry.name],
@@ -87,15 +90,14 @@ export default function OrdersStatusChart() {
           <Pie
             data={chartData}
             dataKey="value"
-            innerRadius={40} 
+            innerRadius={40}
             outerRadius={80}
-            startAngle={90} 
-            endAngle={-270} 
+            startAngle={90}
+            endAngle={-270}
             paddingAngle={0}
             labelLine={false}
             stroke="none"
-
-            // Functions 
+            // Functions
             label={({ cx, cy, midAngle, outerRadius, percent }) => {
               if (midAngle === undefined || percent === undefined) return null;
 

@@ -10,7 +10,7 @@ export async function getOrderStatistics() {
     }
 
     const response = await fetch(
-      `https://flower.elevateegy.com/api/v1/statistics/orders`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/statistics/orders`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
