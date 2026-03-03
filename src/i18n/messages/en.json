@@ -19,7 +19,6 @@
     "logout-cta": "Log Out",
     "my-profile": "My Profile"
   },
-
   "auth": {
     "login-meta-title": "Rose App - Login",
     "welcome-back": "Welcome Back",
@@ -51,7 +50,7 @@
     "new-password-page-title": "Create a new password",
     "new-password-page-desc": "Set a strong password to secure your account.",
     "need-help": "Need help? <a>Contact Us </a>",
-    "forgot your password": "Forgot your password",
+    "forgot your password": "Forgot password ?",
     "forgot-password": {
       "steps": {
         "email": {
@@ -165,7 +164,6 @@
   "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
   "password-rest": "Password reset successfully",
   "resend-otp": "didn't get your code <button>resend</button>",
-
   "section-title": {
     "most-popular": "Most Popular",
     "best-selling": "BEST SELLING"

@@ -4,13 +4,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { useLocale, useTranslations } from "next-intl";
-import { cn } from "@/lib/utilits/cn";
+import { useTranslations } from "next-intl";
+
 export default function GiftCard() {
    //translation
     const t = useTranslations('banner');
-    const locale = useLocale();
-    const isRTL = locale === "ar";
   return (
     <>
       <div className="rounded-xl  relative overflow-hidden">
@@ -32,7 +30,7 @@ export default function GiftCard() {
           </p>
           <Link href="/products">
             <Button variant="secondary" className="px-4 py-2 mt-2 h-9 w-[8.125rem] capitalize">
-              {t('shop-now')} <ArrowRight className={cn(isRTL && "rotate-180")} aria-hidden="true" />
+              {t('shop-now')} <ArrowRight className= "rtl:rotate-180" aria-hidden="true" />
             </Button>
           </Link>
         </div>

@@ -32,3 +32,17 @@ export type AddToCartResponse = ApiResponse<{
     updatedAt: string;
   };
 }>;
+
+
+declare type ProductFilters = {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  category?: string;
+  occasion?: string;
+  rateAvg?: number;
+  priceGte?: number;
+  priceLte?: number;
+};
+
+

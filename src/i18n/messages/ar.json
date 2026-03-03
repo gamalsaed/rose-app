@@ -19,7 +19,6 @@
     "logout-cta": "تسجيل الخروج",
     "my-profile": "الملف الشخصي"
   },
-
   "auth": {
     "login-meta-title": "تسجيل الدخول - ورود",
     "welcome-back": "مرحبا بعودتك",
@@ -185,7 +184,6 @@
     }
   },
   "otp-sent-successfull": "تم اريال الرمز بنجاح",
-
   "section-title": {
     "most-popular": "الأكثر شعبية",
     "best-selling": "الأكثر مبيعًا"
@@ -202,6 +200,7 @@
   },
   "most-popular": {
     "view-all": "عرض الكل"
+
 
   },
   "product-details": {
@@ -243,6 +242,7 @@
   "no-data": "لا توجد بيانات",
   "order-title": "حالات الطلبات"
 },
+
   "remove-from-wishlist": "حذف من قائمة المفضلة ",
   "add-to-wishlist": "أضف إلى قائمة المفضلة",
   "something-went-wrong": "حدث خطأ ما",

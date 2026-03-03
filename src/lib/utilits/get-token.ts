@@ -3,13 +3,22 @@
 import { getToken } from 'next-auth/jwt';
 import { cookies } from 'next/headers';
 
-//Extracts and decodes the user's access token from NextAuth cookies.
 
-export async function getUserToken() {
-  const decodedToken = await getToken({
-    req: { cookies: cookies() } as any,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
+interface DecodedToken {
+  token: string;
+  email?: string;
+  name?: string;
+}
 
-  return decodedToken?.token as string | null;
+export async function getUserToken(): Promise<string | null> {
+  try {
+    const token = await getToken({ req: { cookies: cookies() }, secret: process.env.NEXTAUTH_SECRET }) as DecodedToken | null;
+
+  
+    return token?.token ?? null;
+  } catch (error) {
+    console.error('Failed to get user token:', error);
+    return null;
+  }
+
 }

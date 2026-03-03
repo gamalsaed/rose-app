@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 export default function useResetPasswordOtp() {
   // Translations
-  const t = useTranslations();
+  const t = useTranslations("auth");
   //router
   const router = useRouter();
   // mutation
@@ -19,7 +19,7 @@ export default function useResetPasswordOtp() {
       return payload;
     },
     onSuccess: () => {
-      toast.success(t("password-rest"));
+      toast.success(t("password-reset-successful"));
       router.push("/login");
     },
   });
