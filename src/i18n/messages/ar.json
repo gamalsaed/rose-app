@@ -214,6 +214,18 @@
     "no-available-images": "لا يوجد صور متوفرة لهذا المنتج",
     "no-available-images-description": "لا يوجد صور متوفرة لهذا المنتج."
   },
+  "dashboard": {
+    "dropDownMenu": {
+      "account": "الحساب",
+      "logout": "تسجيل الخروج"
+    },
+    "sidebar": {
+      "overview": "نظرة عامة",
+      "categories": "الفئات",
+      "occasions": "المناسبات",
+      "products": "المنتجات",
+      "preview": "زيارة الموقع"
+    },
   "profile": {
     "my-account": "الملف الشخصي",
     "change-password": "تغيير كلمة المرور",

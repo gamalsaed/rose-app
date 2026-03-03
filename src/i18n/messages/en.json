@@ -192,6 +192,18 @@
     "no-available-images": "No Available Images",
     "no-available-images-description": "No available images for this product."
   },
+  "dashboard": {
+    "dropDownMenu": {
+      "account": "Account",
+      "logout": "Logout"
+    },
+    "sidebar": {
+      "overview": "Overview",
+      "categories": "categories",
+      "occasions": "occasions",
+      "products": "products",
+      "preview": "Preview website"
+    },
   "profile": {
     "my-account": "My Account",
     "update-profile-title": "Update Profile",
