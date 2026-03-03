@@ -20,3 +20,4 @@ declare type PaginatedData<Item, Key extends string> = {
 } & {
   [K in Key]: Item[];
 };
+

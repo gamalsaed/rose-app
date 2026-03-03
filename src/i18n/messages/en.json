@@ -16,9 +16,9 @@
     "testimonials-title": "testimonials",
     "testimonials-subtitle": "Real Words from Happy Customers",
     "hello-user": "Hello <span>{name}</span>",
-    "logout-cta": "Log Out"
+    "logout-cta": "Log Out",
+    "my-profile": "My Profile"
   },
-
   "auth": {
     "login-meta-title": "Rose App - Login",
     "welcome-back": "Welcome Back",
@@ -50,7 +50,7 @@
     "new-password-page-title": "Create a new password",
     "new-password-page-desc": "Set a strong password to secure your account.",
     "need-help": "Need help? <a>Contact Us </a>",
-    "forgot your password": "Forgot your password",
+    "forgot your password": "Forgot password ?",
     "forgot-password": {
       "steps": {
         "email": {
@@ -164,7 +164,6 @@
   "request-another-code": "Your cand request another code in {seconds , plural , =0 {# second} , =1 {1 second} other {# second} ,{seconds: countdown}",
   "password-rest": "Password reset successfully",
   "resend-otp": "didn't get your code <button>resend</button>",
-
   "section-title": {
     "most-popular": "Most Popular",
     "best-selling": "BEST SELLING"
@@ -204,6 +203,85 @@
       "occasions": "occasions",
       "products": "products",
       "preview": "Preview website"
-    }
+    },
+  "profile": {
+    "my-account": "My Account",
+    "update-profile-title": "Update Profile",
+    "update-profile": "Update Profile",
+    "change-password": "Change Password",
+    "logout": "Logout",
+    "profile-avatar-alt": "Profile Avatar",
+    "upload-photo": "Upload Photo",
+    "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+    "save-changes": "Save Changes",
+    "profile-updated-successfully": "Profile updated successfully!",
+    "delete-account": "Delete My Account",
+    "delete-account-popup-title": "Are you sure you want to delete your account?",
+    "delete-account-popup-description": "This action is permanent and cannot be undone.",
+    "delete-account-popup-nope": "Nope, not doing it",
+    "delete-account-popup-yes": "Yes, delete",
+    "delete-account-success": "Account deleted successfully!",
+    "old-password": "Old Password",
+    "new-password": "New Password",
+    "confirm-new-password": "Confirm New Password",
+    "password-updated-successfully": "Password updated successfully!"
+  },
+  "dashboard-chart":{
+    "revenue-title": "Revenue",
+    "monthly": "Monthly",
+    "last-week": "Last week",
+    "loading": "Loading...",
+    "no-data": "No data available",
+    "order-title":"Orders Status"
+  },
+  "add-to-wishlist": "Add to wishlist",
+  "remove-from-wishlist": "Remove from whishlist",
+  "something-went-wrong": "Something went wrong",
+  "added-to-wishlist-successfully": "Added to whishlist successfully",
+  "remove-from-wishlist-successfully": "Removed from whishlist successfully",
+  "address": {
+    "title-address": "My Addresses",
+    "add-address": "Add New Address",
+    "username-required": "Username is required",
+    "username-min": "Username must be at least 3 characters",
+    "username-max": "Username must not exceed 50 characters",
+    "city-required": "City is required",
+    "city-min": "City must be at least 2 characters",
+    "city-max": "City must not exceed 50 characters",
+    "street-required": "Street address is required",
+    "street-min": "Street address must be at least 5 characters",
+    "street-max": "Street address must not exceed 100 characters",
+    "phone-required": "Phone number is required",
+    "phone-invalid": "Please enter a valid phone number",
+    "location-required": "Please select your location on the map",
+    "form-title": "Enter address details",
+    "location-title": "Find Your Location",
+    "username-label": "Username",
+    "username-placeholder": "Enter username",
+    "city-label": "City",
+    "city-placeholder": "Enter city name",
+    "street-label": "Address",
+    "street-placeholder": "Enter your full address",
+    "phone-label": "Phone",
+    "phone-placeholder": "Phone number",
+    "next": "Next",
+    "submit": "Add Address",
+    "saving": "Saving...",
+    "submit-success": "Address added successfully",
+    "submit-fail": "Failed to add address",
+    "add-a-new-address": "Add a New Address",
+    "address-title": "Enter address details",
+    "find-my-location": "Find My Location",
+    "update-address-title":"Update Address Info",
+    "update-success": "Address updated successfully",
+    "update-fail": "Failed to update address",
+    "update-address":"Update Address",
+     "delete-confirmation": "Are you sure you want to delete this address?",
+    "delete-success": "Address deleted successfully",
+    "delete-error": "Something went wrong, please try again",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "no-addresses": "No addresses have been added yet"
   }
 }

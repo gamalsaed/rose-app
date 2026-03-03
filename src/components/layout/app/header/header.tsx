@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import SearchInput from '@/components/shared/search-input';
 import UserDropDown from './user-dropdown';
@@ -8,8 +9,13 @@ import LocationSelector from './location-selector';
 import NavBar from './nav-bar';
 import { Separator } from '@/components/ui/separator';
 import { LanguageSwitcher } from '@/components/shared/language-switcher';
+import { getAllAddresses } from "@/lib/apis/address.api";
+import { getUserToken } from '@/lib/utilits/get-token';
 
-export default function Header() {
+
+export default async function Header() {
+   const addresses = await getAllAddresses();
+   const token = await getUserToken();
   return (
     <>
       <header className="flex items-center text-zinc-700 dark:text-zinc-50  px-9 gap-6 pt-3">
@@ -21,7 +27,7 @@ export default function Header() {
         />
 
         {/* Location Drop Down list */}
-        <LocationSelector />
+        {token && <LocationSelector addresses={addresses} />}
         <SearchInput
           className="h-14 grow"
           placeholder="What awesome gift are you looking for?"
