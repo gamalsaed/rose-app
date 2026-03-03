@@ -19,7 +19,7 @@ export default function SideLink({ children, href, className }: SideLinkProps) {
   return (
     <Link href={href}>
       <Button
-        className={cn('font-semibold flex justify-start', className)}
+        className={cn('font-semibold flex justify-start px-2.5', className)}
         variant={pathname.endsWith(href) ? 'secondary' : 'ghost'}
       >
         {children}

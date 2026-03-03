@@ -23,8 +23,10 @@ import {
   SidebarFooter,
   SidebarHeader,
 } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
 import { DASHBOARD_ROUTES } from '@/lib/constants/navigation.constants';
 import { getTranslations } from 'next-intl/server';
+
 export default async function SideBar({ locale }: { locale: string }) {
   // Session => User Info
   const session = await getServerSession(authOptions);
@@ -39,10 +41,10 @@ export default async function SideBar({ locale }: { locale: string }) {
     <Sidebar
       side={isRTL ? 'right' : 'left'}
       variant="inset"
-      className="bg-white border  border-black/10"
+      className="bg-white border  border-black/10 p-0  "
     >
       {/* Header */}
-      <SidebarHeader className="bg-white">
+      <SidebarHeader className="bg-white px-8">
         <Image
           width={120}
           height={112}
@@ -51,7 +53,7 @@ export default async function SideBar({ locale }: { locale: string }) {
           className="mt-16 mx-auto"
         />
         <Link href="/" className="w-full my-6">
-          <Button className="font-semibold !py-6">
+          <Button className="font-semibold h-11">
             <Flower height={25} width={25} />
             <span>Preview website</span>
           </Button>
@@ -59,7 +61,7 @@ export default async function SideBar({ locale }: { locale: string }) {
       </SidebarHeader>
 
       {/* Links */}
-      <SidebarContent className="bg-white">
+      <SidebarContent className="bg-white px-8">
         {DASHBOARD_ROUTES.map(link => {
           return (
             <SideLink href={link.href}>
@@ -69,20 +71,20 @@ export default async function SideBar({ locale }: { locale: string }) {
           );
         })}
       </SidebarContent>
-
       {/* Footer */}
-      <SidebarFooter className="bg-white">
+      <SidebarFooter className="bg-white p-6">
         {' '}
-        <div className="w-full flex items-center justify-between gap-2.5 mb-6">
+        <Separator className="mb-4" />
+        <div className="w-full flex items-center justify-between  mb-6">
           {/* Profile Image */}
           <ProfileImage />
 
           {/* User Info */}
           <div className="flex flex-col ">
-            <span className="text-zinc-800 font-bold leading-loose">
+            <span className="text-zinc-800 text-sm font-bold leading-loose">
               {session?.user?.firstName} {session?.user?.lastName}
             </span>
-            <span className="leading-none text-gray-500 break-all ">
+            <span className="leading-none text-gray-500  text-xs">
               {session?.user?.email}
             </span>
           </div>

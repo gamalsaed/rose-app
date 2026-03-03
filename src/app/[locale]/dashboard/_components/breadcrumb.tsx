@@ -74,7 +74,6 @@ export default function BreadCrumb() {
         {!shouldCollapse &&
           middle.map((segment, index) => {
             const href = '/' + segments.slice(0, index + 2).join('/');
-            console.log(href);
             return (
               <React.Fragment key={href}>
                 <BreadcrumbSeparator />

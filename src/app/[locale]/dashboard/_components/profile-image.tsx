@@ -20,7 +20,7 @@ export default async function ProfileImage() {
 
   return (
     <div>
-      {session?.user.photo ? (
+      {session?.user?.photo ? (
         <Image
           src={session?.user.photo}
           width={48}

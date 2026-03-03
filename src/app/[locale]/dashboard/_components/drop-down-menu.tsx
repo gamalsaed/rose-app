@@ -29,7 +29,7 @@ export default function DropDownMenu() {
   const t = useTranslations('dashboard.dropDownMenu');
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none m-0 pt-5">
+      <DropdownMenuTrigger className="outline-none m-0 border border-gray-300 p-1 rounded-lg ">
         <EllipsisVertical />
       </DropdownMenuTrigger>
 

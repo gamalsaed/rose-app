@@ -19,11 +19,11 @@ export default async function layout({
   // params
   const { locale } = await params;
 
-  if (session?.user.role === 'user') {
-    return (
-      <h1 className="h-dvh flex items-center justify-center">Unauthorized</h1>
-    );
-  }
+  // if (session?.user.role === 'user') {
+  //   return (
+  //     <h1 className="h-dvh flex items-center justify-center">Unauthorized</h1>
+  //   );
+  // }
 
   return (
     <SidebarProvider className=" overflow-hidden">
