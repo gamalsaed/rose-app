@@ -1,5 +1,5 @@
+import { getProducts } from '@/lib/apis/products.api';
 import { useQuery } from '@tanstack/react-query';
-import { getProducts, ProductFilters } from '@/lib/apis/products.api';
 
 export function useProductsQuery(
   filters: ProductFilters = {},
