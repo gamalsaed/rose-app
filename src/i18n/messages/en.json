@@ -166,7 +166,9 @@
   "resend-otp": "didn't get your code <button>resend</button>",
   "section-title": {
     "most-popular": "Most Popular",
-    "best-selling": "BEST SELLING"
+    "best-selling": "BEST Selling",
+    "Product-you-may-know": "Products You May Know",
+    "Product-you-may-like": "Products You May Like"
   },
   "best-selling": {
     "headline-accent-1": "Check Out",
@@ -176,11 +178,35 @@
     "headline-end": "Right Now",
     "paragraph-question": "Not sure what to choose? ",
     "paragraph": "Start with our best sellers, these are the gifts our customers keep coming back for. Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed to leave a lasting impression.",
-    "cta": "Check Out Gifts"
+    "cta": "Continue Shopping"
   },
   "most-popular": {
     "view-all": "View All"
   },
+  "Top Selling Products": "TOP Selling Products",
+  "No-more-Products": "No More Products",
+  "No-sold-Product-yet": "No Sold Product yet",
+  "EGP": "EGP",
+  "Sales": "Sales",
+  "Low-Stock-Products": "Low Stock Products",
+  "No-low-stock-products": "No Low stock products",
+  "Products": "Products",
+  "Cart": "Cart",
+  "products": "Products",
+  "clear-cart": "Clear Cart",
+  "Remove": "Remove",
+  "Your-cart-is-empty": "Your Cart Is Empty",
+  "Summary": "Summary",
+  "Notifications": "Notifications",
+  "Clear-All-notifications": "Clear All notifications",
+  "Mark-All-as-Read": "Mark All as Read",
+  "No-more-notifications": "No More Notifications",
+  "No-notifications-yet": "No Notification Yet",
+  "Mark-as-Read": "Mark as Read",
+  "Delete-notification": "Delete Notification",
+  "Top-Selling-Products": "Top Selling Products",
+  "low-stock-products": "Low Stock Products",
+  "password-rest": "Password reset successfuly"
   "product-details": {
     "out-of-stock": "Out of Stock",
     "left-in-stock": "Left in stock",

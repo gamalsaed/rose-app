@@ -1,12 +1,10 @@
+import React from 'react'
+import { SidebarProvider } from "@/components/ui/sidebar"
+import { AppSidebar } from '@/components/ui/app-sidebar'
 import { hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-
-// Layouts
-import Header from '@/components/layout/app/header/header';
-import Footer from '@/components/layout/app/footer/footer';
-import CartContextProvider from '@/lib/context/CartContext';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -22,15 +20,23 @@ export default async function Layout({ children, params }: LocaleLayoutProps) {
 
   // Enable static rendering
   setRequestLocale(locale);
+  return <>
+  <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 
-  return (
+    <SidebarProvider>
+    
+       
 
-    <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}  className="flex flex-col min-h-screen overflow-auto w-full">
-      <CartContextProvider>
-      <Header />
-      {children}
-      <Footer />
-      </CartContextProvider>
-    </div>
-  );
+        {/* Sidebar */}
+        <AppSidebar />
+
+        {/* Main Content Area */}
+      
+      <main className="flex-1 w-full p-6">
+            {children}
+          </main>
+     
+    </SidebarProvider>
+  </div>
+  </>
 }
