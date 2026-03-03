@@ -233,5 +233,14 @@
     "new-password": "كلمة المرور الجديدة",
     "confirm-new-password": "تأكيد كلمة المرور الجديدة",
     "password-updated-successfully": "تم تغيير كلمة المرور بنجاح!"
-  }
+  },
+  "dashboard-chart": {
+  "revenue-title": "الإيرادات",
+  "monthly": "شهريًا",
+  "last-week": "الأسبوع الماضي",
+  "loading": "جاري التحميل...",
+  "no-data": "لا توجد بيانات",
+  "order-title": "حالات الطلبات"
+}
+
 }

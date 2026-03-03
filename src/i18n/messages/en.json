@@ -215,5 +215,13 @@
     "new-password": "New Password",
     "confirm-new-password": "Confirm New Password",
     "password-updated-successfully": "Password updated successfully!"
+  },
+  "dashboard-chart":{
+    "revenue-title": "Revenue",
+    "monthly": "Monthly",
+    "last-week": "Last week",
+    "loading": "Loading...",
+    "no-data": "No data available",
+    "order-title":"Orders Status"
   }
 }
