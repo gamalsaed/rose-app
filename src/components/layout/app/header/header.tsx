@@ -11,9 +11,13 @@ import { Separator } from "@/components/ui/separator";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useContext } from "react";
 import { CartContext } from "@/lib/context/CartContext";
+import { getAllAddresses } from "@/lib/apis/address.api";
+import { getUserToken } from '@/lib/utilits/get-token';
 
 export default function Header() {
   const {numberOfCartItem} = useContext(CartContext) ?? {}
+   const addresses = await getAllAddresses();
+   const token = await getUserToken();
   return (
     <>
       <header className="flex items-center text-zinc-700 dark:text-zinc-50  px-9 gap-6 pt-3">
@@ -25,12 +29,12 @@ export default function Header() {
         />
 
         {/* Location Drop Down list */}
-        <LocationSelector />
+        {token && <LocationSelector addresses={addresses} />}
         <SearchInput
           className="h-14 grow"
           placeholder="What awesome gift are you looking for?"
         />
-        {/* User Drop Down list */}
+        {/* User Drop Down list & Login Popover */}
         <UserDropDown />
         {/* just divider */}
         <Separator orientation="vertical" className="h-12" />

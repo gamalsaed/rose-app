@@ -1,21 +1,21 @@
-import Image from "next/image";
-import { Link } from "@/i18n/navigation";
-import { NAV_DATA } from "@/lib/constants/paths.constants";
-import Subscribe from "./subscribe";
+import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
+import { NAV_DATA } from '@/lib/constants/paths.constants';
+import Subscribe from './subscribe';
 
 const PATHS = [
   ...NAV_DATA,
   {
-    lable: "terms & conditions",
-    path: "#",
+    lable: 'terms & conditions',
+    path: '#',
   },
   {
-    lable: "privacy policy",
-    path: "#",
+    lable: 'privacy policy',
+    path: '#',
   },
   {
-    lable: "FAQs",
-    path: "#",
+    lable: 'FAQs',
+    path: '#',
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Footer() {
             Discover our website
           </h3>
           <ul>
-            {PATHS.map((item) => {
+            {PATHS.map(item => {
               return (
                 <li className="text-zinc-100 capitalize" key={item.lable}>
                   <Link href={item.path}>{item.lable}</Link>

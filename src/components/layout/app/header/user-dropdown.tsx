@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import { useLogout } from '@/hooks/auth/use-logout';
 
-import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +15,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
-import { User, ChevronDown, LogOut } from 'lucide-react';
+import LoginPopover from './login-popover';
+import { ChevronDown, LogOut, User } from 'lucide-react';
 
 export default function UserDropDown() {
   // Translation
@@ -65,9 +65,23 @@ export default function UserDropDown() {
           </DropdownMenuLabel>
         </DropdownMenuGroup>
 
-        {/* Logout Button */}
         <DropdownMenuGroup>
           <DropdownMenuSeparator />
+
+          {/* My Profile */}
+          <DropdownMenuItem>
+            <Link
+              href="/profile/account"
+              className="flex items-center gap-1 text-sm font-medium cursor-pointer w-full"
+            >
+              <User size={16} />
+              {t('homepage.my-profile')}
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          {/* Logout Button */}
           <DropdownMenuItem>
             <Button
               variant="ghost"
@@ -82,14 +96,7 @@ export default function UserDropDown() {
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
-    // Login Button
-    <Button variant="ghost" asChild>
-      <Link href="/login" className="flex items-center gap-1">
-        <User size={24} />
-        <span className="text-base whitespace-nowrap font-normal">
-          {t('auth.login')}
-        </span>
-      </Link>
-    </Button>
+    // Login Popover
+    <LoginPopover />
   );
 }

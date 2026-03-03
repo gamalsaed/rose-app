@@ -25,8 +25,7 @@ interface NewPasswordStepProps {
   email: string | null;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
-
-export default function NewPasswordStep({ email }: NewPasswordStepProps) {
+export default function NewPasswordStep({ email,setStep }: NewPasswordStepProps) {
   //translation
   const t = useTranslations('auth');
   // hooks
