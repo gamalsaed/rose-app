@@ -1,4 +1,3 @@
-'use client'
 import Image from "next/image";
 import SearchInput from "@/components/shared/search-input";
 import UserDropDown from "./user-dropdown";
@@ -9,13 +8,11 @@ import LocationSelector from "./location-selector";
 import NavBar from "./nav-bar";
 import { Separator } from "@/components/ui/separator";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
-import { useContext } from "react";
-import { CartContext } from "@/lib/context/CartContext";
 import { getAllAddresses } from "@/lib/apis/address.api";
 import { getUserToken } from '@/lib/utilits/get-token';
+import ShoppingCartContainer from "./shopping-cart-container";
 
-export default function Header() {
-  const {numberOfCartItem} = useContext(CartContext) ?? {}
+export default async function Header() {
    const addresses = await getAllAddresses();
    const token = await getUserToken();
   return (
@@ -43,9 +40,7 @@ export default function Header() {
           <Link href="#">
             <Heart size={24} />
           </Link>
-          <Link className=" abosulte" href="/cart">
-            <ShoppingCart  size={24} /> <span className=" relative bottom-10 left-3 text-maroon-500">{numberOfCartItem}</span>
-          </Link>
+          <ShoppingCartContainer />
           <NotificationDropDown />
         </div>
 

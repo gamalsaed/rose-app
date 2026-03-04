@@ -3,6 +3,8 @@ import OccasionFilterSection from '@/components/features/products/occasion-filte
 import AllPriceFilter from '@/components/features/products/price-filter';
 import { getProductsPageData } from '@/lib/services/products-filters';
 import { Suspense } from 'react';
+import ProductsWrapper from './_components/products-wrapper';
+import { getProducts } from '@/lib/apis/products.api';
 
 interface ProductProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -10,6 +12,8 @@ interface ProductProps {
 
 export default async function ProductsPage({ searchParams }: ProductProps) {
   const { products, occasions } = await getProductsPageData(searchParams);
+    const initialPage = await getProducts({ page: 1, limit: 12 });
+
 
   return (
     <div className="flex gap-4  ">
@@ -28,6 +32,8 @@ export default async function ProductsPage({ searchParams }: ProductProps) {
         <Suspense fallback={<div>Loading products...</div>}>
           <OccasionFilterSection products={products} />
         </Suspense>
+        {/* <ProductsWrapper initialPage={initialPage} /> */}
+
       </main>
       </div>
   );
