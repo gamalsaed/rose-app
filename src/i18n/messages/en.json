@@ -204,7 +204,8 @@
     "apply-coupon": "apply coupon",
     "coupon-code": "Coupon Code",
     "no-coupons-applied": "No coupons applied",
-    "egp": "EGP"
+    "egp": "EGP",
+    "empty": "Your cart is empty!"
   },
   "error": {
     "default-error-msg": "Unexpected Error, Something Went Wrong, Please Try Again Later"

@@ -76,7 +76,7 @@ export async function applyCouponAction(code: { code: string }) {
 
 type CheckoutParams = {
   shippingAddress: Address;
-  method: 'cash' | 'credit';
+  method: 'cash' | 'credit' | null;
 };
 
 export async function checkoutAction(payload: CheckoutParams) {
@@ -85,7 +85,7 @@ export async function checkoutAction(payload: CheckoutParams) {
     req: { cookies: cookies() } as any,
     secret: process.env.NEXTAUTH_SECRET,
   });
-  console.log(payload);
+
   // Check if there's no address or method
   if (!payload.method || !payload.shippingAddress) {
     return { error: 'You have to chose the method.' };
@@ -121,7 +121,6 @@ export async function checkoutAction(payload: CheckoutParams) {
   });
 
   const data = await res.json();
-  console.log(data);
 
   if (!res.ok) return { error: data.error };
 

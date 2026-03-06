@@ -1,41 +1,34 @@
-'use client';
-
 import React from 'react';
 import SummaryForm from './summary-form';
-import { useQuery } from '@tanstack/react-query';
 import { getCart } from '@/lib/actions/checkout.action';
-import { useRouter } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 import Loader from '@/components/shared/loader';
-import { toast } from 'sonner';
+import { redirect } from 'next/navigation';
+import { getFormatter } from 'next-intl/server';
 
-export default function CartSummary({ env }: { env?: string }) {
-  // Query
-  const { data } = useQuery({
-    queryKey: ['cart'],
-    queryFn: async () => await getCart(),
-  });
+export default async function CartSummary({ env }: { env?: string }) {
+  // Fetch the Cart
+  const data = await getCart();
 
   // Translation
-  const t = useTranslations('summary');
+  const t = await getTranslations('summary');
 
-  // Router
-  const router = useRouter();
+  // Next Intl Formatter
+  const format = await getFormatter();
 
   if (!data) {
     return <Loader />;
   }
 
   if (data && env === 'checkout' && data.numOfCartItems === 0) {
-    toast.info('You cart is empty!');
-    router.push('/');
+    redirect('/');
   }
 
   return (
-    <div className="w-1/3 max-md:w-full">
+    <div className="w-1/3 max-md:w-full md:-translate-y-3">
       <h1 className="font-semibold text-3xl mt-0">{t('title')}</h1>
-      <div className="bg-zinc-50 p-4 mt-10">
+      <div className="bg-zinc-50 p-4 mt-10 rounded-md">
         <SummaryForm />
 
         {data && (
@@ -54,7 +47,10 @@ export default function CartSummary({ env }: { env?: string }) {
             <div className="flex justify-between mt-2.5  font-bold text-2xl">
               <p>{t('total')}</p>
               <p>
-                {data.cart.totalPrice} {t('egp')}
+                {format.number(data.cart.totalPrice, {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
               </p>
             </div>
           </main>

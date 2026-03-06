@@ -32,7 +32,7 @@ export default function AddressStep({
 
       {/* Addresses Scroll Area */}
       {Addresses.length > 0 && (
-        <ScrollArea className="h-80  w-full rounded-md flex py-4 pr-4">
+        <ScrollArea className="h-80  w-full  flex  ">
           {Addresses.map(address => {
             return (
               <AddressItem

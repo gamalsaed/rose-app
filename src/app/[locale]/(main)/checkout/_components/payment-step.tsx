@@ -6,20 +6,13 @@ import { MoveRight, ArrowLeft } from 'lucide-react';
 import MethodCard from './method-card';
 import { Separator } from '@/components/ui/separator';
 import type { Address } from '@/lib/types/checkout.t';
-import { checkoutAction } from '@/lib/actions/checkout.action';
-import { useMutation } from '@tanstack/react-query';
 import { ErrorBox } from '@/components/shared/error-box';
-import { useRouter } from '@/i18n/navigation';
-import { toast } from 'sonner';
 import { useTranslations } from 'next-intl';
+import { useCheckout } from '@/hooks/use-checkout';
+
 type PaymentStepType = {
   handleStep: (num: number) => void;
   currentAddress: Address | null;
-};
-
-type CheckoutParams = {
-  shippingAddress: Address;
-  method: 'cash' | 'credit';
 };
 
 export default function PaymentStep({
@@ -32,29 +25,8 @@ export default function PaymentStep({
   // Translation
   const t = useTranslations('checkout');
 
-  // Router
-  const router = useRouter();
-
-  // Mutation
-  const { error, mutate, isPending } = useMutation({
-    mutationKey: ['create-order'],
-    mutationFn: async (data: CheckoutParams) => {
-      const res = await checkoutAction(data);
-      // Error handler because we use action
-      if ('error' in res) {
-        throw new Error(res.error);
-      } else {
-        return res;
-      }
-    },
-
-    onSuccess: () => {
-      toast.success(t('success-order-toast'));
-      setTimeout(() => {
-        router.push('/');
-      }, 1000);
-    },
-  });
+  // Checkout Hook
+  const { mutate, isPending, error } = useCheckout({ method: method });
 
   return (
     <div className="w-full">

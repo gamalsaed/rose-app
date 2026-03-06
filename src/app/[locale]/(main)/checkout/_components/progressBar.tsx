@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utilits/cn';
+
 export function ProgressBar({ step = 1 }: { step?: number }) {
   // State
   const [progress, setProgress] = React.useState<number>(0);

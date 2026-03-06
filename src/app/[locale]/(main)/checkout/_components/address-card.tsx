@@ -27,7 +27,7 @@ export function AddressItem({
       <Item
         variant="outline"
         className={cn(
-          'transition-all duration-300 cursor-pointer',
+          'transition-all duration-300 cursor-pointer h-24',
           selected ? 'bg-maroon-600 cursor-default' : 'hover:bg-zinc-50'
         )}
       >

@@ -42,15 +42,11 @@ export default function Checkout({ Addresses }: CheckoutProps) {
     );
 
   return (
-    <div className="flex w-full max-md:flex-wrap max-md:justify-center gap-10">
-      <div className="w-3/4">
-        <div className="flex">
-          <ProgressBar step={step} />
-        </div>
-        <div className="my-6 w-full">{current_step}</div>
+    <div className="w-3/4">
+      <div className="flex">
+        <ProgressBar step={step} />
       </div>
-      {/* Summary */}
-      <CartSummary env="checkout" />
+      <div className="my-6 w-full">{current_step}</div>
     </div>
   );
 }
