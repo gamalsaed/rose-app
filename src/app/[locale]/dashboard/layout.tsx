@@ -30,7 +30,7 @@ export default async function layout({
       <SideBar locale={locale} />
       <div className="w-full overflow-y-auto bg-zinc-50 ">
         <Header />
-        <div className="max-md:mb-32 ">{children}</div>
+        <div className="max-md:mb-32 p-6">{children}</div>
       </div>
       <ResponsiveFooter />
     </SidebarProvider>
