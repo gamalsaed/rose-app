@@ -5,6 +5,7 @@ import { SidebarProvider } from '@/components/ui/sidebar';
 import ResponsiveFooter from './_components/responsive-footer';
 import { authOptions } from '@/auth';
 import { getServerSession } from 'next-auth';
+import UnauthorizedPage from './_components/unauthorized-page';
 
 export default async function layout({
   children,
@@ -22,6 +23,12 @@ export default async function layout({
   // if (session?.user.role === 'user') {
   //   return (
   //     <h1 className="h-dvh flex items-center justify-center">Unauthorized</h1>
+  //   );
+  // }
+
+  // if (session?.user.role === 'user') {
+  //   return (
+  //     <UnauthorizedPage/>
   //   );
   // }
 

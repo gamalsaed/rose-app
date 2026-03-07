@@ -59,7 +59,7 @@ export async function getHomePageData(searchParams: {
     }),
 
     // Price Products
-    fetch(`${BASE_URL}/products?sort=-price`, {
+    fetch(`${BASE_API}/products?sort=-price`, {
       cache: "no-store",
     }),
   ]);
