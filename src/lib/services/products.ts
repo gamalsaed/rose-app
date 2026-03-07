@@ -22,11 +22,11 @@ export interface Occasion {
   name: string;
   slug: string;
   // ADDED FOR FILTER SECTION
-  image: string
-  createdAt: string
-  updatedAt: string
-  isSuperAdmin: boolean
-  productsCount: number
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+  isSuperAdmin: boolean;
+  productsCount: number;
 }
 
 //  Define the Fetch Function
@@ -39,30 +39,31 @@ export async function getHomePageData(searchParams: {
       : undefined;
 
   // Parallel Fetching
-  const [bestSellersRes, popularRes, occasionsRes, priceRes] = await Promise.all([
-    // Best Sellers
-    fetch(`${BASE_API}/products?sort=-sold&limit=10`, {
-      cache: 'no-store',
-    }),
+  const [bestSellersRes, popularRes, occasionsRes, priceRes] =
+    await Promise.all([
+      // Best Sellers
+      fetch(`${BASE_API}/products?sort=-sold&limit=10`, {
+        cache: 'no-store',
+      }),
 
-    // Most Popular Products (Filtered by Occasion)
-    fetch(
-      occasionId
-        ? `${BASE_API}/products?occasion=${occasionId}&limit=12`
-        : `${BASE_API}/products?limit=12&sort=-rateAvg`,
-      { cache: 'no-store' }
-    ),
+      // Most Popular Products (Filtered by Occasion)
+      fetch(
+        occasionId
+          ? `${BASE_API}/products?occasion=${occasionId}&limit=12`
+          : `${BASE_API}/products?limit=12&sort=-rateAvg`,
+        { cache: 'no-store' }
+      ),
 
-    // Occasions List
-    fetch(`${BASE_API}/occasions`, {
-      cache: 'force-cache',
-    }),
+      // Occasions List
+      fetch(`${BASE_API}/occasions`, {
+        cache: 'force-cache',
+      }),
 
-    // Price Products
-    fetch(`${BASE_URL}/products?sort=-price`, {
-      cache: "no-store",
-    }),
-  ]);
+      // Price Products
+      fetch(`${BASE_API}/products?sort=-price`, {
+        cache: 'no-store',
+      }),
+    ]);
 
   const bestSellersData = await bestSellersRes.json();
   const popularData = await popularRes.json();

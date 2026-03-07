@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
 // Layouts
-import Header from '@/components/layout/app/header/header';
+import HeaderContainer from '@/components/layout/app/header/header-container';
 import Footer from '@/components/layout/app/footer/footer';
 import CartContextProvider from '@/lib/context/CartContext';
 
@@ -24,12 +24,15 @@ export default async function Layout({ children, params }: LocaleLayoutProps) {
   setRequestLocale(locale);
 
   return (
-
-    <div lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}  className="flex flex-col min-h-screen overflow-auto w-full">
+    <div
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      className="flex flex-col min-h-screen overflow-auto w-full"
+    >
       <CartContextProvider>
-      <Header />
-      {children}
-      <Footer />
+        <HeaderContainer />
+        {children}
+        <Footer />
       </CartContextProvider>
     </div>
   );
