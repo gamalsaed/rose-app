@@ -17,10 +17,10 @@ export default function StatisticsItemCard({
   cardTheme,
 }: StatisticsItemCardProps) {
   return (
-    <Card>
+    <Card className="shadow-none border-none">
       <CardContent
         className={cn(
-          'flex flex-col p-4 h-full',
+          'flex flex-col p-4 h-full rounded-[1rem]',
           cardTheme === 'destructive' && 'text-maroon-600 bg-maroon-50',
           cardTheme === 'blue' && 'text-blue-600 bg-[#0063D0]/5',
           cardTheme === 'purple' && 'text-[#753CBF] bg-[#753CBF]/5',

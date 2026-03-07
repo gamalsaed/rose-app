@@ -5,8 +5,10 @@ import OverallStatisticsCards from './overview-statistics-cards';
 import AllCategoriesTable from './all-categories-table';
 
 export default async function OverallStatistics() {
-  const overallStatistics = await getOverallStatistics();
-  const categoryStatistics = await getCategoryStatistics();
+  const [overallStatistics, categoryStatistics] = await Promise.all([
+    getOverallStatistics(),
+    getCategoryStatistics(),
+  ]);
 
   return (
     <>

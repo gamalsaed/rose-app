@@ -27,8 +27,8 @@ export default function AllCategoriesTable({
           {/* Table */}
           <Table>
             <TableBody>
-              {categories.map((category, index) => (
-                <TableRow key={index}>
+              {categories.map(category => (
+                <TableRow key={category._id}>
                   {/* Category Name */}
                   <TableCell className="font-medium w-full">
                     {category.name}
