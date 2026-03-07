@@ -15,13 +15,21 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: (await import(`./messages/${locale}.json`)).default,
     formats: {
       number: {
-        // 65,000.00
+        // 1,354
+        'decimal-integer': {
+          style: 'decimal',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+          numberingSystem,
+        },
+        // 65,000.00 EGP
         price: {
           style: 'decimal',
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
           numberingSystem,
         },
+        // 65,000.00
         'price-without-currency': {
           style: 'decimal',
           minimumFractionDigits: 2,

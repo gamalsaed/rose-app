@@ -1,6 +1,7 @@
 {
   "meta-title": "Rose App – Fresh Roses for Every Moment",
   "meta-description": "Discover the beauty of fresh roses with our app. Perfect for any occasion.",
+  "decimal-integer": "{amount, number, decimal-integer}",
   "price": "{amount, number, price} EGP",
   "price-without-currency": "{amount, number, price-without-currency}",
   "currency": "EGP",
@@ -216,6 +217,41 @@
     "added-cart-success": "Added to Cart successfully",
     "no-available-images": "No Available Images",
     "no-available-images-description": "No available images for this product."
+  },
+  "profile": {
+    "my-account": "My Account",
+    "update-profile-title": "Update Profile",
+    "update-profile": "Update Profile",
+    "change-password": "Change Password",
+    "logout": "Logout",
+    "profile-avatar-alt": "Profile Avatar",
+    "upload-photo": "Upload Photo",
+    "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+    "save-changes": "Save Changes",
+    "profile-updated-successfully": "Profile updated successfully!",
+    "delete-account": "Delete My Account",
+    "delete-account-popup-title": "Are you sure you want to delete your account?",
+    "delete-account-popup-description": "This action is permanent and cannot be undone.",
+    "delete-account-popup-nope": "Nope, not doing it",
+    "delete-account-popup-yes": "Yes, delete",
+    "delete-account-success": "Account deleted successfully!",
+    "old-password": "Old Password",
+    "new-password": "New Password",
+    "confirm-new-password": "Confirm New Password",
+    "password-updated-successfully": "Password updated successfully!"
+  },
+  "overview": {
+    "total-products": "Total Products",
+    "total-orders": "Total Orders",
+    "total-categories": "Total Categories",
+    "total-revenue": "Total Revenue",
+    "all-categories": "All Categories",
+    "products": "Products",
+    "totalProducts-min": "Total products must be at least 0",
+    "totalOrders-min": "Total orders must be at least 0",
+    "totalCategories-min": "Total categories must be at least 0",
+    "totalRevenue-min": "Total revenue must be at least 0",
+    "name-min": "Name must be at least 2 characters"
   },
   "dashboard": {
     "dropDownMenu": {
