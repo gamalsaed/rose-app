@@ -360,6 +360,28 @@
       "delete": "حذف",
       "deleting": "جارٍ الحذف...",
       "no-addresses": "لم يتم اضافة عنواين بعد"
+    },
+    "categories": {
+      "all-categories": "جميع الفئات",
+      "name": "الاسم",
+      "products": "المنتجات",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "add-new-category": "إضافة فئة جديدة",
+      "add-category-title": "إضافة فئة جديدة",
+      "name-placeholder": "أدخل اسم الفئة",
+      "name-min": "يجب أن يكون الاسم 2 أحرف على الأقل",
+      "category-image": "صورة الفئة",
+      "image-required": "يجب أن يكون هناك صورة للفئة",
+      "add-category": "إضافة فئة",
+      "add-category-success": "تم إضافة الفئة بنجاح!",
+      "update-category-title": "تحديث الفئة: {{name}}",
+      "update-category-success": "تم تحديث الفئة بنجاح!",
+      "delete-category-title": "هل أنت متأكد من حذف هذه الفئة؟",
+      "delete-category-warning": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
+      "delete-category-nope": "لا, لا أريد ذلك",
+      "delete-category-yes": "نعم, حذف",
+      "delete-category-success": "تم حذف الفئة بنجاح!"
     }
   }
 }

@@ -344,6 +344,28 @@
       "delete": "Delete",
       "deleting": "Deleting...",
       "no-addresses": "No addresses have been added yet"
+    },
+    "categories": {
+      "all-categories": "All Categories",
+      "name": "Name",
+      "products": "Products",
+      "edit": "Edit",
+      "delete": "Delete",
+      "add-new-category": "Add a new category",
+      "add-category-title": "Add a New Category",
+      "name-placeholder": "Enter category name",
+      "name-min": "Name must be at least 2 characters",
+      "category-image": "Category Image",
+      "image-required": "Image is required",
+      "add-category": "Add Category",
+      "add-category-success": "Category added successfully!",
+      "update-category-title": "Update Category: {{name}}",
+      "update-category-success": "Category updated successfully!",
+      "delete-category-title": "Are you sure you want to delete {{name}} category?",
+      "delete-category-warning": "This action is permanent and cannot be undone.",
+      "delete-category-nope": "Nope, not doing it",
+      "delete-category-yes": "Yes, delete",
+      "delete-category-success": "Category deleted successfully!"
     }
   }
 }

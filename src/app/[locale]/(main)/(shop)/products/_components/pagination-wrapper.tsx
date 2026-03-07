@@ -11,10 +11,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { addToWishlist } from '@/lib/services/wishlist.service';
 import { toast } from '@/hooks/use-toast';
+import { ProductSuccessResponse } from '@/lib/types/products';
 
 type Props = {
   filters?: ProductFilters;
-  initialPage?: ProductsResponse;
+  initialPage?: ProductSuccessResponse;
 };
 
 export default function ProductPagination({ filters, initialPage }: Props) {
@@ -29,7 +30,7 @@ export default function ProductPagination({ filters, initialPage }: Props) {
 
   // Queries
 
-  const { data, isLoading, isFetching, isError } = useProductsQuery(
+  const { data, isLoading, isFetching } = useProductsQuery(
     filters || {},
     currentPage,
     12,
