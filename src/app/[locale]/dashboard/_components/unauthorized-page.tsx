@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,10 +10,12 @@ export default function UnauthorizedPage() {
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-zinc-50 items-center justify-center">
-      <img
+      <Image
         src="/assets/images/dashboard/shield.png"
         alt=""
-        className="w-[360px] h-[360px] object-cover mb-12"
+        height={360}
+        width={360}
+        className="object-cover mb-12"
       />
       <h1 className="font-semibold text-4xl mb-4">
         {t('unauthorized-page-title')}

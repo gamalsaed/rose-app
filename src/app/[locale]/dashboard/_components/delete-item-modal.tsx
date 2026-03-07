@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
+// Keys for items that can be deleted
 type CommonItemKeys = 'product' | 'category' | 'address' | 'occasion';
 
 type ConfirmDeleteModalProps = {
@@ -24,6 +25,7 @@ type ConfirmDeleteModalProps = {
   onConfirm: () => Promise<unknown>;
 };
 
+//A reusable modal to confirm delete actions
 export default function ConfirmDeleteModal({
   trigger,
   itemKey,
@@ -55,11 +57,10 @@ export default function ConfirmDeleteModal({
       }
     });
   };
-
+  //  Delete confirmation dialog UI
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-
       <DialogContent className="sm:max-w-[29.625rem] rounded-2xl dark:bg-zinc-800">
         <DialogHeader className="flex flex-col items-center mt-3">
           <div className="w-28 h-28 flex items-center justify-center rounded-full bg-[#2E2E300D]">
@@ -67,7 +68,7 @@ export default function ConfirmDeleteModal({
               <Trash2 size={29} className="text-[#2E2E30] dark:text-white" />
             </span>
           </div>
-
+          {/* Confirmation message */}
           <DialogTitle className="text-xl font-semibold text-zinc-900 dark:text-white !mt-6 !mb-20 text-center">
             {t('delete-confirmation', { item: t(itemKey) })}
           </DialogTitle>
@@ -82,7 +83,7 @@ export default function ConfirmDeleteModal({
               {t('cancel')}
             </Button>
           </DialogClose>
-
+          {/* Action buttons */}
           <Button
             variant="destructive"
             className="focus-visible:ring-0"
