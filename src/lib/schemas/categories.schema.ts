@@ -11,3 +11,10 @@ export const addCategorySchema = (t: Translations) =>
       message: t ? t('image-required') : 'Image is required',
     }),
   });
+
+export const updateCategorySchema = (t: Translations) =>
+  z.object({
+    name: z.string().min(2, {
+      message: t ? t('name-min') : 'Name must be at least 2 characters',
+    }),
+  });

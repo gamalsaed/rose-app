@@ -1,5 +1,5 @@
 import { apiFetch, getAccessToken } from '../utilits/apis.utils';
-import { CategoriesResponse } from '../types/categories';
+import { CategoriesResponse, GetCategoryResponse } from '../types/categories';
 
 const BASE_URL = process.env.BASE_API;
 
@@ -16,4 +16,24 @@ export async function getCategories(page: number, search: string) {
       },
     }
   );
+}
+
+export async function getCategory(id: string) {
+  const token = await getAccessToken();
+
+  const response = await apiFetch<GetCategoryResponse>(
+    `${BASE_URL}/categories/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  if ('error' in response) {
+    throw new Error(response.error);
+  }
+
+  return response;
 }

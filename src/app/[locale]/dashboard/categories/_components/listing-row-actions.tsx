@@ -30,7 +30,7 @@ export function ListingRowActions({ category }: ListingRowActionsProps) {
         size="sm"
       >
         <Link
-          href={`/dashboard/categories/update-category/${category._id}`}
+          href={`/dashboard/categories/update-category/${category.slug}?categoryId=${category._id}`}
           className="flex items-center gap-1"
         >
           <Pencil size={14} /> {t('edit')}
@@ -46,7 +46,7 @@ export function ListingRowActions({ category }: ListingRowActionsProps) {
         onClick={() => {
           const url = new URL(window.location.href);
           url.searchParams.set('delete-category', category._id);
-          router.push(url.toString());
+          router.replace(url.toString());
         }}
       >
         <Link
