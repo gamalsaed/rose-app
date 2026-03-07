@@ -97,10 +97,7 @@ export function HeroCarousel() {
               {/*carousel layer*/}
               <div className="absolute inset-0 z-10 bg-gradient-to-r  from-black/80 to-transparent"></div>
               <div
-                className={cn(
-                  "bottom-9 absolute z-10",
-                  isRTL ? "right-9 text-right" : "left-9 text-left",
-                )}
+                className='bottom-9 absolute z-10 left-9 text-left rtl:right-9 rtl:text-right'
               >
                 <p className="font-semibold text-3xl mt-3 text-white w-72 h-9">
                   {t('title')}
@@ -123,8 +120,8 @@ export function HeroCarousel() {
         {/*carousel next and previous button */}
         <div
           className={cn(
-            "flex justify-between absolute bottom-8 z-10 bg-maroon-50 rounded-full shadow-md",
-            isRTL ? "left-8" : "right-8",
+            "flex justify-between absolute bottom-8 ltr:right-8 z-10 bg-maroon-50 rounded-full shadow-md  rtl:left-8",
+            
           )}
         >
           <button onClick={() => api?.scrollPrev()}>
@@ -132,7 +129,7 @@ export function HeroCarousel() {
             <ChevronLeft
               aria-hidden="true"
               className={cn(
-                isRTL && "rotate-180",
+                "rtl:rotate-180",
                 "size-[30px]",
                 api?.canScrollPrev()
                   ? "text-maroon-700 cursor-pointer"
@@ -146,7 +143,7 @@ export function HeroCarousel() {
 
             <ChevronRight
               className={cn(
-                isRTL && "rotate-180",
+                "rtl:rotate-180",
                 "size-[30px]",
                 api?.canScrollNext()
                   ? "text-maroon-700 cursor-pointer"

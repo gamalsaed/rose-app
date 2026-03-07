@@ -6,6 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { ProductAPI, Occasion } from "@/lib/services/products";
 import SectionTitle from "./title-section";
 import { useTranslations } from "next-intl";
+import AddBtn from "../products/add-btn";
 
 interface MostPopularSectionProps {
   products: ProductAPI[];
@@ -63,8 +64,9 @@ export default function MostPopularSection({
       {/* Products grid */}
       <div className="grid grid-cols-4 gap-6">
         {products.map((product) => (
+          <div key={product._id}>
           <ProductCard
-            key={product._id}
+            id={product._id}
             title={product.title}
             price={product.price}
             priceAfterDiscount={product.priceAfterDiscount}
@@ -73,8 +75,10 @@ export default function MostPopularSection({
             quantity={product.quantity}
             sold={product.sold}
             createdAt={product.createdAt}
-          />
-        ))}
+            />
+        </div>
+          )
+        )}
       </div>
 
       {/* View more link */}

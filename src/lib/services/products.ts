@@ -21,6 +21,12 @@ export interface Occasion {
   _id: string;
   name: string;
   slug: string;
+  // ADDED FOR FILTER SECTION
+  image: string
+  createdAt: string
+  updatedAt: string
+  isSuperAdmin: boolean
+  productsCount: number
 }
 
 //  Define the Fetch Function
@@ -33,7 +39,7 @@ export async function getHomePageData(searchParams: {
       : undefined;
 
   // Parallel Fetching
-  const [bestSellersRes, popularRes, occasionsRes] = await Promise.all([
+  const [bestSellersRes, popularRes, occasionsRes, priceRes] = await Promise.all([
     // Best Sellers
     fetch(`${BASE_API}/products?sort=-sold&limit=10`, {
       cache: 'no-store',
@@ -51,12 +57,17 @@ export async function getHomePageData(searchParams: {
     fetch(`${BASE_API}/occasions`, {
       cache: 'force-cache',
     }),
+
+    // Price Products
+    fetch(`${BASE_URL}/products?sort=-price`, {
+      cache: "no-store",
+    }),
   ]);
 
   const bestSellersData = await bestSellersRes.json();
   const popularData = await popularRes.json();
   const occasionsData = await occasionsRes.json();
-
+  const priceData = await priceRes.json();
   // Slice occasions to only 4 items as requested
   const allOccasions = (occasionsData.occasions || []) as Occasion[];
   const topFourOccasions = allOccasions.slice(0, 4);
@@ -64,6 +75,7 @@ export async function getHomePageData(searchParams: {
   return {
     bestSellers: (bestSellersData.products || []) as ProductAPI[],
     popularProducts: (popularData.products || []) as ProductAPI[],
+    priceProducts: (priceData.products || []) as ProductAPI[],
     occasions: topFourOccasions,
     selectedOccasionId: occasionId,
   };
