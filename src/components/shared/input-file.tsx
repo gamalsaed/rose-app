@@ -1,20 +1,27 @@
-"use client";
+'use client';
 
-import { Upload, Image } from "lucide-react";
-import React, { useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Upload, Image } from 'lucide-react';
+import React, { useId, useState } from 'react';
+import { Link } from '@/i18n/navigation';
 
-interface InputFileProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputFileProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'value'
+> {
   existingFileUrl: string | undefined;
 }
-// ID: file_uploader
-// it accepts something called existing File URL if we got the response back from the backend we will put the URL
+// Uses a unique id per instance so the label correctly triggers this input.
+// existingFileUrl: if we got the response back from the backend we put the URL here.
 
 export default function InputFile({
   existingFileUrl,
+  onChange,
+  id: formFieldId,
   ...props
 }: InputFileProps) {
-  const [fileName, setFileName] = useState<string>("");
+  const [fileName, setFileName] = useState<string>('');
+  const fallbackId = useId();
+  const inputId = formFieldId ?? fallbackId;
   return (
     <div
       className="flex transition-all duration-200 flex-row-reverse justify-between
@@ -27,17 +34,17 @@ export default function InputFile({
         type="file"
         className="sr-only"
         accept="image/*"
-        id="file_uploader"
+        id={inputId}
         {...props}
-        onChange={(e) => {
+        onChange={e => {
           const file = e.target.files?.[0];
-          setFileName(file?.name ?? "");
-          props.onChange?.(e);
+          setFileName(file?.name ?? '');
+          onChange?.(e);
         }}
       />
 
       <label
-        htmlFor={"file_uploader"}
+        htmlFor={inputId}
         className="text-maroon-500 dark:text-softPink-400 flex gap-2 cursor-pointer w-fit text-right"
       >
         <Upload size={20} />
@@ -46,10 +53,10 @@ export default function InputFile({
       {!existingFileUrl && (
         <div className="text-zinc-800 dark:text-zinc-50">{fileName}</div>
       )}
-      {existingFileUrl !== undefined && (
+      {existingFileUrl && (
         <Link href={existingFileUrl} target="_blank">
           <div className="flex gap-2 text-blue-600 dark:text-blue-400">
-            <Image />
+            <Image href={existingFileUrl} />
             <span>Review current image(s)</span>
           </div>
         </Link>
