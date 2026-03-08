@@ -36,3 +36,9 @@ export type UpdateCategoryPayload = {
   formData: FormData<UpdateCategoryFormData>;
 };
 export type UpdateCategoryResponse = ApiResponse<{ category: Category }>;
+
+// Delete Category Types
+export type DeleteCategoryPayload = {
+  id: string;
+};
+export type DeleteCategoryResponse = ApiResponse<object>;

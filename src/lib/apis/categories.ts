@@ -14,6 +14,10 @@ export async function getCategories(page: number, search: string) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
+      cache: 'no-store',
+      next: {
+        tags: ['categories'],
+      },
     }
   );
 }

@@ -1,7 +1,6 @@
 import { z } from 'zod';
 import { Translations } from '../types/next-intl';
 
-/** Schema for add-category form submitted as FormData (name + image File). */
 export const addCategorySchema = (t: Translations) =>
   z.object({
     name: z.string().min(2, {

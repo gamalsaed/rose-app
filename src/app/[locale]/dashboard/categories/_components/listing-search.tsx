@@ -1,5 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/navigation';
 
 import SearchInput from '@/components/shared/search-input';
@@ -7,10 +8,15 @@ import SearchInput from '@/components/shared/search-input';
 export function ListingSearch() {
   // Navigation
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get('search') ?? '';
 
-  // states
-  const [value, setValue] = useState('');
-  const [debouncedValue, setDebouncedValue] = useState('');
+  // States
+  const [value, setValue] = useState(initialSearch);
+  const [debouncedValue, setDebouncedValue] = useState(initialSearch);
+
+  // Refs
+  const isInitialMount = useRef(true);
 
   // Hooks
   useEffect(() => {
@@ -22,9 +28,18 @@ export function ListingSearch() {
   }, [value]);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const currentSearch = searchParams.get('search') ?? '';
 
-    // Update search key parameter in the URL
+    // Don't update URL on initial mount – preserves page=2 etc. when refreshing
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    // Only push when the user actually changed the search term
+    if (debouncedValue === currentSearch) return;
+
+    const params = new URLSearchParams(window.location.search);
     if (debouncedValue) {
       params.set('search', debouncedValue);
     } else {
@@ -35,7 +50,7 @@ export function ListingSearch() {
     params.set('page', '1');
 
     router.push(`/dashboard/categories?${params.toString()}`);
-  }, [debouncedValue, router]);
+  }, [debouncedValue, router, searchParams]);
 
   return (
     <SearchInput

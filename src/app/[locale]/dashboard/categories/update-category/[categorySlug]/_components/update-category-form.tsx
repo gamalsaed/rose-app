@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 import { useUpdateCategory } from '../_hooks/use-update-category';
 import { Category } from '@/lib/types/categories';
@@ -31,6 +32,9 @@ export function UpdateCategoryForm({ category }: UpdateCategoryFormProps) {
   // Translations
   const categoriesTranslations = useTranslations('dashboard.categories');
 
+  // Navigation
+  const { categorySlug } = useParams();
+
   // Mutations
   const { updateCategory, updateCategoryLoading, updateCategoryError } =
     useUpdateCategory();
@@ -59,53 +63,65 @@ export function UpdateCategoryForm({ category }: UpdateCategoryFormProps) {
   };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
-        {/* Category Name */}
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field, fieldState: { error } }) => (
-            <FormItem>
-              <FormLabel>{categoriesTranslations('name')}</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className="h-12"
-                  error={!!error}
-                  placeholder={categoriesTranslations('name-placeholder')}
-                />
-              </FormControl>
+    <>
+      {/* Update Category Title */}
+      <h1 className="text-2xl font-semibold mb-6 capitalize">
+        {categoriesTranslations('update-category-title', {
+          name: (categorySlug as string).replaceAll('-', ' '),
+        })}
+      </h1>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* Display Category Image */}
-        <Button
-          type="button"
-          variant={'outline'}
-          className="w-fit ms-auto mt-4 border-black/10 text-blue-600 hover:bg-white"
-          onClick={handleViewCategoryImage}
+      <Form {...form}>
+        <form
+          className="flex flex-col p-4 bg-white rounded-t-[1rem]"
+          onSubmit={form.handleSubmit(onSubmit)}
         >
-          <ImageIcon /> {categoriesTranslations('view-category-image')}
-        </Button>
+          {/* Category Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field, fieldState: { error } }) => (
+              <FormItem>
+                <FormLabel>{categoriesTranslations('name')}</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    className="h-12"
+                    error={!!error}
+                    placeholder={categoriesTranslations('name-placeholder')}
+                  />
+                </FormControl>
 
-        {/* Backend Validation Error */}
-        <div className="h-32 flex flex-col pb-6">
-          {updateCategoryError && (
-            <ErrorBox error={updateCategoryError.message} />
-          )}
-        </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Form Actions */}
-        <div className="flex justify-between items-end">
-          <Button type="submit" loading={updateCategoryLoading}>
-            {categoriesTranslations('update-category')}
+          {/* Display Category Image */}
+          <Button
+            type="button"
+            variant={'outline'}
+            className="w-fit ms-auto mt-4 border-black/10 text-blue-600 hover:bg-white"
+            onClick={handleViewCategoryImage}
+          >
+            <ImageIcon /> {categoriesTranslations('view-category-image')}
           </Button>
-        </div>
-      </form>
-    </Form>
+
+          {/* Backend Validation Error */}
+          <div className="h-32 flex flex-col pb-6">
+            {updateCategoryError && (
+              <ErrorBox error={updateCategoryError.message} />
+            )}
+          </div>
+
+          {/* Form Actions */}
+          <div className="flex justify-between items-end">
+            <Button type="submit" loading={updateCategoryLoading}>
+              {categoriesTranslations('update-category')}
+            </Button>
+          </div>
+        </form>
+      </Form>
+    </>
   );
 }

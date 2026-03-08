@@ -379,7 +379,7 @@
       "view-category-image": "عرض صورة الفئة",
       "update-category": "تعديل الفئة",
       "update-category-success": "تم تعديل الفئة بنجاح!",
-      "delete-category-title": "هل أنت متأكد من حذف الفئة {name}؟",
+      "delete-category-title": "هل أنت متأكد من حذف الفئة <span>{name}</span>؟",
       "delete-category-warning": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
       "delete-category-nope": "لا, لا أريد ذلك",
       "delete-category-yes": "نعم, حذف",

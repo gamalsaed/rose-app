@@ -5,6 +5,7 @@ import { AddCategoryButton } from './add-category-button';
 import { ListingTable } from './listing-table';
 import { ListingTableSkeleton } from './listing-table.skeleton';
 import { ListingSearch } from './listing-search';
+import { DeleteCategoryPopup } from './delete-category-popup';
 
 type ListingProps = {
   page: number;
@@ -34,6 +35,9 @@ export async function Listing({ page, search }: ListingProps) {
       <React.Suspense fallback={<ListingTableSkeleton />}>
         <ListingTable page={page} search={search} />
       </React.Suspense>
+
+      {/* Delete Category Popup */}
+      <DeleteCategoryPopup />
     </main>
   );
 }

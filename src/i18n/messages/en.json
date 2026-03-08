@@ -363,7 +363,7 @@
       "view-category-image": "View Category Image",
       "update-category": "Update Category",
       "update-category-success": "Category updated successfully!",
-      "delete-category-title": "Are you sure you want to delete {name} category?",
+      "delete-category-title": "Are you sure you want to delete <span>{name}</span> category?",
       "delete-category-warning": "This action is permanent and cannot be undone.",
       "delete-category-nope": "Nope, not doing it",
       "delete-category-yes": "Yes, delete",

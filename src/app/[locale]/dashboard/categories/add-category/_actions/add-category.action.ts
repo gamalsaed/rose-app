@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
 import { apiFetch } from '@/lib/utilits/apis.utils';
 import {
   AddCategoryPayload,
@@ -16,11 +17,18 @@ export async function addCategory(fromData: AddCategoryPayload) {
     throw new Error('User is not authenticated');
   }
 
-  return apiFetch<AddCategoryResponse>(`${BASE_API}/categories`, {
-    method: 'POST',
-    body: fromData,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await apiFetch<AddCategoryResponse>(
+    `${BASE_API}/categories`,
+    {
+      method: 'POST',
+      body: fromData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  revalidateTag('categories');
+
+  return response;
 }

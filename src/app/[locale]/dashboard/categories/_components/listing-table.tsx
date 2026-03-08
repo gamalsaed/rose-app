@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+
 import { getCategories } from '@/lib/apis/categories';
 
 import {
@@ -21,8 +22,8 @@ export async function ListingTable({ page, search }: ListingTableProps) {
   // Translation
   const t = await getTranslations('dashboard.categories');
 
-  // Data
-  const categoriesRes = await getCategories(page, search || '');
+  // Queries
+  const categoriesRes = await getCategories(page, search);
 
   return (
     <>
@@ -44,7 +45,7 @@ export async function ListingTable({ page, search }: ListingTableProps) {
           </TableHeader>
 
           <TableBody className="w-full">
-            {(categoriesRes.categories || []).map(category => (
+            {(categoriesRes?.categories || []).map(category => (
               <TableRow
                 key={category._id}
                 className="hover:bg-maroon-50 w-full"
@@ -69,7 +70,9 @@ export async function ListingTable({ page, search }: ListingTableProps) {
         </Table>
       </div>
 
-      <ListingPagination totalPages={categoriesRes.metadata.totalPages} />
+      <ListingPagination
+        totalPages={categoriesRes?.metadata?.totalPages || 1}
+      />
     </>
   );
 }

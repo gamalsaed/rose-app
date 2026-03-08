@@ -21,6 +21,14 @@ export function ListingRowActions({ category }: ListingRowActionsProps) {
   // Navigation
   const router = useRouter();
 
+  // Functions
+  const handleDeleteCategory = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('delete-category', category._id);
+    url.searchParams.set('category-slug', category.slug);
+    router.replace(url.toString());
+  };
+
   return (
     <div>
       {/* Edit Category Button */}
@@ -39,22 +47,12 @@ export function ListingRowActions({ category }: ListingRowActionsProps) {
 
       {/* Delete Category Button */}
       <Button
-        asChild
         className="w-fit h-7 ms-2.5 text-red-600 bg-[#FF00001A]/10 hover:bg-[#FF00001A]/20"
         variant="destructive"
         size="sm"
-        onClick={() => {
-          const url = new URL(window.location.href);
-          url.searchParams.set('delete-category', category._id);
-          router.replace(url.toString());
-        }}
+        onClick={handleDeleteCategory}
       >
-        <Link
-          href={`/dashboard/categories/delete-category/${category._id}`}
-          className="flex items-center gap-1"
-        >
-          <Trash2 /> {t('delete')}
-        </Link>
+        <Trash2 /> {t('delete')}
       </Button>
     </div>
   );
