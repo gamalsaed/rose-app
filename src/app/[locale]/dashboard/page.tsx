@@ -7,17 +7,17 @@ import RevenueChart from './_components/revenue-graph';
 export default function Dashboard() {
   return (
     <main>
-      <div className="flex mt-6 gap-6 max-md:flex-wrap">
+      <div className="flex mb-6 gap-6 max-md:flex-wrap">
         <OrdersStatusChart />
         <RevenueChart />
       </div>
-      <div className="flex lg:flex-row md:flex-col gap-x-2 bg-slate-100">
+      <div className="flex w-full flex-row max-md:flex-col gap-6 bg-slate-100">
         {/* top selling section */}
-        <div className="flex-1">
+        <div className="w-full">
           <TopSellingPage />
         </div>
         {/* low stock section */}
-        <div className="flex-1">
+        <div className="w-full">
           <LowStockPage />
         </div>
       </div>

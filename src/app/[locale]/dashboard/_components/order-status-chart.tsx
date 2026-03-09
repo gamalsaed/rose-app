@@ -80,7 +80,7 @@ export default function OrdersStatusChart() {
   }));
 
   return (
-    <div className="w-72 rounded-2xl max-md:w-full max-md:flex flex-col  h-96 md:text-center text-zinc-800 bg-white p-4 ">
+    <div className="w-72 rounded-2xl max-md:w-full max-md:flex flex-col  md:text-center text-zinc-800 bg-white p-4 ">
       {/* Header */}
       <h3 className="font-semibold text-2xl">{t('order-title')}</h3>
 
