@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from '@/i18n/navigation';
 
-import { deleteCategory } from '../_actions/delete-category.actions';
+import { deleteCategoryAction } from '../_actions/delete-category.actions';
 import { toast } from '@/hooks/use-toast';
 import { DeleteCategoryPayload } from '@/lib/types/categories';
 
@@ -15,7 +15,8 @@ export function useDeleteCategory() {
 
   // Mutation
   const { mutate, isPending, error, isError } = useMutation({
-    mutationFn: (payload: DeleteCategoryPayload) => deleteCategory(payload),
+    mutationFn: (payload: DeleteCategoryPayload) =>
+      deleteCategoryAction(payload),
     onSuccess: () => {
       toast({
         variant: 'success',

@@ -10,7 +10,7 @@ import {
 
 const BASE_API = process.env.BASE_API;
 
-export async function deleteCategory({ id }: DeleteCategoryPayload) {
+export async function deleteCategoryAction({ id }: DeleteCategoryPayload) {
   const token = await getUserToken();
 
   if (!token) {

@@ -1,4 +1,4 @@
-import { Listing } from './_components/listing';
+import { CategoryList } from './_components/category-list';
 
 type CategoriesPageProps = {
   searchParams: {
@@ -9,7 +9,7 @@ type CategoriesPageProps = {
 
 export default function CategoriesPage({ searchParams }: CategoriesPageProps) {
   return (
-    <Listing
+    <CategoryList
       page={Number(searchParams.page) || 1}
       search={searchParams.search || ''}
     />

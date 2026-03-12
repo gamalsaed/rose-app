@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { AddCategoryButton } from './add-category-button';
 import { ListingTable } from './listing-table';
-import { ListingTableSkeleton } from './listing-table.skeleton';
+import { ListingTableSkeleton } from './skeletons/listing-table.skeleton';
 import { ListingSearch } from './listing-search';
 import { DeleteCategoryPopup } from './delete-category-popup';
 
@@ -12,7 +12,7 @@ type ListingProps = {
   search: string;
 };
 
-export async function Listing({ page, search }: ListingProps) {
+export async function CategoryList({ page, search }: ListingProps) {
   // Translation
   const t = await getTranslations('dashboard.categories');
 
