@@ -25,7 +25,19 @@ export default function BreadCrumb() {
   const pathname = usePathname();
 
   // Variables
-  const segments = pathname.split('/').filter(Boolean);
+  const initialSegments = pathname.split('/').filter(Boolean);
+  const hasSlug = ['update-category', 'update-occasion', 'update-product'].some(
+    slug => initialSegments.includes(slug)
+  );
+  const length = initialSegments.length;
+  const segments = (
+    hasSlug
+      ? [
+          ...initialSegments.slice(0, length - 2),
+          initialSegments[length - 2] + ': ' + initialSegments[length - 1],
+        ]
+      : initialSegments
+  ).map(segment => segment.replaceAll('-', ' '));
   const shouldCollapse = segments.length > 3;
   const dashboardSegment = segments[0];
   const last = segments[segments.length - 1];

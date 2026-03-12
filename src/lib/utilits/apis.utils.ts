@@ -22,3 +22,18 @@ export const getAccessToken = async () => {
 
   return jwt?.token || null;
 };
+
+export async function apiFetch<T>(
+  url: string,
+  options?: RequestInit
+): Promise<T> {
+  const response = await fetch(url, { cache: 'no-store', ...options });
+
+  const payload = await response.json();
+
+  if (payload && 'error' in payload) {
+    throw new Error(payload.error || 'Failed to fetch data');
+  }
+
+  return payload as T;
+}

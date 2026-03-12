@@ -1,5 +1,17 @@
-import React from 'react';
+import { CategoryList } from './_components/category-list';
 
-export default function page() {
-  return <div>catigories</div>;
+type CategoriesPageProps = {
+  searchParams: {
+    page: string;
+    search: string;
+  };
+};
+
+export default function CategoriesPage({ searchParams }: CategoriesPageProps) {
+  return (
+    <CategoryList
+      page={Number(searchParams.page) || 1}
+      search={searchParams.search || ''}
+    />
+  );
 }
