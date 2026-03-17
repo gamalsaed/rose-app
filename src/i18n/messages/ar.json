@@ -1,7 +1,10 @@
 {
   "meta-title": "ورود - مناسبتك علينا",
   "meta-description": "اكتشف الجمال الخاص بالورود مع تطبيقنا. مثالي لأي مناسبة.",
+  "decimal-integer": "{amount, number, decimal-integer}",
   "price": "{amount, number, price} ج.م.",
+  "price-without-currency": "{amount, number, price-without-currency}",
+  "currency": "ج.م.",
   "not-found": {
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو قد تم نقلها."
@@ -14,9 +17,9 @@
     "testimonials-title": "آراء العملاء",
     "testimonials-subtitle": "كلمات حقيقية من عملائنا الكرام",
     "hello-user": "مرحبا <span>{name}</span>",
-    "logout-cta": "تسجيل الخروج"
+    "logout-cta": "تسجيل الخروج",
+    "my-profile": "الملف الشخصي"
   },
-
   "auth": {
     "login-meta-title": "تسجيل الدخول - ورود",
     "welcome-back": "مرحبا بعودتك",
@@ -181,11 +184,12 @@
       "description": "فريقنا متواجد لخدمتك على مدار الساعة"
     }
   },
-  "otp-sent-successfull": "تم اريال الرمز بنجاح",
-
+  "otp-sent-successfull": "تم ارسال الرمز بنجاح",
   "section-title": {
     "most-popular": "الأكثر شعبية",
-    "best-selling": "الأكثر مبيعًا"
+    "best-selling": "الافضل مبيعا",
+    "Product-you-may-know": "المنتجات التي قد تعرفها",
+    "Product-you-may-like": "المنتجات التي قد تعجبك"
   },
   "best-selling": {
     "headline-accent-1": "اكتشف",
@@ -195,10 +199,76 @@
     "headline-end": "الان",
     "paragraph-question": "لست متأكدًا ماذا تختار؟ ",
     "paragraph": "ابدأ بأكثر المنتجات مبيعًا لدينا، فهذه هي الهدايا التي يعود عملاؤنا لشرائها مرارًا وتكرارًا. سواء كنت تحتفل بعيد ميلاد، ذكرى زواج أو حفل زفاف، فإن اختياراتنا المميزة مضمونة لترك انطباع دائم.",
-    "cta": "استكشف الهدايا"
+    "cta": "مواصلة التسوق"
   },
   "most-popular": {
     "view-all": "عرض الكل"
+  },
+  "Top Selling Products": "المنتجات الأكثر مبيعا",
+  "No-more-Products": "لا مزيد من المنتجات",
+  "No-sold-Product-yet": "لا يوجد منتج مباع حتى الآن",
+  "EGP": "جنيها",
+  "Sales": "مبيعا",
+  "Low-Stock-Products": "منتجات منخفضة المخزون",
+  "No-low-stock-products": "لا توجد منتجات منخفضة المخزون",
+  "Products": "منتجا",
+  "Cart": "عربة",
+  "clear-cart": "عربة واضحة",
+  "Remove": "حذف",
+  "Your-cart-is-empty": "العربة خالية",
+  "Summary": "ملخص",
+  "Notifications": "إشعارات",
+  "Clear-All-notifications": "مسح كافة الإخطارات",
+  "Mark-All-as-Read": "وضع علامة على الكل كمقروءة",
+  "No-more-notifications": "لا مزيد من الإشعارات",
+  "No-notifications-yet": "لا يوجد إشعار حتى الآن",
+  "Mark-as-Read": "وضع علامة كمقروءة",
+  "Delete-notification": "حذف الإشعار",
+  "Top-Selling-Products": "المنتجات الأكثر مبيعا",
+  "low-stock-products": "منتجات منخفضة المخزون",
+  "product-details": {
+    "out-of-stock": "غير متوفر",
+    "left-in-stock": "متبقى في المخزن",
+    "rating": "تقييم",
+    "ratings": "تقييمات",
+    "add-to-cart": "إضافة للعربة",
+    "add-to-wishlist": "إضافة للمفضلة",
+    "added-cart-success": "تم إضافتة للعربة بنجاح",
+    "no-available-images": "لا يوجد صور متوفرة لهذا المنتج",
+    "no-available-images-description": "لا يوجد صور متوفرة لهذا المنتج."
+  },
+  "profile": {
+    "my-account": "الملف الشخصي",
+    "change-password": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "profile-avatar-alt": "صورة الملف الشخصي",
+    "upload-photo": "تحميل صورة",
+    "upload-photo-description": "يمكنك تحميل صورة .jpg, .png, أو .gif بحد أقصى 5MB.",
+    "save-changes": "حفظ التعديلات",
+    "profile-updated-successfully": "تم تحديث الملف الشخصي بنجاح!",
+    "delete-account": "حذف حسابي",
+    "delete-account-popup-title": "هل أنت متأكد من حذف حسابك؟",
+    "delete-account-popup-description": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
+    "delete-account-popup-nope": "لا, لا أريد ذلك",
+    "delete-account-popup-yes": "نعم, حذف",
+    "delete-account-success": "تم حذف حسابك بنجاح!",
+    "old-password": "كلمة المرور القديمة",
+    "new-password": "كلمة المرور الجديدة",
+    "confirm-new-password": "تأكيد كلمة المرور الجديدة",
+    "password-updated-successfully": "تم تغيير كلمة المرور بنجاح!"
+  },
+  "overview": {
+    "total-products": "عدد المنتجات",
+    "total-orders": "عدد الطلبات",
+    "total-categories": "عدد الفئات",
+    "total-revenue": "الإيرادات",
+    "all-categories": "جميع الفئات",
+    "products": "المنتجات",
+    "totalProducts-min": "يجب أن يكون عدد المنتجات على الأقل ٠",
+    "totalOrders-min": "يجب أن يكون عدد الطلبات على الأقل ٠",
+    "totalCategories-min": "يجب أن يكون عدد الفئات على الأقل ٠",
+    "totalRevenue-min": "يجب أن يكون عدد الإيرادات على الأقل ٠",
+    "name-min": "يجب أن يكون اسم الفئة على الأقل ٢ أحرف"
   },
   "checkout": {
     "new-address": "اضافة عنوان جديد",
@@ -230,5 +300,121 @@
   },
   "error": {
     "default-error-msg": "حدث خطاء غير متوقع يرجي المحاولة مرة اخري لاحقا"
+  },
+  "dashboard": {
+    "dropDownMenu": {
+      "account": "الحساب",
+      "logout": "تسجيل الخروج"
+    },
+    "sidebar": {
+      "overview": "نظرة عامة",
+      "categories": "الفئات",
+      "occasions": "المناسبات",
+      "products": "المنتجات",
+      "preview": "زيارة الموقع"
+    },
+    "profile": {
+      "my-account": "الملف الشخصي",
+      "change-password": "تغيير كلمة المرور",
+      "logout": "تسجيل الخروج",
+      "profile-avatar-alt": "صورة الملف الشخصي",
+      "upload-photo": "تحميل صورة",
+      "upload-photo-description": "يمكنك تحميل صورة .jpg, .png, أو .gif بحد أقصى 5MB.",
+      "save-changes": "حفظ التعديلات",
+      "profile-updated-successfully": "تم تحديث الملف الشخصي بنجاح!",
+      "delete-account": "حذف حسابي",
+      "delete-account-popup-title": "هل أنت متأكد من حذف حسابك؟",
+      "delete-account-popup-description": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
+      "delete-account-popup-nope": "لا, لا أريد ذلك",
+      "delete-account-popup-yes": "نعم, حذف",
+      "delete-account-success": "تم حذف حسابك بنجاح!",
+      "old-password": "كلمة المرور القديمة",
+      "new-password": "كلمة المرور الجديدة",
+      "confirm-new-password": "تأكيد كلمة المرور الجديدة",
+      "password-updated-successfully": "تم تغيير كلمة المرور بنجاح!"
+    },
+    "dashboard-chart": {
+      "revenue-title": "الإيرادات",
+      "monthly": "شهريًا",
+      "last-week": "الأسبوع الماضي",
+      "loading": "جاري التحميل...",
+      "no-data": "لا توجد بيانات",
+      "order-title": "حالات الطلبات"
+    },
+
+    "remove-from-wishlist": "حذف من قائمة المفضلة ",
+    "add-to-wishlist": "أضف إلى قائمة المفضلة",
+    "something-went-wrong": "حدث خطأ ما",
+    "added-to-wishlist-successfully": "تمت اضافة المنتج الى قايمة المفضلة بنجاح",
+    "remove-from-wishlist-successfully": "تم حذف المنتج من قايمة المفضلة بنجاح",
+    "address": {
+      "title-address": "عناويني",
+      "add-address": "إضافة عنوان جديد",
+      "username-required": "اسم المستخدم مطلوب",
+      "username-min": "يجب أن يكون اسم المستخدم 3 أحرف على الأقل",
+      "username-max": "يجب ألا يتجاوز اسم المستخدم 50 حرفًا",
+      "city-required": "المدينة مطلوبة",
+      "city-min": "يجب أن تكون المدينة حرفين على الأقل",
+      "city-max": "يجب ألا تتجاوز المدينة 50 حرفًا",
+      "street-required": "العنوان مطلوب",
+      "street-min": "يجب أن يكون العنوان 5 أحرف على الأقل",
+      "street-max": "يجب ألا يتجاوز العنوان 100 حرف",
+      "phone-required": "رقم الهاتف مطلوب",
+      "phone-invalid": "يرجى ادخال رقم هاتف صالح",
+      "location-required": "يرجى تحديد موقعك على الخريطة",
+      "form-title": "أدخل تفاصيل العنوان",
+      "location-title": "حدد موقعك",
+      "username-label": "اسم المستخدم",
+      "username-placeholder": "أدخل اسم المستخدم",
+      "city-label": "المدينة",
+      "city-placeholder": "أدخل اسم المدينة",
+      "street-label": "العنوان",
+      "street-placeholder": "أدخل عنوانك بالكامل",
+      "phone-label": "رقم الهاتف",
+      "phone-placeholder": "رقم الهاتف",
+      "next": "التالي",
+      "submit": "إضافة العنوان",
+      "saving": "جارٍ الحفظ...",
+      "submit-success": "تمت إضافة العنوان بنجاح",
+      "submit-fail": "فشل إضافة العنوان",
+      "add-a-new-address": "أضف عنوانًا جديدًا",
+      "address-title": "ادخل تفاصيل العنوان",
+      "find-my-location": "ابحث عن موقعي",
+      "update-address-title": "تحديث بيانات العنوان",
+      "update-success": "تم تحديث العنوان بنجاح",
+      "update-fail": "فشل تحديث العنوان",
+      "update-address": "تحديث العنوان",
+      "delete-confirmation": "هل أنت متأكد من حذف هذا العنوان؟",
+      "delete-success": "تم حذف العنوان بنجاح",
+      "delete-error": "حدث خطأ ما، يرجى المحاولة مرة أخرى",
+      "cancel": "إلغاء",
+      "delete": "حذف",
+      "deleting": "جارٍ الحذف...",
+      "no-addresses": "لم يتم اضافة عنواين بعد"
+    },
+    "categories": {
+      "all-categories": "جميع الفئات",
+      "name": "الاسم",
+      "products": "المنتجات",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "add-new-category": "إضافة فئة جديدة",
+      "add-category-title": "إضافة فئة جديدة",
+      "name-placeholder": "أدخل اسم الفئة",
+      "name-min": "يجب أن يكون اسم الفئة على الأقل 2 أحرف",
+      "category-image": "صورة الفئة",
+      "image-required": "الصورة مطلوبة",
+      "add-category": "إضافة فئة",
+      "add-category-success": "تم إضافة الفئة بنجاح!",
+      "update-category-title": "تعديل الفئة: {name}",
+      "view-category-image": "عرض صورة الفئة",
+      "update-category": "تعديل الفئة",
+      "update-category-success": "تم تعديل الفئة بنجاح!",
+      "delete-category-title": "هل أنت متأكد من حذف الفئة <span>{name}</span>؟",
+      "delete-category-warning": "هذا الإجراء ثابت ولا يمكن التراجع عنه.",
+      "delete-category-nope": "لا, لا أريد ذلك",
+      "delete-category-yes": "نعم, حذف",
+      "delete-category-success": "تم حذف الفئة بنجاح!"
+    }
   }
 }
