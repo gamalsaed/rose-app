@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import SearchInput from '@/components/shared/search-input';
 import UserDropDown from './user-dropdown';
@@ -8,8 +9,17 @@ import LocationSelector from './location-selector';
 import NavBar from './nav-bar';
 import { Separator } from '@/components/ui/separator';
 import { LanguageSwitcher } from '@/components/shared/language-switcher';
+import { useContext } from 'react';
+import { CartContext } from '@/lib/context/CartContext';
 
-export default function Header() {
+type HeaderProps = {
+  addresses: Address[];
+  token: string;
+};
+
+export default function Header({ addresses, token }: HeaderProps) {
+  const { numberOfCartItem } = useContext(CartContext) ?? {};
+
   return (
     <>
       <header className="flex items-center text-zinc-700 dark:text-zinc-50  px-9 gap-6 pt-3">
@@ -21,7 +31,7 @@ export default function Header() {
         />
 
         {/* Location Drop Down list */}
-        <LocationSelector />
+        {token && <LocationSelector addresses={addresses} />}
         <SearchInput
           className="h-14 grow"
           placeholder="What awesome gift are you looking for?"
@@ -35,8 +45,11 @@ export default function Header() {
           <Link href="#">
             <Heart size={24} />
           </Link>
-          <Link href="#">
-            <ShoppingCart size={24} />
+          <Link className=" abosulte" href="/cart">
+            <ShoppingCart size={24} />{' '}
+            <span className=" relative bottom-10 left-3 text-maroon-500">
+              {numberOfCartItem}
+            </span>
           </Link>
           <NotificationDropDown />
         </div>

@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useLogout } from '@/hooks/auth/use-logout';
 
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import LoginPopover from './login-popover';
-import { ChevronDown, LogOut } from 'lucide-react';
+import { ChevronDown, LogOut, User } from 'lucide-react';
 
 export default function UserDropDown() {
   // Translation
@@ -64,9 +65,23 @@ export default function UserDropDown() {
           </DropdownMenuLabel>
         </DropdownMenuGroup>
 
-        {/* Logout Button */}
         <DropdownMenuGroup>
           <DropdownMenuSeparator />
+
+          {/* My Profile */}
+          <DropdownMenuItem>
+            <Link
+              href="/profile/account"
+              className="flex items-center gap-1 text-sm font-medium cursor-pointer w-full"
+            >
+              <User size={16} />
+              {t('homepage.my-profile')}
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          {/* Logout Button */}
           <DropdownMenuItem>
             <Button
               variant="ghost"

@@ -1,0 +1,57 @@
+import { z } from 'zod';
+import { Translations } from '@/lib/types/next-intl';
+
+export const uploadProfilePhotoSchema = z.object({
+  photo: z.string(),
+});
+
+export const updateProfileSchema = (t: Translations) => {
+  return z.object({
+    firstName: z.string().min(2, {
+      message: t ? t('firstName-min') : 'First name is too short',
+    }),
+    lastName: z
+      .string()
+      .min(2, { message: t ? t('lastName-min') : 'Last name is too short' }),
+    email: z
+      .string()
+      .email({ message: t ? t('invalid-email') : 'Invalid email address' }),
+    phone: z.string().regex(/^(\+20|0)?1[0-2,5]{1}[0-9]{8}$/, {
+      message: t ? t('invalid-phone') : 'Invalid phone number',
+    }),
+    gender: z.enum(['male', 'female', ''], {
+      message: t ? t('gender-required') : 'Gender is required',
+    }),
+  });
+};
+
+export const changePasswordFormSchema = (t: Translations) => {
+  return z
+    .object({
+      password: z
+        .string()
+        .nonempty(t('password-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+      newPassword: z
+        .string()
+        .nonempty(t('password-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+      rePassword: z
+        .string()
+        .nonempty(t('repassword-required'))
+        .regex(
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+          t('invalid-password')
+        ),
+    })
+    .refine(data => data.newPassword === data.rePassword, {
+      message: t('passwords-match'),
+      path: ['rePassword'],
+    });
+};
