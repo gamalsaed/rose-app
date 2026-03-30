@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { Sarabun, Tajawal } from 'next/font/google';
 import Providers from '@/components/providers';
 import localFont from 'next/font/local';
-
+import { SessionGuard } from '@/components/providers/session-guard';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as SonnerToaster } from '@/components/ui/sonner';
 
@@ -74,7 +74,7 @@ export default async function LocaleLayout({
         className={`${sarabun.variable} ${tajawal.variable} ${edwardianScript.variable} antialiased dark:bg-zinc-800 `}
       >
         <Providers>
-          {children}
+          <SessionGuard>{children}</SessionGuard>
           <Toaster />
           <SonnerToaster />
         </Providers>

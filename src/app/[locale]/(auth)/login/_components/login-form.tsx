@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useLogin } from '@/hooks/auth/use-login';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createLoginSchema } from '@/lib/schemas/auth.schema';
 import { LoginFields } from '@/lib/types/auth';
@@ -21,7 +20,6 @@ import {
 import { Input } from '@/components/ui/input';
 import PassInput from '@/components/shared/pass-input';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { ErrorBox } from '@/components/shared/error-box';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Link } from '@/i18n/navigation';
@@ -42,6 +40,7 @@ export function LoginForm() {
     defaultValues: {
       email: '',
       password: '',
+      rememberMe: false,
     },
   });
 
@@ -50,6 +49,10 @@ export function LoginForm() {
 
   // Functions
   const onSubmit: SubmitHandler<LoginFields> = async data => {
+    if (!data.rememberMe) {
+      sessionStorage.setItem('isAlive', 'true');
+      localStorage.setItem('sessionAlive', 'true');
+    }
     login(data);
   };
 
@@ -111,14 +114,27 @@ export function LoginForm() {
         </Link>
 
         {/* Remember me */}
-        <div className="flex items-center gap-2.5">
-          {/* TODO: make sure remember me logic would be handled when merged on dev */}
-          <Checkbox id="remember-me" />
 
-          <Label htmlFor="remember-me" className="text-sm">
-            {t('auth.remember-me')}
-          </Label>
-        </div>
+        <FormField
+          control={form.control}
+          name="rememberMe"
+          render={({ field, fieldState: { error } }) => (
+            <FormItem className="mb-2.5">
+              <div className="flex items-center gap-2.5">
+                {/* TODO: make sure remember me logic would be handled when merged on dev */}
+                <Checkbox
+                  id="remember_me"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+
+                <Label htmlFor="remember_me" className="text-sm">
+                  {t('auth.remember-me')}
+                </Label>
+              </div>
+            </FormItem>
+          )}
+        />
 
         <div className="mt-9">
           {/* Backend Validation Error */}
@@ -129,7 +145,6 @@ export function LoginForm() {
             {t('auth.login')}
           </Button>
         </div>
-
       </form>
     </Form>
   );

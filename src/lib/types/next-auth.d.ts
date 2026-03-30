@@ -20,10 +20,12 @@ declare module 'next-auth' {
       addresses: string[];
       createdAt: string;
     };
+    rememberMe: 'true' | 'false';
   }
 
   interface Session {
     user: User['user'];
+    rememberMe: 'true' | 'false';
   }
 }
 

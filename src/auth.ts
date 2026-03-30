@@ -12,6 +12,7 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: {},
         password: {},
+        rememberMe: {},
       },
       authorize: async credentials => {
         const response = await fetch(`${process.env.BASE_API}/auth/signin`, {
@@ -35,15 +36,18 @@ export const authOptions: NextAuthOptions = {
           id: payload.user?._id, // * authorize must return an object with an id property
           accessToken: payload.token,
           user: payload.user,
+          rememberMe: credentials?.rememberMe,
         };
       },
     }),
   ],
+
   callbacks: {
     jwt: ({ token, user, trigger, session }) => {
       if (user) {
         token.user = user.user;
         token.token = user.accessToken;
+        token.rememberMe = user.rememberMe;
       }
       if (trigger === 'update' && session?.user) {
         token.user = session.user;
@@ -55,6 +59,7 @@ export const authOptions: NextAuthOptions = {
       return {
         ...session,
         user: token.user,
+        rememberMe: token.rememberMe,
       };
     },
   },
