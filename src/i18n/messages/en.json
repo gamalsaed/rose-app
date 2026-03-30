@@ -253,6 +253,37 @@
     "totalRevenue-min": "Total revenue must be at least 0",
     "name-min": "Name must be at least 2 characters"
   },
+  "checkout": {
+    "new-address": "Add a New Address",
+    "addresses-title": "Shipping Address",
+    "next": "Next",
+    "back": "Back",
+    "method": "Payment Method",
+    "checkout": "Checkout",
+    "success-order-toast": "Your order on it's way, Thanks for your trust",
+    "cash": {
+      "title": "Cash on Delivery",
+      "description": "You’ll pay in cash when your order is delivered."
+    },
+    "credit": {
+      "title": "Credit Card",
+      "description": "You’ll be securely redirected to Stripe to complete your payment."
+    }
+  },
+  "summary": {
+    "title": "Summary",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "discorunt": "Discorunt",
+    "apply-coupon": "apply coupon",
+    "coupon-code": "Coupon Code",
+    "no-coupons-applied": "No coupons applied",
+    "egp": "EGP",
+    "empty": "Your cart is empty!"
+  },
+  "error": {
+    "default-error-msg": "Unexpected Error, Something Went Wrong, Please Try Again Later"
+  },
   "dashboard": {
     "dropDownMenu": {
       "account": "Account",

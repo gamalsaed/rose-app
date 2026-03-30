@@ -16,6 +16,8 @@ export const PUBLIC_ROUTES = [
 ];
 export const PROTECTED_ROUTES = [
   // TODO: Add protected routes here, except for the home page
+  '/products',
+  '/checkout',
   '/dashboard',
   '/profile/account',
   '/profile/change-password',
