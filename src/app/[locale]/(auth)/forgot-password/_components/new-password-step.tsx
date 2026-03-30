@@ -20,16 +20,12 @@ import { setPasswordFormFields } from '@/lib/types/auth';
 import useResetPassword from './_hooks/use-reset-password';
 import { setPasswordFormSchema } from '@/lib/schemas/auth.schema';
 
-// TEMP: using test email for Forget Password step
-const email = 'testwork8080@gmail.com';
-
 // TODO: setStep & setEmail will be passed from parent once forget-password flow is finalized
 interface NewPasswordStepProps {
   email: string | null;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
-
-export default function NewPasswordStep() {
+export default function NewPasswordStep({ email,setStep }: NewPasswordStepProps) {
   //translation
   const t = useTranslations('auth');
   // hooks

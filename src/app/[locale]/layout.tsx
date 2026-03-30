@@ -9,6 +9,7 @@ import Providers from '@/components/providers';
 import localFont from 'next/font/local';
 import { SessionGuard } from '@/components/providers/session-guard';
 import { Toaster } from '@/components/ui/toaster';
+import { Toaster as SonnerToaster } from '@/components/ui/sonner';
 
 const sarabun = Sarabun({
   subsets: ['latin'],
@@ -75,6 +76,7 @@ export default async function LocaleLayout({
         <Providers>
           <SessionGuard>{children}</SessionGuard>
           <Toaster />
+          <SonnerToaster />
         </Providers>
       </body>
     </html>
