@@ -20,7 +20,7 @@ export function useCheckout({ method }: Pick<CheckoutParams, 'method'>) {
   const router = useRouter();
 
   // Mutation
-  const { data, error, mutate, isPending, isSuccess } = useMutation({
+  const { error, mutate, isPending, isSuccess } = useMutation({
     mutationKey: ['create-order'],
     mutationFn: async (data: CheckoutParams) => {
       if (method === null) {
@@ -37,8 +37,16 @@ export function useCheckout({ method }: Pick<CheckoutParams, 'method'>) {
       }
     },
 
-    onSuccess: () => {
+    onSuccess: data => {
       toast.success(t('success-order-toast'));
+      if (method === 'credit') {
+        // dosen't work in the backend
+        // window.location.href = data.session.url;
+        setTimeout(() => {
+          router.push('/');
+        }, 1000);
+      }
+
       if (method === 'cash') {
         setTimeout(() => {
           router.push('/');
@@ -46,10 +54,6 @@ export function useCheckout({ method }: Pick<CheckoutParams, 'method'>) {
       }
     },
   });
-
-  if (method === 'credit' && isSuccess && data) {
-    window.location.href = data.session.url;
-  }
 
   return {
     error,

@@ -1,10 +1,12 @@
 'use client';
+
 import Image from 'next/image';
 import { ShoppingCart, Eye, Heart } from 'lucide-react';
 import StarRating from '../shared/star-rating';
 import { useTranslations } from 'next-intl';
 import AddtoCart from '@/lib/actions/cart-actions/add-to-cart.action';
 import AddBtn from './products/add-btn';
+import { Link } from '@/i18n/navigation';
 
 // Get styles based on badge name
 const getBadgeStyles = (text: string) => {
@@ -100,9 +102,11 @@ export default function ProductCard({
           <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-maroon-700 hover:bg-maroon-50 transition-colors">
             <Heart size={18} />
           </button>
-          <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-maroon-700 hover:bg-maroon-50 transition-colors">
-            <Eye size={18} />
-          </button>
+          <Link href={`/products/${id}`}>
+            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-maroon-700 hover:bg-maroon-50 transition-colors">
+              <Eye size={18} />
+            </button>
+          </Link>
         </div>
 
         {/* BADGES RENDERER hot out-of-stock new */}
@@ -146,7 +150,7 @@ export default function ProductCard({
         </div>
 
         {/* ADD TO CART */}
-      
+
         <AddBtn id={id} quantity={quantity} />
       </div>
     </div>

@@ -17,7 +17,7 @@ export async function CategoryList({ page, search }: ListingProps) {
   const t = await getTranslations('dashboard.categories');
 
   return (
-    <main className="h-[calc(100vh-102px)] m-4 flex flex-col overflow-hidden">
+    <main className="h-[calc(100vh-102px)]  flex flex-col overflow-hidden">
       <div className="p-6 pb-0 bg-white rounded-t-[1rem]">
         <div className="flex justify-between items-center">
           {/* Title */}

@@ -7,12 +7,12 @@ import type { AddressesApi, Address } from '../types/checkout.t';
 export async function getAddresses() {
   // Get Token
   const token = await getToken({
-    req: { cookies: cookies() } as any,
+    req: { cookies: await cookies() } as any,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
   // Fetch Addresses
-  const addressesApi = await fetch(`${process.env.BASE_API}addresses`, {
+  const addressesApi = await fetch(`${process.env.BASE_API}/addresses`, {
     headers: { Authorization: `Bearer ${token?.token}` },
   });
 
